@@ -58,3 +58,56 @@ SERCOM0:
       ADDR:
         ADDR: [0, 255]
         ADDRMASK: [0, 255]
+
+DMAC:
+  CRCCTRL:
+    CRCSRC:
+      _replace_enum:
+        NOACT: [0, "No action"]
+        IO: [1, "I/O interface"]
+        CHN0: [0x20, "DMA channel 0"]
+        CHN1: [0x21, "DMA channel 1"]
+        CHN2: [0x22, "DMA channel 2"]
+        CHN3: [0x23, "DMA channel 3"]
+        CHN4: [0x24, "DMA channel 4"]
+        CHN5: [0x25, "DMA channel 5"]
+        CHN6: [0x26, "DMA channel 6"]
+        CHN7: [0x27, "DMA channel 7"]
+  CRCDATAIN:
+    CRCDATAIN: [0, 0xffffffff]
+  CRCCHKSUM:
+    CRCCHKSUM: [0, 0xffffffff]
+  BASEADDR:
+    BASEADDR: [0, 0xffffffff]
+  WRBADDR:
+    WRBADDR: [0, 0xffffffff]
+  CHID:
+    ID: [0, 0xf]
+  CHCTRLB:
+    LVL: [0, 3]
+    TRIGSRC:
+      _replace_enum:
+        DISABLE: [0, "Only software/event triggers"]
+        RTC_TIMESTAMP: [1, "RTC tiemstamp trigger"]
+        DSU_DCC0: [2, "ID for DCC0 register"]
+        DSU_DCC1: [3, "ID for DCC1 register"]
+        SERCOM0_RX: [4, "SERCOM0 RX trigger"]
+        SERCOM0_TX: [5, "SERCOM0 TX trigger"]
+        SERCOM1_RX: [6, "SERCOM1 RX trigger"]
+        SERCOM1_TX: [7, "SERCOM1 TX trigger"]
+        SERCOM2_RX: [8, "SERCOM2 RX trigger"]
+        SERCOM2_TX: [9, "SERCOM2 TX trigger"]
+        TC0_OVF: [10, "TC0 Overflow trigger"]
+        TC0_MC0: [11, "TC0 Match/Compare 0 trigger"]
+        TC0_MC1: [12, "TC0 Match/Compare 1 trigger"]
+        TC1_OVF: [13, "TC1 Overflow trigger"]
+        TC1_MC0: [14, "TC1 Match/Compare 0 trigger"]
+        TC1_MC1: [15, "TC1 Match/Compare 1 trigger"]
+        TC2_OVF: [16, "TC2 Overflow trigger"]
+        TC2_MC0: [17, "TC2 Match/Compare 0 trigger"]
+        TC2_MC1: [18, "TC2 Match/Compare 1 trigger"]
+        ADC_RESRDY: [19, "ADC result ready trigger"]
+        DAC_EMPTY: [20, "DAC empty trigger"]
+        PTC_EOC: [21, "PTC End Of Conversion trigger"]
+        PTC_SEQ: [22, "PTC Sequence trigger"]
+        PTC_WCOMP: [23, "PTC Window Compare trigger"]
