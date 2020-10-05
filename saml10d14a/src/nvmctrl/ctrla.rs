@@ -8,39 +8,31 @@ impl crate::ResetValue for super::CTRLA {
         0
     }
 }
-#[doc = "Possible values of the field `CMD`"]
+#[doc = "Command\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CMD_AW {
-    #[doc = "Erase Row - Erases the row addressed by the ADDR register."]
-    ER,
-    #[doc = "Write Page - Writes the contents of the page buffer to the page addressed by the ADDR register."]
-    WP,
-    #[doc = "Sets the power reduction mode."]
-    SPRM,
-    #[doc = "Clears the power reduction mode."]
-    CPRM,
-    #[doc = "Page Buffer Clear - Clears the page buffer."]
-    PBC,
-    #[doc = "Invalidate all cache lines."]
-    INVALL,
-    #[doc = "Set DAL=0"]
-    SDAL0,
-    #[doc = "Set DAL=1"]
-    SDAL1,
+    #[doc = "2: Erase Row - Erases the row addressed by the ADDR register."]
+    ER = 2,
+    #[doc = "4: Write Page - Writes the contents of the page buffer to the page addressed by the ADDR register."]
+    WP = 4,
+    #[doc = "66: Sets the power reduction mode."]
+    SPRM = 66,
+    #[doc = "67: Clears the power reduction mode."]
+    CPRM = 67,
+    #[doc = "68: Page Buffer Clear - Clears the page buffer."]
+    PBC = 68,
+    #[doc = "70: Invalidate all cache lines."]
+    INVALL = 70,
+    #[doc = "75: Set DAL=0"]
+    SDAL0 = 75,
+    #[doc = "76: Set DAL=1"]
+    SDAL1 = 76,
 }
-impl crate::ToBits<u8> for CMD_AW {
+impl From<CMD_AW> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            CMD_AW::ER => 2,
-            CMD_AW::WP => 4,
-            CMD_AW::SPRM => 66,
-            CMD_AW::CPRM => 67,
-            CMD_AW::PBC => 68,
-            CMD_AW::INVALL => 70,
-            CMD_AW::SDAL0 => 75,
-            CMD_AW::SDAL1 => 76,
-        }
+    fn from(variant: CMD_AW) -> Self {
+        variant as _
     }
 }
 #[doc = "Write proxy for field `CMD`"]
@@ -51,8 +43,7 @@ impl<'a> CMD_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: CMD_AW) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Erase Row - Erases the row addressed by the ADDR register."]
     #[inline(always)]
@@ -101,18 +92,17 @@ impl<'a> CMD_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `CMDEX`"]
+#[doc = "Command Execution\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CMDEX_AW {
-    #[doc = "Execution Key"]
-    KEY,
+    #[doc = "165: Execution Key"]
+    KEY = 165,
 }
-impl crate::ToBits<u8> for CMDEX_AW {
+impl From<CMDEX_AW> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            CMDEX_AW::KEY => 165,
-        }
+    fn from(variant: CMDEX_AW) -> Self {
+        variant as _
     }
 }
 #[doc = "Write proxy for field `CMDEX`"]
@@ -123,8 +113,7 @@ impl<'a> CMDEX_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: CMDEX_AW) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Execution Key"]
     #[inline(always)]

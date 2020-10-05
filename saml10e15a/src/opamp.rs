@@ -12,7 +12,7 @@ pub struct RegisterBlock {
     #[doc = "0x10 - Resister Control"]
     pub resctrl: RESCTRL,
 }
-#[doc = "Control A\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [ctrla](ctrla) module"]
+#[doc = "Control A\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ctrla](ctrla) module"]
 pub type CTRLA = crate::Reg<u8, _CTRLA>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -23,7 +23,7 @@ impl crate::Readable for CTRLA {}
 impl crate::Writable for CTRLA {}
 #[doc = "Control A"]
 pub mod ctrla;
-#[doc = "Status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [status](status) module"]
+#[doc = "Status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [status](status) module"]
 pub type STATUS = crate::Reg<u8, _STATUS>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -32,7 +32,7 @@ pub struct _STATUS;
 impl crate::Readable for STATUS {}
 #[doc = "Status"]
 pub mod status;
-#[doc = "OPAMP n Control\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [opampctrl](opampctrl) module"]
+#[doc = "OPAMP n Control\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [opampctrl](opampctrl) module"]
 pub type OPAMPCTRL = crate::Reg<u32, _OPAMPCTRL>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -43,7 +43,7 @@ impl crate::Readable for OPAMPCTRL {}
 impl crate::Writable for OPAMPCTRL {}
 #[doc = "OPAMP n Control"]
 pub mod opampctrl;
-#[doc = "Resister Control\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [resctrl](resctrl) module"]
+#[doc = "Resister Control\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [resctrl](resctrl) module"]
 pub type RESCTRL = crate::Reg<u8, _RESCTRL>;
 #[allow(missing_docs)]
 #[doc(hidden)]

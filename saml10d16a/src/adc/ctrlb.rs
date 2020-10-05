@@ -10,39 +10,31 @@ impl crate::ResetValue for super::CTRLB {
         0
     }
 }
-#[doc = "Possible values of the field `PRESCALER`"]
+#[doc = "Prescaler Configuration\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PRESCALER_A {
-    #[doc = "Peripheral clock divided by 2"]
-    DIV2,
-    #[doc = "Peripheral clock divided by 4"]
-    DIV4,
-    #[doc = "Peripheral clock divided by 8"]
-    DIV8,
-    #[doc = "Peripheral clock divided by 16"]
-    DIV16,
-    #[doc = "Peripheral clock divided by 32"]
-    DIV32,
-    #[doc = "Peripheral clock divided by 64"]
-    DIV64,
-    #[doc = "Peripheral clock divided by 128"]
-    DIV128,
-    #[doc = "Peripheral clock divided by 256"]
-    DIV256,
+    #[doc = "0: Peripheral clock divided by 2"]
+    DIV2 = 0,
+    #[doc = "1: Peripheral clock divided by 4"]
+    DIV4 = 1,
+    #[doc = "2: Peripheral clock divided by 8"]
+    DIV8 = 2,
+    #[doc = "3: Peripheral clock divided by 16"]
+    DIV16 = 3,
+    #[doc = "4: Peripheral clock divided by 32"]
+    DIV32 = 4,
+    #[doc = "5: Peripheral clock divided by 64"]
+    DIV64 = 5,
+    #[doc = "6: Peripheral clock divided by 128"]
+    DIV128 = 6,
+    #[doc = "7: Peripheral clock divided by 256"]
+    DIV256 = 7,
 }
-impl crate::ToBits<u8> for PRESCALER_A {
+impl From<PRESCALER_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            PRESCALER_A::DIV2 => 0,
-            PRESCALER_A::DIV4 => 1,
-            PRESCALER_A::DIV8 => 2,
-            PRESCALER_A::DIV16 => 3,
-            PRESCALER_A::DIV32 => 4,
-            PRESCALER_A::DIV64 => 5,
-            PRESCALER_A::DIV128 => 6,
-            PRESCALER_A::DIV256 => 7,
-        }
+    fn from(variant: PRESCALER_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `PRESCALER`"]
@@ -112,9 +104,8 @@ impl<'a> PRESCALER_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: PRESCALER_A) -> &'a mut W {
-        use crate::ToBits;
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "Peripheral clock divided by 2"]

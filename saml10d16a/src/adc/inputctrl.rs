@@ -10,111 +10,79 @@ impl crate::ResetValue for super::INPUTCTRL {
         0
     }
 }
-#[doc = "Possible values of the field `MUXPOS`"]
+#[doc = "Positive Mux Input Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum MUXPOS_A {
-    #[doc = "ADC AIN0 Pin"]
-    AIN0,
-    #[doc = "ADC AIN1 Pin"]
-    AIN1,
-    #[doc = "ADC AIN2 Pin"]
-    AIN2,
-    #[doc = "ADC AIN3 Pin"]
-    AIN3,
-    #[doc = "ADC AIN4 Pin"]
-    AIN4,
-    #[doc = "ADC AIN5 Pin"]
-    AIN5,
-    #[doc = "ADC AIN6 Pin"]
-    AIN6,
-    #[doc = "ADC AIN7 Pin"]
-    AIN7,
-    #[doc = "ADC AIN8 Pin"]
-    AIN8,
-    #[doc = "ADC AIN9 Pin"]
-    AIN9,
-    #[doc = "ADC AIN10 Pin"]
-    AIN10,
-    #[doc = "ADC AIN11 Pin"]
-    AIN11,
-    #[doc = "ADC AIN12 Pin"]
-    AIN12,
-    #[doc = "ADC AIN13 Pin"]
-    AIN13,
-    #[doc = "ADC AIN14 Pin"]
-    AIN14,
-    #[doc = "ADC AIN15 Pin"]
-    AIN15,
-    #[doc = "ADC AIN16 Pin"]
-    AIN16,
-    #[doc = "ADC AIN17 Pin"]
-    AIN17,
-    #[doc = "ADC AIN18 Pin"]
-    AIN18,
-    #[doc = "ADC AIN19 Pin"]
-    AIN19,
-    #[doc = "ADC AIN20 Pin"]
-    AIN20,
-    #[doc = "ADC AIN21 Pin"]
-    AIN21,
-    #[doc = "ADC AIN22 Pin"]
-    AIN22,
-    #[doc = "ADC AIN23 Pin"]
-    AIN23,
-    #[doc = "Temperature Sensor"]
-    TEMP,
-    #[doc = "Bandgap Voltage"]
-    BANDGAP,
-    #[doc = "1/4 Scaled Core Supply"]
-    SCALEDCOREVCC,
-    #[doc = "1/4 Scaled I/O Supply"]
-    SCALEDIOVCC,
-    #[doc = "DAC Output"]
-    DAC,
-    #[doc = "1/4 Scaled VBAT Supply"]
-    SCALEDVBAT,
-    #[doc = "OPAMP0 or OPAMP1 output"]
-    OPAMP01,
-    #[doc = "OPAMP2 output"]
-    OPAMP2,
+    #[doc = "0: ADC AIN0 Pin"]
+    AIN0 = 0,
+    #[doc = "1: ADC AIN1 Pin"]
+    AIN1 = 1,
+    #[doc = "2: ADC AIN2 Pin"]
+    AIN2 = 2,
+    #[doc = "3: ADC AIN3 Pin"]
+    AIN3 = 3,
+    #[doc = "4: ADC AIN4 Pin"]
+    AIN4 = 4,
+    #[doc = "5: ADC AIN5 Pin"]
+    AIN5 = 5,
+    #[doc = "6: ADC AIN6 Pin"]
+    AIN6 = 6,
+    #[doc = "7: ADC AIN7 Pin"]
+    AIN7 = 7,
+    #[doc = "8: ADC AIN8 Pin"]
+    AIN8 = 8,
+    #[doc = "9: ADC AIN9 Pin"]
+    AIN9 = 9,
+    #[doc = "10: ADC AIN10 Pin"]
+    AIN10 = 10,
+    #[doc = "11: ADC AIN11 Pin"]
+    AIN11 = 11,
+    #[doc = "12: ADC AIN12 Pin"]
+    AIN12 = 12,
+    #[doc = "13: ADC AIN13 Pin"]
+    AIN13 = 13,
+    #[doc = "14: ADC AIN14 Pin"]
+    AIN14 = 14,
+    #[doc = "15: ADC AIN15 Pin"]
+    AIN15 = 15,
+    #[doc = "16: ADC AIN16 Pin"]
+    AIN16 = 16,
+    #[doc = "17: ADC AIN17 Pin"]
+    AIN17 = 17,
+    #[doc = "18: ADC AIN18 Pin"]
+    AIN18 = 18,
+    #[doc = "19: ADC AIN19 Pin"]
+    AIN19 = 19,
+    #[doc = "20: ADC AIN20 Pin"]
+    AIN20 = 20,
+    #[doc = "21: ADC AIN21 Pin"]
+    AIN21 = 21,
+    #[doc = "22: ADC AIN22 Pin"]
+    AIN22 = 22,
+    #[doc = "23: ADC AIN23 Pin"]
+    AIN23 = 23,
+    #[doc = "24: Temperature Sensor"]
+    TEMP = 24,
+    #[doc = "25: Bandgap Voltage"]
+    BANDGAP = 25,
+    #[doc = "26: 1/4 Scaled Core Supply"]
+    SCALEDCOREVCC = 26,
+    #[doc = "27: 1/4 Scaled I/O Supply"]
+    SCALEDIOVCC = 27,
+    #[doc = "28: DAC Output"]
+    DAC = 28,
+    #[doc = "29: 1/4 Scaled VBAT Supply"]
+    SCALEDVBAT = 29,
+    #[doc = "30: OPAMP0 or OPAMP1 output"]
+    OPAMP01 = 30,
+    #[doc = "31: OPAMP2 output"]
+    OPAMP2 = 31,
 }
-impl crate::ToBits<u8> for MUXPOS_A {
+impl From<MUXPOS_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            MUXPOS_A::AIN0 => 0,
-            MUXPOS_A::AIN1 => 1,
-            MUXPOS_A::AIN2 => 2,
-            MUXPOS_A::AIN3 => 3,
-            MUXPOS_A::AIN4 => 4,
-            MUXPOS_A::AIN5 => 5,
-            MUXPOS_A::AIN6 => 6,
-            MUXPOS_A::AIN7 => 7,
-            MUXPOS_A::AIN8 => 8,
-            MUXPOS_A::AIN9 => 9,
-            MUXPOS_A::AIN10 => 10,
-            MUXPOS_A::AIN11 => 11,
-            MUXPOS_A::AIN12 => 12,
-            MUXPOS_A::AIN13 => 13,
-            MUXPOS_A::AIN14 => 14,
-            MUXPOS_A::AIN15 => 15,
-            MUXPOS_A::AIN16 => 16,
-            MUXPOS_A::AIN17 => 17,
-            MUXPOS_A::AIN18 => 18,
-            MUXPOS_A::AIN19 => 19,
-            MUXPOS_A::AIN20 => 20,
-            MUXPOS_A::AIN21 => 21,
-            MUXPOS_A::AIN22 => 22,
-            MUXPOS_A::AIN23 => 23,
-            MUXPOS_A::TEMP => 24,
-            MUXPOS_A::BANDGAP => 25,
-            MUXPOS_A::SCALEDCOREVCC => 26,
-            MUXPOS_A::SCALEDIOVCC => 27,
-            MUXPOS_A::DAC => 28,
-            MUXPOS_A::SCALEDVBAT => 29,
-            MUXPOS_A::OPAMP01 => 30,
-            MUXPOS_A::OPAMP2 => 31,
-        }
+    fn from(variant: MUXPOS_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `MUXPOS`"]
@@ -328,9 +296,8 @@ impl<'a> MUXPOS_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MUXPOS_A) -> &'a mut W {
-        use crate::ToBits;
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "ADC AIN0 Pin"]
@@ -500,39 +467,31 @@ impl<'a> MUXPOS_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `MUXNEG`"]
+#[doc = "Negative Mux Input Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum MUXNEG_A {
-    #[doc = "ADC AIN0 Pin"]
-    AIN0,
-    #[doc = "ADC AIN1 Pin"]
-    AIN1,
-    #[doc = "ADC AIN2 Pin"]
-    AIN2,
-    #[doc = "ADC AIN3 Pin"]
-    AIN3,
-    #[doc = "ADC AIN4 Pin"]
-    AIN4,
-    #[doc = "ADC AIN5 Pin"]
-    AIN5,
-    #[doc = "ADC AIN6 Pin"]
-    AIN6,
-    #[doc = "ADC AIN7 Pin"]
-    AIN7,
+    #[doc = "0: ADC AIN0 Pin"]
+    AIN0 = 0,
+    #[doc = "1: ADC AIN1 Pin"]
+    AIN1 = 1,
+    #[doc = "2: ADC AIN2 Pin"]
+    AIN2 = 2,
+    #[doc = "3: ADC AIN3 Pin"]
+    AIN3 = 3,
+    #[doc = "4: ADC AIN4 Pin"]
+    AIN4 = 4,
+    #[doc = "5: ADC AIN5 Pin"]
+    AIN5 = 5,
+    #[doc = "6: ADC AIN6 Pin"]
+    AIN6 = 6,
+    #[doc = "7: ADC AIN7 Pin"]
+    AIN7 = 7,
 }
-impl crate::ToBits<u8> for MUXNEG_A {
+impl From<MUXNEG_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            MUXNEG_A::AIN0 => 0,
-            MUXNEG_A::AIN1 => 1,
-            MUXNEG_A::AIN2 => 2,
-            MUXNEG_A::AIN3 => 3,
-            MUXNEG_A::AIN4 => 4,
-            MUXNEG_A::AIN5 => 5,
-            MUXNEG_A::AIN6 => 6,
-            MUXNEG_A::AIN7 => 7,
-        }
+    fn from(variant: MUXNEG_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `MUXNEG`"]
@@ -603,8 +562,7 @@ impl<'a> MUXNEG_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MUXNEG_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "ADC AIN0 Pin"]
     #[inline(always)]

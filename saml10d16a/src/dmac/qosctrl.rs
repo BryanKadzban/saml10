@@ -10,27 +10,23 @@ impl crate::ResetValue for super::QOSCTRL {
         0x2a
     }
 }
-#[doc = "Possible values of the field `WRBQOS`"]
+#[doc = "Write-Back Quality of Service\n\nValue on reset: 2"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum WRBQOS_A {
-    #[doc = "Background (no sensitive operation)"]
-    DISABLE,
-    #[doc = "Sensitive Bandwidth"]
-    LOW,
-    #[doc = "Sensitive Latency"]
-    MEDIUM,
-    #[doc = "Critical Latency"]
-    HIGH,
+    #[doc = "0: Background (no sensitive operation)"]
+    DISABLE = 0,
+    #[doc = "1: Sensitive Bandwidth"]
+    LOW = 1,
+    #[doc = "2: Sensitive Latency"]
+    MEDIUM = 2,
+    #[doc = "3: Critical Latency"]
+    HIGH = 3,
 }
-impl crate::ToBits<u8> for WRBQOS_A {
+impl From<WRBQOS_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            WRBQOS_A::DISABLE => 0,
-            WRBQOS_A::LOW => 1,
-            WRBQOS_A::MEDIUM => 2,
-            WRBQOS_A::HIGH => 3,
-        }
+    fn from(variant: WRBQOS_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `WRBQOS`"]
@@ -76,9 +72,8 @@ impl<'a> WRBQOS_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WRBQOS_A) -> &'a mut W {
-        use crate::ToBits;
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "Background (no sensitive operation)"]
@@ -108,27 +103,23 @@ impl<'a> WRBQOS_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `FQOS`"]
+#[doc = "Fetch Quality of Service\n\nValue on reset: 2"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum FQOS_A {
-    #[doc = "Background (no sensitive operation)"]
-    DISABLE,
-    #[doc = "Sensitive Bandwidth"]
-    LOW,
-    #[doc = "Sensitive Latency"]
-    MEDIUM,
-    #[doc = "Critical Latency"]
-    HIGH,
+    #[doc = "0: Background (no sensitive operation)"]
+    DISABLE = 0,
+    #[doc = "1: Sensitive Bandwidth"]
+    LOW = 1,
+    #[doc = "2: Sensitive Latency"]
+    MEDIUM = 2,
+    #[doc = "3: Critical Latency"]
+    HIGH = 3,
 }
-impl crate::ToBits<u8> for FQOS_A {
+impl From<FQOS_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            FQOS_A::DISABLE => 0,
-            FQOS_A::LOW => 1,
-            FQOS_A::MEDIUM => 2,
-            FQOS_A::HIGH => 3,
-        }
+    fn from(variant: FQOS_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `FQOS`"]
@@ -174,9 +165,8 @@ impl<'a> FQOS_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: FQOS_A) -> &'a mut W {
-        use crate::ToBits;
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "Background (no sensitive operation)"]
@@ -206,27 +196,23 @@ impl<'a> FQOS_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `DQOS`"]
+#[doc = "Data Transfer Quality of Service\n\nValue on reset: 2"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum DQOS_A {
-    #[doc = "Background (no sensitive operation)"]
-    DISABLE,
-    #[doc = "Sensitive Bandwidth"]
-    LOW,
-    #[doc = "Sensitive Latency"]
-    MEDIUM,
-    #[doc = "Critical Latency"]
-    HIGH,
+    #[doc = "0: Background (no sensitive operation)"]
+    DISABLE = 0,
+    #[doc = "1: Sensitive Bandwidth"]
+    LOW = 1,
+    #[doc = "2: Sensitive Latency"]
+    MEDIUM = 2,
+    #[doc = "3: Critical Latency"]
+    HIGH = 3,
 }
-impl crate::ToBits<u8> for DQOS_A {
+impl From<DQOS_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            DQOS_A::DISABLE => 0,
-            DQOS_A::LOW => 1,
-            DQOS_A::MEDIUM => 2,
-            DQOS_A::HIGH => 3,
-        }
+    fn from(variant: DQOS_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `DQOS`"]
@@ -272,9 +258,8 @@ impl<'a> DQOS_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DQOS_A) -> &'a mut W {
-        use crate::ToBits;
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "Background (no sensitive operation)"]

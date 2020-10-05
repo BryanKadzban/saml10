@@ -18,7 +18,7 @@ pub struct RegisterBlock {
     #[doc = "0x08 - Standby Configuration"]
     pub stdbycfg: STDBYCFG,
 }
-#[doc = "Sleep Configuration\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [sleepcfg](sleepcfg) module"]
+#[doc = "Sleep Configuration\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [sleepcfg](sleepcfg) module"]
 pub type SLEEPCFG = crate::Reg<u8, _SLEEPCFG>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -29,7 +29,7 @@ impl crate::Readable for SLEEPCFG {}
 impl crate::Writable for SLEEPCFG {}
 #[doc = "Sleep Configuration"]
 pub mod sleepcfg;
-#[doc = "Performance Level Configuration\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [plcfg](plcfg) module"]
+#[doc = "Performance Level Configuration\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [plcfg](plcfg) module"]
 pub type PLCFG = crate::Reg<u8, _PLCFG>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -40,7 +40,7 @@ impl crate::Readable for PLCFG {}
 impl crate::Writable for PLCFG {}
 #[doc = "Performance Level Configuration"]
 pub mod plcfg;
-#[doc = "Power Configuration\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [pwcfg](pwcfg) module"]
+#[doc = "Power Configuration\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [pwcfg](pwcfg) module"]
 pub type PWCFG = crate::Reg<u8, _PWCFG>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -51,7 +51,7 @@ impl crate::Readable for PWCFG {}
 impl crate::Writable for PWCFG {}
 #[doc = "Power Configuration"]
 pub mod pwcfg;
-#[doc = "Interrupt Enable Clear\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [intenclr](intenclr) module"]
+#[doc = "Interrupt Enable Clear\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intenclr](intenclr) module"]
 pub type INTENCLR = crate::Reg<u8, _INTENCLR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -62,7 +62,7 @@ impl crate::Readable for INTENCLR {}
 impl crate::Writable for INTENCLR {}
 #[doc = "Interrupt Enable Clear"]
 pub mod intenclr;
-#[doc = "Interrupt Enable Set\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [intenset](intenset) module"]
+#[doc = "Interrupt Enable Set\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intenset](intenset) module"]
 pub type INTENSET = crate::Reg<u8, _INTENSET>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -73,7 +73,7 @@ impl crate::Readable for INTENSET {}
 impl crate::Writable for INTENSET {}
 #[doc = "Interrupt Enable Set"]
 pub mod intenset;
-#[doc = "Interrupt Flag Status and Clear\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [intflag](intflag) module"]
+#[doc = "Interrupt Flag Status and Clear\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intflag](intflag) module"]
 pub type INTFLAG = crate::Reg<u8, _INTFLAG>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -84,7 +84,7 @@ impl crate::Readable for INTFLAG {}
 impl crate::Writable for INTFLAG {}
 #[doc = "Interrupt Flag Status and Clear"]
 pub mod intflag;
-#[doc = "Standby Configuration\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [stdbycfg](stdbycfg) module"]
+#[doc = "Standby Configuration\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [stdbycfg](stdbycfg) module"]
 pub type STDBYCFG = crate::Reg<u16, _STDBYCFG>;
 #[allow(missing_docs)]
 #[doc(hidden)]

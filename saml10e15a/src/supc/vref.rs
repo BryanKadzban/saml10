@@ -130,39 +130,31 @@ impl<'a> ONDEMAND_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `SEL`"]
+#[doc = "Voltage Reference Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SEL_A {
-    #[doc = "1.0V voltage reference typical value"]
-    _1V0,
-    #[doc = "1.1V voltage reference typical value"]
-    _1V1,
-    #[doc = "1.2V voltage reference typical value"]
-    _1V2,
-    #[doc = "1.25V voltage reference typical value"]
-    _1V25,
-    #[doc = "2.0V voltage reference typical value"]
-    _2V0,
-    #[doc = "2.2V voltage reference typical value"]
-    _2V2,
-    #[doc = "2.4V voltage reference typical value"]
-    _2V4,
-    #[doc = "2.5V voltage reference typical value"]
-    _2V5,
+    #[doc = "0: 1.0V voltage reference typical value"]
+    _1V0 = 0,
+    #[doc = "1: 1.1V voltage reference typical value"]
+    _1V1 = 1,
+    #[doc = "2: 1.2V voltage reference typical value"]
+    _1V2 = 2,
+    #[doc = "3: 1.25V voltage reference typical value"]
+    _1V25 = 3,
+    #[doc = "4: 2.0V voltage reference typical value"]
+    _2V0 = 4,
+    #[doc = "5: 2.2V voltage reference typical value"]
+    _2V2 = 5,
+    #[doc = "6: 2.4V voltage reference typical value"]
+    _2V4 = 6,
+    #[doc = "7: 2.5V voltage reference typical value"]
+    _2V5 = 7,
 }
-impl crate::ToBits<u8> for SEL_A {
+impl From<SEL_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            SEL_A::_1V0 => 0,
-            SEL_A::_1V1 => 1,
-            SEL_A::_1V2 => 2,
-            SEL_A::_1V25 => 3,
-            SEL_A::_2V0 => 4,
-            SEL_A::_2V2 => 5,
-            SEL_A::_2V4 => 6,
-            SEL_A::_2V5 => 7,
-        }
+    fn from(variant: SEL_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `SEL`"]
@@ -233,8 +225,7 @@ impl<'a> SEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SEL_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "1.0V voltage reference typical value"]
     #[inline(always)]

@@ -10,39 +10,31 @@ impl crate::ResetValue for super::CPUDIV {
         0x01
     }
 }
-#[doc = "Possible values of the field `CPUDIV`"]
+#[doc = "CPU Clock Division Factor\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CPUDIV_A {
-    #[doc = "Divide by 1"]
-    DIV1,
-    #[doc = "Divide by 2"]
-    DIV2,
-    #[doc = "Divide by 4"]
-    DIV4,
-    #[doc = "Divide by 8"]
-    DIV8,
-    #[doc = "Divide by 16"]
-    DIV16,
-    #[doc = "Divide by 32"]
-    DIV32,
-    #[doc = "Divide by 64"]
-    DIV64,
-    #[doc = "Divide by 128"]
-    DIV128,
+    #[doc = "1: Divide by 1"]
+    DIV1 = 1,
+    #[doc = "2: Divide by 2"]
+    DIV2 = 2,
+    #[doc = "4: Divide by 4"]
+    DIV4 = 4,
+    #[doc = "8: Divide by 8"]
+    DIV8 = 8,
+    #[doc = "16: Divide by 16"]
+    DIV16 = 16,
+    #[doc = "32: Divide by 32"]
+    DIV32 = 32,
+    #[doc = "64: Divide by 64"]
+    DIV64 = 64,
+    #[doc = "128: Divide by 128"]
+    DIV128 = 128,
 }
-impl crate::ToBits<u8> for CPUDIV_A {
+impl From<CPUDIV_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            CPUDIV_A::DIV1 => 1,
-            CPUDIV_A::DIV2 => 2,
-            CPUDIV_A::DIV4 => 4,
-            CPUDIV_A::DIV8 => 8,
-            CPUDIV_A::DIV16 => 16,
-            CPUDIV_A::DIV32 => 32,
-            CPUDIV_A::DIV64 => 64,
-            CPUDIV_A::DIV128 => 128,
-        }
+    fn from(variant: CPUDIV_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `CPUDIV`"]
@@ -113,8 +105,7 @@ impl<'a> CPUDIV_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: CPUDIV_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Divide by 1"]
     #[inline(always)]

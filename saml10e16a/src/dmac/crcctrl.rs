@@ -10,24 +10,21 @@ impl crate::ResetValue for super::CRCCTRL {
         0
     }
 }
-#[doc = "Possible values of the field `CRCBEATSIZE`"]
+#[doc = "CRC Beat Size\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CRCBEATSIZE_A {
-    #[doc = "8-bit bus transfer"]
-    BYTE,
-    #[doc = "16-bit bus transfer"]
-    HWORD,
-    #[doc = "32-bit bus transfer"]
-    WORD,
+    #[doc = "0: 8-bit bus transfer"]
+    BYTE = 0,
+    #[doc = "1: 16-bit bus transfer"]
+    HWORD = 1,
+    #[doc = "2: 32-bit bus transfer"]
+    WORD = 2,
 }
-impl crate::ToBits<u8> for CRCBEATSIZE_A {
+impl From<CRCBEATSIZE_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            CRCBEATSIZE_A::BYTE => 0,
-            CRCBEATSIZE_A::HWORD => 1,
-            CRCBEATSIZE_A::WORD => 2,
-        }
+    fn from(variant: CRCBEATSIZE_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `CRCBEATSIZE`"]
@@ -68,8 +65,7 @@ impl<'a> CRCBEATSIZE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: CRCBEATSIZE_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "8-bit bus transfer"]
     #[inline(always)]
@@ -93,21 +89,19 @@ impl<'a> CRCBEATSIZE_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `CRCPOLY`"]
+#[doc = "CRC Polynomial Type\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CRCPOLY_A {
-    #[doc = "CRC-16 (CRC-CCITT)"]
-    CRC16,
-    #[doc = "CRC32 (IEEE 802.3)"]
-    CRC32,
+    #[doc = "0: CRC-16 (CRC-CCITT)"]
+    CRC16 = 0,
+    #[doc = "1: CRC32 (IEEE 802.3)"]
+    CRC32 = 1,
 }
-impl crate::ToBits<u8> for CRCPOLY_A {
+impl From<CRCPOLY_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            CRCPOLY_A::CRC16 => 0,
-            CRCPOLY_A::CRC32 => 1,
-        }
+    fn from(variant: CRCPOLY_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `CRCPOLY`"]
@@ -142,8 +136,7 @@ impl<'a> CRCPOLY_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: CRCPOLY_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "CRC-16 (CRC-CCITT)"]
     #[inline(always)]
@@ -162,21 +155,35 @@ impl<'a> CRCPOLY_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `CRCSRC`"]
+#[doc = "CRC Input Source\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CRCSRC_A {
-    #[doc = "No action"]
-    NOACT,
-    #[doc = "I/O interface"]
-    IO,
+    #[doc = "0: No action"]
+    NOACT = 0,
+    #[doc = "1: I/O interface"]
+    IO = 1,
+    #[doc = "32: DMA channel 0"]
+    CHN0 = 32,
+    #[doc = "33: DMA channel 1"]
+    CHN1 = 33,
+    #[doc = "34: DMA channel 2"]
+    CHN2 = 34,
+    #[doc = "35: DMA channel 3"]
+    CHN3 = 35,
+    #[doc = "36: DMA channel 4"]
+    CHN4 = 36,
+    #[doc = "37: DMA channel 5"]
+    CHN5 = 37,
+    #[doc = "38: DMA channel 6"]
+    CHN6 = 38,
+    #[doc = "39: DMA channel 7"]
+    CHN7 = 39,
 }
-impl crate::ToBits<u8> for CRCSRC_A {
+impl From<CRCSRC_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            CRCSRC_A::NOACT => 0,
-            CRCSRC_A::IO => 1,
-        }
+    fn from(variant: CRCSRC_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `CRCSRC`"]
@@ -189,6 +196,14 @@ impl CRCSRC_R {
         match self.bits {
             0 => Val(CRCSRC_A::NOACT),
             1 => Val(CRCSRC_A::IO),
+            32 => Val(CRCSRC_A::CHN0),
+            33 => Val(CRCSRC_A::CHN1),
+            34 => Val(CRCSRC_A::CHN2),
+            35 => Val(CRCSRC_A::CHN3),
+            36 => Val(CRCSRC_A::CHN4),
+            37 => Val(CRCSRC_A::CHN5),
+            38 => Val(CRCSRC_A::CHN6),
+            39 => Val(CRCSRC_A::CHN7),
             i => Res(i),
         }
     }
@@ -202,6 +217,46 @@ impl CRCSRC_R {
     pub fn is_io(&self) -> bool {
         *self == CRCSRC_A::IO
     }
+    #[doc = "Checks if the value of the field is `CHN0`"]
+    #[inline(always)]
+    pub fn is_chn0(&self) -> bool {
+        *self == CRCSRC_A::CHN0
+    }
+    #[doc = "Checks if the value of the field is `CHN1`"]
+    #[inline(always)]
+    pub fn is_chn1(&self) -> bool {
+        *self == CRCSRC_A::CHN1
+    }
+    #[doc = "Checks if the value of the field is `CHN2`"]
+    #[inline(always)]
+    pub fn is_chn2(&self) -> bool {
+        *self == CRCSRC_A::CHN2
+    }
+    #[doc = "Checks if the value of the field is `CHN3`"]
+    #[inline(always)]
+    pub fn is_chn3(&self) -> bool {
+        *self == CRCSRC_A::CHN3
+    }
+    #[doc = "Checks if the value of the field is `CHN4`"]
+    #[inline(always)]
+    pub fn is_chn4(&self) -> bool {
+        *self == CRCSRC_A::CHN4
+    }
+    #[doc = "Checks if the value of the field is `CHN5`"]
+    #[inline(always)]
+    pub fn is_chn5(&self) -> bool {
+        *self == CRCSRC_A::CHN5
+    }
+    #[doc = "Checks if the value of the field is `CHN6`"]
+    #[inline(always)]
+    pub fn is_chn6(&self) -> bool {
+        *self == CRCSRC_A::CHN6
+    }
+    #[doc = "Checks if the value of the field is `CHN7`"]
+    #[inline(always)]
+    pub fn is_chn7(&self) -> bool {
+        *self == CRCSRC_A::CHN7
+    }
 }
 #[doc = "Write proxy for field `CRCSRC`"]
 pub struct CRCSRC_W<'a> {
@@ -211,8 +266,7 @@ impl<'a> CRCSRC_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: CRCSRC_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "No action"]
     #[inline(always)]
@@ -223,6 +277,46 @@ impl<'a> CRCSRC_W<'a> {
     #[inline(always)]
     pub fn io(self) -> &'a mut W {
         self.variant(CRCSRC_A::IO)
+    }
+    #[doc = "DMA channel 0"]
+    #[inline(always)]
+    pub fn chn0(self) -> &'a mut W {
+        self.variant(CRCSRC_A::CHN0)
+    }
+    #[doc = "DMA channel 1"]
+    #[inline(always)]
+    pub fn chn1(self) -> &'a mut W {
+        self.variant(CRCSRC_A::CHN1)
+    }
+    #[doc = "DMA channel 2"]
+    #[inline(always)]
+    pub fn chn2(self) -> &'a mut W {
+        self.variant(CRCSRC_A::CHN2)
+    }
+    #[doc = "DMA channel 3"]
+    #[inline(always)]
+    pub fn chn3(self) -> &'a mut W {
+        self.variant(CRCSRC_A::CHN3)
+    }
+    #[doc = "DMA channel 4"]
+    #[inline(always)]
+    pub fn chn4(self) -> &'a mut W {
+        self.variant(CRCSRC_A::CHN4)
+    }
+    #[doc = "DMA channel 5"]
+    #[inline(always)]
+    pub fn chn5(self) -> &'a mut W {
+        self.variant(CRCSRC_A::CHN5)
+    }
+    #[doc = "DMA channel 6"]
+    #[inline(always)]
+    pub fn chn6(self) -> &'a mut W {
+        self.variant(CRCSRC_A::CHN6)
+    }
+    #[doc = "DMA channel 7"]
+    #[inline(always)]
+    pub fn chn7(self) -> &'a mut W {
+        self.variant(CRCSRC_A::CHN7)
     }
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]

@@ -24,7 +24,7 @@ pub struct RegisterBlock {
     #[doc = "0x100 - TrustRAM"]
     pub ram: [RAM; 64],
 }
-#[doc = "Control\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [ctrla](ctrla) module"]
+#[doc = "Control\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ctrla](ctrla) module"]
 pub type CTRLA = crate::Reg<u8, _CTRLA>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -35,7 +35,7 @@ impl crate::Readable for CTRLA {}
 impl crate::Writable for CTRLA {}
 #[doc = "Control"]
 pub mod ctrla;
-#[doc = "Interrupt Enable Clear\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [intenclr](intenclr) module"]
+#[doc = "Interrupt Enable Clear\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intenclr](intenclr) module"]
 pub type INTENCLR = crate::Reg<u8, _INTENCLR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -46,7 +46,7 @@ impl crate::Readable for INTENCLR {}
 impl crate::Writable for INTENCLR {}
 #[doc = "Interrupt Enable Clear"]
 pub mod intenclr;
-#[doc = "Interrupt Enable Set\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [intenset](intenset) module"]
+#[doc = "Interrupt Enable Set\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intenset](intenset) module"]
 pub type INTENSET = crate::Reg<u8, _INTENSET>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -57,7 +57,7 @@ impl crate::Readable for INTENSET {}
 impl crate::Writable for INTENSET {}
 #[doc = "Interrupt Enable Set"]
 pub mod intenset;
-#[doc = "Interrupt Flag Status and Clear\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [intflag](intflag) module"]
+#[doc = "Interrupt Flag Status and Clear\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intflag](intflag) module"]
 pub type INTFLAG = crate::Reg<u8, _INTFLAG>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -68,7 +68,7 @@ impl crate::Readable for INTFLAG {}
 impl crate::Writable for INTFLAG {}
 #[doc = "Interrupt Flag Status and Clear"]
 pub mod intflag;
-#[doc = "Status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [status](status) module"]
+#[doc = "Status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [status](status) module"]
 pub type STATUS = crate::Reg<u8, _STATUS>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -77,7 +77,7 @@ pub struct _STATUS;
 impl crate::Readable for STATUS {}
 #[doc = "Status"]
 pub mod status;
-#[doc = "Synchronization Busy Status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [syncbusy](syncbusy) module"]
+#[doc = "Synchronization Busy Status\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [syncbusy](syncbusy) module"]
 pub type SYNCBUSY = crate::Reg<u32, _SYNCBUSY>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -86,7 +86,7 @@ pub struct _SYNCBUSY;
 impl crate::Readable for SYNCBUSY {}
 #[doc = "Synchronization Busy Status"]
 pub mod syncbusy;
-#[doc = "Data Scramble Control\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [dscc](dscc) module"]
+#[doc = "Data Scramble Control\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [dscc](dscc) module"]
 pub type DSCC = crate::Reg<u32, _DSCC>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -95,7 +95,7 @@ pub struct _DSCC;
 impl crate::Writable for DSCC {}
 #[doc = "Data Scramble Control"]
 pub mod dscc;
-#[doc = "Permutation Write\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [permw](permw) module"]
+#[doc = "Permutation Write\n\nThis register you can [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [permw](permw) module"]
 pub type PERMW = crate::Reg<u8, _PERMW>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -104,7 +104,7 @@ pub struct _PERMW;
 impl crate::Writable for PERMW {}
 #[doc = "Permutation Write"]
 pub mod permw;
-#[doc = "Permutation Read\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [permr](permr) module"]
+#[doc = "Permutation Read\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [permr](permr) module"]
 pub type PERMR = crate::Reg<u8, _PERMR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -113,7 +113,7 @@ pub struct _PERMR;
 impl crate::Readable for PERMR {}
 #[doc = "Permutation Read"]
 pub mod permr;
-#[doc = "TrustRAM\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [ram](ram) module"]
+#[doc = "TrustRAM\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ram](ram) module"]
 pub type RAM = crate::Reg<u32, _RAM>;
 #[allow(missing_docs)]
 #[doc(hidden)]

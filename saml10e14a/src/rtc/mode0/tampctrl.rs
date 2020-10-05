@@ -10,27 +10,23 @@ impl crate::ResetValue for super::TAMPCTRL {
         0
     }
 }
-#[doc = "Possible values of the field `IN0ACT`"]
+#[doc = "Tamper Input 0 Action\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum IN0ACT_A {
-    #[doc = "Off (Disabled)"]
-    OFF,
-    #[doc = "Wake and set Tamper flag"]
-    WAKE,
-    #[doc = "Capture timestamp and set Tamper flag"]
-    CAPTURE,
-    #[doc = "Compare IN0 to OUT. When a mismatch occurs, capture timestamp and set Tamper flag"]
-    ACTL,
+    #[doc = "0: Off (Disabled)"]
+    OFF = 0,
+    #[doc = "1: Wake and set Tamper flag"]
+    WAKE = 1,
+    #[doc = "2: Capture timestamp and set Tamper flag"]
+    CAPTURE = 2,
+    #[doc = "3: Compare IN0 to OUT. When a mismatch occurs, capture timestamp and set Tamper flag"]
+    ACTL = 3,
 }
-impl crate::ToBits<u8> for IN0ACT_A {
+impl From<IN0ACT_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            IN0ACT_A::OFF => 0,
-            IN0ACT_A::WAKE => 1,
-            IN0ACT_A::CAPTURE => 2,
-            IN0ACT_A::ACTL => 3,
-        }
+    fn from(variant: IN0ACT_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `IN0ACT`"]
@@ -76,9 +72,8 @@ impl<'a> IN0ACT_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: IN0ACT_A) -> &'a mut W {
-        use crate::ToBits;
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "Off (Disabled)"]
@@ -108,27 +103,23 @@ impl<'a> IN0ACT_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `IN1ACT`"]
+#[doc = "Tamper Input 1 Action\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum IN1ACT_A {
-    #[doc = "Off (Disabled)"]
-    OFF,
-    #[doc = "Wake and set Tamper flag"]
-    WAKE,
-    #[doc = "Capture timestamp and set Tamper flag"]
-    CAPTURE,
-    #[doc = "Compare IN1 to OUT. When a mismatch occurs, capture timestamp and set Tamper flag"]
-    ACTL,
+    #[doc = "0: Off (Disabled)"]
+    OFF = 0,
+    #[doc = "1: Wake and set Tamper flag"]
+    WAKE = 1,
+    #[doc = "2: Capture timestamp and set Tamper flag"]
+    CAPTURE = 2,
+    #[doc = "3: Compare IN1 to OUT. When a mismatch occurs, capture timestamp and set Tamper flag"]
+    ACTL = 3,
 }
-impl crate::ToBits<u8> for IN1ACT_A {
+impl From<IN1ACT_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            IN1ACT_A::OFF => 0,
-            IN1ACT_A::WAKE => 1,
-            IN1ACT_A::CAPTURE => 2,
-            IN1ACT_A::ACTL => 3,
-        }
+    fn from(variant: IN1ACT_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `IN1ACT`"]
@@ -174,9 +165,8 @@ impl<'a> IN1ACT_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: IN1ACT_A) -> &'a mut W {
-        use crate::ToBits;
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "Off (Disabled)"]
@@ -206,27 +196,23 @@ impl<'a> IN1ACT_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `IN2ACT`"]
+#[doc = "Tamper Input 2 Action\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum IN2ACT_A {
-    #[doc = "Off (Disabled)"]
-    OFF,
-    #[doc = "Wake and set Tamper flag"]
-    WAKE,
-    #[doc = "Capture timestamp and set Tamper flag"]
-    CAPTURE,
-    #[doc = "Compare IN2 to OUT. When a mismatch occurs, capture timestamp and set Tamper flag"]
-    ACTL,
+    #[doc = "0: Off (Disabled)"]
+    OFF = 0,
+    #[doc = "1: Wake and set Tamper flag"]
+    WAKE = 1,
+    #[doc = "2: Capture timestamp and set Tamper flag"]
+    CAPTURE = 2,
+    #[doc = "3: Compare IN2 to OUT. When a mismatch occurs, capture timestamp and set Tamper flag"]
+    ACTL = 3,
 }
-impl crate::ToBits<u8> for IN2ACT_A {
+impl From<IN2ACT_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            IN2ACT_A::OFF => 0,
-            IN2ACT_A::WAKE => 1,
-            IN2ACT_A::CAPTURE => 2,
-            IN2ACT_A::ACTL => 3,
-        }
+    fn from(variant: IN2ACT_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `IN2ACT`"]
@@ -272,9 +258,8 @@ impl<'a> IN2ACT_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: IN2ACT_A) -> &'a mut W {
-        use crate::ToBits;
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "Off (Disabled)"]
@@ -304,27 +289,23 @@ impl<'a> IN2ACT_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `IN3ACT`"]
+#[doc = "Tamper Input 3 Action\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum IN3ACT_A {
-    #[doc = "Off (Disabled)"]
-    OFF,
-    #[doc = "Wake and set Tamper flag"]
-    WAKE,
-    #[doc = "Capture timestamp and set Tamper flag"]
-    CAPTURE,
-    #[doc = "Compare IN3 to OUT. When a mismatch occurs, capture timestamp and set Tamper flag"]
-    ACTL,
+    #[doc = "0: Off (Disabled)"]
+    OFF = 0,
+    #[doc = "1: Wake and set Tamper flag"]
+    WAKE = 1,
+    #[doc = "2: Capture timestamp and set Tamper flag"]
+    CAPTURE = 2,
+    #[doc = "3: Compare IN3 to OUT. When a mismatch occurs, capture timestamp and set Tamper flag"]
+    ACTL = 3,
 }
-impl crate::ToBits<u8> for IN3ACT_A {
+impl From<IN3ACT_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            IN3ACT_A::OFF => 0,
-            IN3ACT_A::WAKE => 1,
-            IN3ACT_A::CAPTURE => 2,
-            IN3ACT_A::ACTL => 3,
-        }
+    fn from(variant: IN3ACT_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `IN3ACT`"]
@@ -370,9 +351,8 @@ impl<'a> IN3ACT_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: IN3ACT_A) -> &'a mut W {
-        use crate::ToBits;
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "Off (Disabled)"]

@@ -10,24 +10,21 @@ impl crate::ResetValue for super::DPLLPRESC {
         0
     }
 }
-#[doc = "Possible values of the field `PRESC`"]
+#[doc = "Output Clock Prescaler\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PRESC_A {
-    #[doc = "DPLL output is divided by 1"]
-    DIV1,
-    #[doc = "DPLL output is divided by 2"]
-    DIV2,
-    #[doc = "DPLL output is divided by 4"]
-    DIV4,
+    #[doc = "0: DPLL output is divided by 1"]
+    DIV1 = 0,
+    #[doc = "1: DPLL output is divided by 2"]
+    DIV2 = 1,
+    #[doc = "2: DPLL output is divided by 4"]
+    DIV4 = 2,
 }
-impl crate::ToBits<u8> for PRESC_A {
+impl From<PRESC_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            PRESC_A::DIV1 => 0,
-            PRESC_A::DIV2 => 1,
-            PRESC_A::DIV4 => 2,
-        }
+    fn from(variant: PRESC_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `PRESC`"]
@@ -68,8 +65,7 @@ impl<'a> PRESC_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: PRESC_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "DPLL output is divided by 1"]
     #[inline(always)]

@@ -10,27 +10,23 @@ impl crate::ResetValue for super::DPLLCTRLB {
         0
     }
 }
-#[doc = "Possible values of the field `FILTER`"]
+#[doc = "Proportional Integral Filter Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum FILTER_A {
-    #[doc = "Default Filter Mode"]
-    DEFAULT,
-    #[doc = "Low Bandwidth Filter"]
-    LBFILT,
-    #[doc = "High Bandwidth Filter"]
-    HBFILT,
-    #[doc = "High Damping Filter"]
-    HDFILT,
+    #[doc = "0: Default Filter Mode"]
+    DEFAULT = 0,
+    #[doc = "1: Low Bandwidth Filter"]
+    LBFILT = 1,
+    #[doc = "2: High Bandwidth Filter"]
+    HBFILT = 2,
+    #[doc = "3: High Damping Filter"]
+    HDFILT = 3,
 }
-impl crate::ToBits<u8> for FILTER_A {
+impl From<FILTER_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            FILTER_A::DEFAULT => 0,
-            FILTER_A::LBFILT => 1,
-            FILTER_A::HBFILT => 2,
-            FILTER_A::HDFILT => 3,
-        }
+    fn from(variant: FILTER_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `FILTER`"]
@@ -76,9 +72,8 @@ impl<'a> FILTER_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: FILTER_A) -> &'a mut W {
-        use crate::ToBits;
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "Default Filter Mode"]
@@ -156,24 +151,21 @@ impl<'a> WUF_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `REFCLK`"]
+#[doc = "Reference Clock Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum REFCLK_A {
-    #[doc = "XOSC32K Clock Reference"]
-    XOSC32K,
-    #[doc = "XOSC Clock Reference"]
-    XOSC,
-    #[doc = "GCLK Clock Reference"]
-    GCLK,
+    #[doc = "0: XOSC32K Clock Reference"]
+    XOSC32K = 0,
+    #[doc = "1: XOSC Clock Reference"]
+    XOSC = 1,
+    #[doc = "2: GCLK Clock Reference"]
+    GCLK = 2,
 }
-impl crate::ToBits<u8> for REFCLK_A {
+impl From<REFCLK_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            REFCLK_A::XOSC32K => 0,
-            REFCLK_A::XOSC => 1,
-            REFCLK_A::GCLK => 2,
-        }
+    fn from(variant: REFCLK_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `REFCLK`"]
@@ -214,8 +206,7 @@ impl<'a> REFCLK_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: REFCLK_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "XOSC32K Clock Reference"]
     #[inline(always)]
@@ -239,30 +230,25 @@ impl<'a> REFCLK_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `LTIME`"]
+#[doc = "Lock Time\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum LTIME_A {
-    #[doc = "No time-out. Automatic lock"]
-    DEFAULT,
-    #[doc = "Time-out if no lock within 8 ms"]
-    _8MS,
-    #[doc = "Time-out if no lock within 9 ms"]
-    _9MS,
-    #[doc = "Time-out if no lock within 10 ms"]
-    _10MS,
-    #[doc = "Time-out if no lock within 11 ms"]
-    _11MS,
+    #[doc = "0: No time-out. Automatic lock"]
+    DEFAULT = 0,
+    #[doc = "4: Time-out if no lock within 8 ms"]
+    _8MS = 4,
+    #[doc = "5: Time-out if no lock within 9 ms"]
+    _9MS = 5,
+    #[doc = "6: Time-out if no lock within 10 ms"]
+    _10MS = 6,
+    #[doc = "7: Time-out if no lock within 11 ms"]
+    _11MS = 7,
 }
-impl crate::ToBits<u8> for LTIME_A {
+impl From<LTIME_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            LTIME_A::DEFAULT => 0,
-            LTIME_A::_8MS => 4,
-            LTIME_A::_9MS => 5,
-            LTIME_A::_10MS => 6,
-            LTIME_A::_11MS => 7,
-        }
+    fn from(variant: LTIME_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `LTIME`"]
@@ -315,8 +301,7 @@ impl<'a> LTIME_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: LTIME_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "No time-out. Automatic lock"]
     #[inline(always)]

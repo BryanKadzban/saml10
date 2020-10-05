@@ -24,24 +24,21 @@ impl<'a> AOFFSET_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `ARRAY`"]
+#[doc = "Array Select\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum ARRAY_A {
-    #[doc = "FLASH Array"]
-    FLASH,
-    #[doc = "DATA FLASH Array"]
-    DATAFLASH,
-    #[doc = "Auxilliary Space"]
-    AUX,
+    #[doc = "0: FLASH Array"]
+    FLASH = 0,
+    #[doc = "1: DATA FLASH Array"]
+    DATAFLASH = 1,
+    #[doc = "2: Auxilliary Space"]
+    AUX = 2,
 }
-impl crate::ToBits<u8> for ARRAY_A {
+impl From<ARRAY_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            ARRAY_A::FLASH => 0,
-            ARRAY_A::DATAFLASH => 1,
-            ARRAY_A::AUX => 2,
-        }
+    fn from(variant: ARRAY_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `ARRAY`"]
@@ -82,8 +79,7 @@ impl<'a> ARRAY_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: ARRAY_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "FLASH Array"]
     #[inline(always)]

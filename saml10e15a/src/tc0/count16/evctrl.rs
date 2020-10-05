@@ -10,39 +10,31 @@ impl crate::ResetValue for super::EVCTRL {
         0
     }
 }
-#[doc = "Possible values of the field `EVACT`"]
+#[doc = "Event Action\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum EVACT_A {
-    #[doc = "Event action disabled"]
-    OFF,
-    #[doc = "Start, restart or retrigger TC on event"]
-    RETRIGGER,
-    #[doc = "Count on event"]
-    COUNT,
-    #[doc = "Start TC on event"]
-    START,
-    #[doc = "Time stamp capture"]
-    STAMP,
-    #[doc = "Period catured in CC0, pulse width in CC1"]
-    PPW,
-    #[doc = "Period catured in CC1, pulse width in CC0"]
-    PWP,
-    #[doc = "Pulse width capture"]
-    PW,
+    #[doc = "0: Event action disabled"]
+    OFF = 0,
+    #[doc = "1: Start, restart or retrigger TC on event"]
+    RETRIGGER = 1,
+    #[doc = "2: Count on event"]
+    COUNT = 2,
+    #[doc = "3: Start TC on event"]
+    START = 3,
+    #[doc = "4: Time stamp capture"]
+    STAMP = 4,
+    #[doc = "5: Period catured in CC0, pulse width in CC1"]
+    PPW = 5,
+    #[doc = "6: Period catured in CC1, pulse width in CC0"]
+    PWP = 6,
+    #[doc = "7: Pulse width capture"]
+    PW = 7,
 }
-impl crate::ToBits<u8> for EVACT_A {
+impl From<EVACT_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            EVACT_A::OFF => 0,
-            EVACT_A::RETRIGGER => 1,
-            EVACT_A::COUNT => 2,
-            EVACT_A::START => 3,
-            EVACT_A::STAMP => 4,
-            EVACT_A::PPW => 5,
-            EVACT_A::PWP => 6,
-            EVACT_A::PW => 7,
-        }
+    fn from(variant: EVACT_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `EVACT`"]
@@ -112,9 +104,8 @@ impl<'a> EVACT_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: EVACT_A) -> &'a mut W {
-        use crate::ToBits;
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "Event action disabled"]

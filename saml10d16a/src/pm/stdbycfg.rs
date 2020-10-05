@@ -10,21 +10,18 @@ impl crate::ResetValue for super::STDBYCFG {
         0
     }
 }
-#[doc = "Possible values of the field `PDCFG`"]
+#[doc = "Power Domain Configuration\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum PDCFG_A {
-    #[doc = "PDSW power domain switching is handled by hardware."]
-    DEFAULT,
-    #[doc = "PDSW is forced ACTIVE."]
-    PDSW,
+    #[doc = "0: PDSW power domain switching is handled by hardware."]
+    DEFAULT = 0,
+    #[doc = "1: PDSW is forced ACTIVE."]
+    PDSW = 1,
 }
-impl crate::ToBits<bool> for PDCFG_A {
+impl From<PDCFG_A> for bool {
     #[inline(always)]
-    fn _bits(&self) -> bool {
-        match *self {
-            PDCFG_A::DEFAULT => false,
-            PDCFG_A::PDSW => true,
-        }
+    fn from(variant: PDCFG_A) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `PDCFG`"]
@@ -57,9 +54,8 @@ impl<'a> PDCFG_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: PDCFG_A) -> &'a mut W {
-        use crate::ToBits;
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "PDSW power domain switching is handled by hardware."]
@@ -89,21 +85,18 @@ impl<'a> PDCFG_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `DPGPDSW`"]
+#[doc = "Dynamic Power Gating for PDSW\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub enum DPGPDSW_A {
-    #[doc = "Dynamic Power Gating disabled"]
-    _0,
-    #[doc = "Dynamic Power Gating enabled"]
-    _1,
+    #[doc = "0: Dynamic Power Gating disabled"]
+    _0 = 0,
+    #[doc = "1: Dynamic Power Gating enabled"]
+    _1 = 1,
 }
-impl crate::ToBits<bool> for DPGPDSW_A {
+impl From<DPGPDSW_A> for bool {
     #[inline(always)]
-    fn _bits(&self) -> bool {
-        match *self {
-            DPGPDSW_A::_0 => false,
-            DPGPDSW_A::_1 => true,
-        }
+    fn from(variant: DPGPDSW_A) -> Self {
+        variant as u8 != 0
     }
 }
 #[doc = "Reader of field `DPGPDSW`"]
@@ -136,9 +129,8 @@ impl<'a> DPGPDSW_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DPGPDSW_A) -> &'a mut W {
-        use crate::ToBits;
         {
-            self.bit(variant._bits())
+            self.bit(variant.into())
         }
     }
     #[doc = "Dynamic Power Gating disabled"]
@@ -168,24 +160,21 @@ impl<'a> DPGPDSW_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `VREGSMOD`"]
+#[doc = "Voltage Regulator Standby mode\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum VREGSMOD_A {
-    #[doc = "Automatic mode"]
-    AUTO,
-    #[doc = "Performance oriented"]
-    PERFORMANCE,
-    #[doc = "Low Power oriented"]
-    LP,
+    #[doc = "0: Automatic mode"]
+    AUTO = 0,
+    #[doc = "1: Performance oriented"]
+    PERFORMANCE = 1,
+    #[doc = "2: Low Power oriented"]
+    LP = 2,
 }
-impl crate::ToBits<u8> for VREGSMOD_A {
+impl From<VREGSMOD_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            VREGSMOD_A::AUTO => 0,
-            VREGSMOD_A::PERFORMANCE => 1,
-            VREGSMOD_A::LP => 2,
-        }
+    fn from(variant: VREGSMOD_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `VREGSMOD`"]
@@ -226,8 +215,7 @@ impl<'a> VREGSMOD_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: VREGSMOD_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Automatic mode"]
     #[inline(always)]

@@ -10,36 +10,29 @@ impl crate::ResetValue for super::MASK {
         0
     }
 }
-#[doc = "Possible values of the field `SEL`"]
+#[doc = "Alarm Mask Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SEL_A {
-    #[doc = "Alarm Disabled"]
-    OFF,
-    #[doc = "Match seconds only"]
-    SS,
-    #[doc = "Match seconds and minutes only"]
-    MMSS,
-    #[doc = "Match seconds, minutes, and hours only"]
-    HHMMSS,
-    #[doc = "Match seconds, minutes, hours, and days only"]
-    DDHHMMSS,
-    #[doc = "Match seconds, minutes, hours, days, and months only"]
-    MMDDHHMMSS,
-    #[doc = "Match seconds, minutes, hours, days, months, and years"]
-    YYMMDDHHMMSS,
+    #[doc = "0: Alarm Disabled"]
+    OFF = 0,
+    #[doc = "1: Match seconds only"]
+    SS = 1,
+    #[doc = "2: Match seconds and minutes only"]
+    MMSS = 2,
+    #[doc = "3: Match seconds, minutes, and hours only"]
+    HHMMSS = 3,
+    #[doc = "4: Match seconds, minutes, hours, and days only"]
+    DDHHMMSS = 4,
+    #[doc = "5: Match seconds, minutes, hours, days, and months only"]
+    MMDDHHMMSS = 5,
+    #[doc = "6: Match seconds, minutes, hours, days, months, and years"]
+    YYMMDDHHMMSS = 6,
 }
-impl crate::ToBits<u8> for SEL_A {
+impl From<SEL_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            SEL_A::OFF => 0,
-            SEL_A::SS => 1,
-            SEL_A::MMSS => 2,
-            SEL_A::HHMMSS => 3,
-            SEL_A::DDHHMMSS => 4,
-            SEL_A::MMDDHHMMSS => 5,
-            SEL_A::YYMMDDHHMMSS => 6,
-        }
+    fn from(variant: SEL_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `SEL`"]
@@ -104,8 +97,7 @@ impl<'a> SEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SEL_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Alarm Disabled"]
     #[inline(always)]

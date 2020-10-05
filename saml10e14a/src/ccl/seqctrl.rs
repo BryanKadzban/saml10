@@ -2,7 +2,8 @@
 pub type R = crate::R<u8, super::SEQCTRL>;
 #[doc = "Writer for register SEQCTRL[%s]"]
 pub type W = crate::W<u8, super::SEQCTRL>;
-#[doc = "Register SEQCTRL[%s] `reset()`'s with value 0"]
+#[doc = "Register SEQCTRL[%s]
+`reset()`'s with value 0"]
 impl crate::ResetValue for super::SEQCTRL {
     type Type = u8;
     #[inline(always)]
@@ -10,30 +11,25 @@ impl crate::ResetValue for super::SEQCTRL {
         0
     }
 }
-#[doc = "Possible values of the field `SEQSEL`"]
+#[doc = "Sequential Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SEQSEL_A {
-    #[doc = "Sequential logic is disabled"]
-    DISABLE,
-    #[doc = "D flip flop"]
-    DFF,
-    #[doc = "JK flip flop"]
-    JK,
-    #[doc = "D latch"]
-    LATCH,
-    #[doc = "RS latch"]
-    RS,
+    #[doc = "0: Sequential logic is disabled"]
+    DISABLE = 0,
+    #[doc = "1: D flip flop"]
+    DFF = 1,
+    #[doc = "2: JK flip flop"]
+    JK = 2,
+    #[doc = "3: D latch"]
+    LATCH = 3,
+    #[doc = "4: RS latch"]
+    RS = 4,
 }
-impl crate::ToBits<u8> for SEQSEL_A {
+impl From<SEQSEL_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            SEQSEL_A::DISABLE => 0,
-            SEQSEL_A::DFF => 1,
-            SEQSEL_A::JK => 2,
-            SEQSEL_A::LATCH => 3,
-            SEQSEL_A::RS => 4,
-        }
+    fn from(variant: SEQSEL_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `SEQSEL`"]
@@ -86,8 +82,7 @@ impl<'a> SEQSEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SEQSEL_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Sequential logic is disabled"]
     #[inline(always)]

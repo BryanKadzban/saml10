@@ -10,51 +10,39 @@ impl crate::ResetValue for super::EWCTRL {
         0x0b
     }
 }
-#[doc = "Possible values of the field `EWOFFSET`"]
+#[doc = "Early Warning Interrupt Time Offset\n\nValue on reset: 11"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum EWOFFSET_A {
-    #[doc = "8 clock cycles"]
-    CYC8,
-    #[doc = "16 clock cycles"]
-    CYC16,
-    #[doc = "32 clock cycles"]
-    CYC32,
-    #[doc = "64 clock cycles"]
-    CYC64,
-    #[doc = "128 clock cycles"]
-    CYC128,
-    #[doc = "256 clock cycles"]
-    CYC256,
-    #[doc = "512 clock cycles"]
-    CYC512,
-    #[doc = "1024 clock cycles"]
-    CYC1024,
-    #[doc = "2048 clock cycles"]
-    CYC2048,
-    #[doc = "4096 clock cycles"]
-    CYC4096,
-    #[doc = "8192 clock cycles"]
-    CYC8192,
-    #[doc = "16384 clock cycles"]
-    CYC16384,
+    #[doc = "0: 8 clock cycles"]
+    CYC8 = 0,
+    #[doc = "1: 16 clock cycles"]
+    CYC16 = 1,
+    #[doc = "2: 32 clock cycles"]
+    CYC32 = 2,
+    #[doc = "3: 64 clock cycles"]
+    CYC64 = 3,
+    #[doc = "4: 128 clock cycles"]
+    CYC128 = 4,
+    #[doc = "5: 256 clock cycles"]
+    CYC256 = 5,
+    #[doc = "6: 512 clock cycles"]
+    CYC512 = 6,
+    #[doc = "7: 1024 clock cycles"]
+    CYC1024 = 7,
+    #[doc = "8: 2048 clock cycles"]
+    CYC2048 = 8,
+    #[doc = "9: 4096 clock cycles"]
+    CYC4096 = 9,
+    #[doc = "10: 8192 clock cycles"]
+    CYC8192 = 10,
+    #[doc = "11: 16384 clock cycles"]
+    CYC16384 = 11,
 }
-impl crate::ToBits<u8> for EWOFFSET_A {
+impl From<EWOFFSET_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            EWOFFSET_A::CYC8 => 0,
-            EWOFFSET_A::CYC16 => 1,
-            EWOFFSET_A::CYC32 => 2,
-            EWOFFSET_A::CYC64 => 3,
-            EWOFFSET_A::CYC128 => 4,
-            EWOFFSET_A::CYC256 => 5,
-            EWOFFSET_A::CYC512 => 6,
-            EWOFFSET_A::CYC1024 => 7,
-            EWOFFSET_A::CYC2048 => 8,
-            EWOFFSET_A::CYC4096 => 9,
-            EWOFFSET_A::CYC8192 => 10,
-            EWOFFSET_A::CYC16384 => 11,
-        }
+    fn from(variant: EWOFFSET_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `EWOFFSET`"]
@@ -149,8 +137,7 @@ impl<'a> EWOFFSET_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: EWOFFSET_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "8 clock cycles"]
     #[inline(always)]

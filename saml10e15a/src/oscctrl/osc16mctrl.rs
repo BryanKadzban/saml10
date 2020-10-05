@@ -34,27 +34,23 @@ impl<'a> ENABLE_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `FSEL`"]
+#[doc = "Oscillator Frequency Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum FSEL_A {
-    #[doc = "4MHz"]
-    _4,
-    #[doc = "8MHz"]
-    _8,
-    #[doc = "12MHz"]
-    _12,
-    #[doc = "16MHz"]
-    _16,
+    #[doc = "0: 4MHz"]
+    _4 = 0,
+    #[doc = "1: 8MHz"]
+    _8 = 1,
+    #[doc = "2: 12MHz"]
+    _12 = 2,
+    #[doc = "3: 16MHz"]
+    _16 = 3,
 }
-impl crate::ToBits<u8> for FSEL_A {
+impl From<FSEL_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            FSEL_A::_4 => 0,
-            FSEL_A::_8 => 1,
-            FSEL_A::_12 => 2,
-            FSEL_A::_16 => 3,
-        }
+    fn from(variant: FSEL_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `FSEL`"]
@@ -100,9 +96,8 @@ impl<'a> FSEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: FSEL_A) -> &'a mut W {
-        use crate::ToBits;
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "4MHz"]

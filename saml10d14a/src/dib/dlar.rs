@@ -8,18 +8,17 @@ impl crate::ResetValue for super::DLAR {
         0
     }
 }
-#[doc = "Possible values of the field `KEY`"]
+#[doc = "Lock access control\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u32)]
 pub enum KEY_AW {
-    #[doc = "Unlock key value"]
-    UNLOCK,
+    #[doc = "3316436565: Unlock key value"]
+    UNLOCK = 3316436565,
 }
-impl crate::ToBits<u32> for KEY_AW {
+impl From<KEY_AW> for u32 {
     #[inline(always)]
-    fn _bits(&self) -> u32 {
-        match *self {
-            KEY_AW::UNLOCK => 3316436565,
-        }
+    fn from(variant: KEY_AW) -> Self {
+        variant as _
     }
 }
 #[doc = "Write proxy for field `KEY`"]
@@ -30,8 +29,7 @@ impl<'a> KEY_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: KEY_AW) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Unlock key value"]
     #[inline(always)]

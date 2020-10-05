@@ -24,39 +24,31 @@ impl<'a> FLASHP_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `PSZ`"]
+#[doc = "Page Size\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PSZ_A {
-    #[doc = "8 bytes"]
-    _8,
-    #[doc = "16 bytes"]
-    _16,
-    #[doc = "32 bytes"]
-    _32,
-    #[doc = "64 bytes"]
-    _64,
-    #[doc = "128 bytes"]
-    _128,
-    #[doc = "256 bytes"]
-    _256,
-    #[doc = "512 bytes"]
-    _512,
-    #[doc = "1024 bytes"]
-    _1024,
+    #[doc = "0: 8 bytes"]
+    _8 = 0,
+    #[doc = "1: 16 bytes"]
+    _16 = 1,
+    #[doc = "2: 32 bytes"]
+    _32 = 2,
+    #[doc = "3: 64 bytes"]
+    _64 = 3,
+    #[doc = "4: 128 bytes"]
+    _128 = 4,
+    #[doc = "5: 256 bytes"]
+    _256 = 5,
+    #[doc = "6: 512 bytes"]
+    _512 = 6,
+    #[doc = "7: 1024 bytes"]
+    _1024 = 7,
 }
-impl crate::ToBits<u8> for PSZ_A {
+impl From<PSZ_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            PSZ_A::_8 => 0,
-            PSZ_A::_16 => 1,
-            PSZ_A::_32 => 2,
-            PSZ_A::_64 => 3,
-            PSZ_A::_128 => 4,
-            PSZ_A::_256 => 5,
-            PSZ_A::_512 => 6,
-            PSZ_A::_1024 => 7,
-        }
+    fn from(variant: PSZ_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `PSZ`"]
@@ -126,9 +118,8 @@ impl<'a> PSZ_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: PSZ_A) -> &'a mut W {
-        use crate::ToBits;
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "8 bytes"]

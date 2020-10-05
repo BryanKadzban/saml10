@@ -58,24 +58,21 @@ impl<'a> HYST_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `ACTION`"]
+#[doc = "Action when Threshold Crossed\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum ACTION_A {
-    #[doc = "No action"]
-    NONE,
-    #[doc = "The BOD12 generates a reset"]
-    RESET,
-    #[doc = "The BOD12 generates an interrupt"]
-    INT,
+    #[doc = "0: No action"]
+    NONE = 0,
+    #[doc = "1: The BOD12 generates a reset"]
+    RESET = 1,
+    #[doc = "2: The BOD12 generates an interrupt"]
+    INT = 2,
 }
-impl crate::ToBits<u8> for ACTION_A {
+impl From<ACTION_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            ACTION_A::NONE => 0,
-            ACTION_A::RESET => 1,
-            ACTION_A::INT => 2,
-        }
+    fn from(variant: ACTION_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `ACTION`"]
@@ -116,8 +113,7 @@ impl<'a> ACTION_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: ACTION_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "No action"]
     #[inline(always)]
@@ -213,63 +209,47 @@ impl<'a> ACTCFG_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `PSEL`"]
+#[doc = "Prescaler Select\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PSEL_A {
-    #[doc = "Divide clock by 2"]
-    DIV2,
-    #[doc = "Divide clock by 4"]
-    DIV4,
-    #[doc = "Divide clock by 8"]
-    DIV8,
-    #[doc = "Divide clock by 16"]
-    DIV16,
-    #[doc = "Divide clock by 32"]
-    DIV32,
-    #[doc = "Divide clock by 64"]
-    DIV64,
-    #[doc = "Divide clock by 128"]
-    DIV128,
-    #[doc = "Divide clock by 256"]
-    DIV256,
-    #[doc = "Divide clock by 512"]
-    DIV512,
-    #[doc = "Divide clock by 1024"]
-    DIV1024,
-    #[doc = "Divide clock by 2048"]
-    DIV2048,
-    #[doc = "Divide clock by 4096"]
-    DIV4096,
-    #[doc = "Divide clock by 8192"]
-    DIV8192,
-    #[doc = "Divide clock by 16384"]
-    DIV16384,
-    #[doc = "Divide clock by 32768"]
-    DIV32768,
-    #[doc = "Divide clock by 65536"]
-    DIV65536,
+    #[doc = "0: Divide clock by 2"]
+    DIV2 = 0,
+    #[doc = "1: Divide clock by 4"]
+    DIV4 = 1,
+    #[doc = "2: Divide clock by 8"]
+    DIV8 = 2,
+    #[doc = "3: Divide clock by 16"]
+    DIV16 = 3,
+    #[doc = "4: Divide clock by 32"]
+    DIV32 = 4,
+    #[doc = "5: Divide clock by 64"]
+    DIV64 = 5,
+    #[doc = "6: Divide clock by 128"]
+    DIV128 = 6,
+    #[doc = "7: Divide clock by 256"]
+    DIV256 = 7,
+    #[doc = "8: Divide clock by 512"]
+    DIV512 = 8,
+    #[doc = "9: Divide clock by 1024"]
+    DIV1024 = 9,
+    #[doc = "10: Divide clock by 2048"]
+    DIV2048 = 10,
+    #[doc = "11: Divide clock by 4096"]
+    DIV4096 = 11,
+    #[doc = "12: Divide clock by 8192"]
+    DIV8192 = 12,
+    #[doc = "13: Divide clock by 16384"]
+    DIV16384 = 13,
+    #[doc = "14: Divide clock by 32768"]
+    DIV32768 = 14,
+    #[doc = "15: Divide clock by 65536"]
+    DIV65536 = 15,
 }
-impl crate::ToBits<u8> for PSEL_A {
+impl From<PSEL_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            PSEL_A::DIV2 => 0,
-            PSEL_A::DIV4 => 1,
-            PSEL_A::DIV8 => 2,
-            PSEL_A::DIV16 => 3,
-            PSEL_A::DIV32 => 4,
-            PSEL_A::DIV64 => 5,
-            PSEL_A::DIV128 => 6,
-            PSEL_A::DIV256 => 7,
-            PSEL_A::DIV512 => 8,
-            PSEL_A::DIV1024 => 9,
-            PSEL_A::DIV2048 => 10,
-            PSEL_A::DIV4096 => 11,
-            PSEL_A::DIV8192 => 12,
-            PSEL_A::DIV16384 => 13,
-            PSEL_A::DIV32768 => 14,
-            PSEL_A::DIV65536 => 15,
-        }
+    fn from(variant: PSEL_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `PSEL`"]
@@ -387,9 +367,8 @@ impl<'a> PSEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: PSEL_A) -> &'a mut W {
-        use crate::ToBits;
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "Divide clock by 2"]

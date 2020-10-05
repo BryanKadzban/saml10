@@ -24,24 +24,21 @@ impl<'a> RWS_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `SLEEPPRM`"]
+#[doc = "Power Reduction Mode during Sleep\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SLEEPPRM_A {
-    #[doc = "NVM block enters low-power mode when entering sleep.NVM block exits low-power mode upon first access."]
-    WAKEONACCESS,
-    #[doc = "NVM block enters low-power mode when entering sleep.NVM block exits low-power mode when exiting sleep."]
-    WAKEUPINSTANT,
-    #[doc = "Auto power reduction disabled."]
-    DISABLED,
+    #[doc = "0: NVM block enters low-power mode when entering sleep.NVM block exits low-power mode upon first access."]
+    WAKEONACCESS = 0,
+    #[doc = "1: NVM block enters low-power mode when entering sleep.NVM block exits low-power mode when exiting sleep."]
+    WAKEUPINSTANT = 1,
+    #[doc = "3: Auto power reduction disabled."]
+    DISABLED = 3,
 }
-impl crate::ToBits<u8> for SLEEPPRM_A {
+impl From<SLEEPPRM_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            SLEEPPRM_A::WAKEONACCESS => 0,
-            SLEEPPRM_A::WAKEUPINSTANT => 1,
-            SLEEPPRM_A::DISABLED => 3,
-        }
+    fn from(variant: SLEEPPRM_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `SLEEPPRM`"]
@@ -82,8 +79,7 @@ impl<'a> SLEEPPRM_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SLEEPPRM_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "NVM block enters low-power mode when entering sleep.NVM block exits low-power mode upon first access."]
     #[inline(always)]
@@ -131,24 +127,21 @@ impl<'a> FWUP_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `READMODE`"]
+#[doc = "NVMCTRL Read Mode\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum READMODE_A {
-    #[doc = "The NVM Controller (cache system) does not insert wait states on a cache miss. Gives the best system performance."]
-    NO_MISS_PENALTY,
-    #[doc = "Reduces power consumption of the cache system, but inserts a wait state each time there is a cache miss. This mode may not be relevant if CPU performance is required, as the application will be stalled and may lead to increase run time."]
-    LOW_POWER,
-    #[doc = "The cache system ensures that a cache hit or miss takes the same amount of time, determined by the number of programmed flash wait states. This mode can be used for real-time applications that require deterministic execution timings."]
-    DETERMINISTIC,
+    #[doc = "0: The NVM Controller (cache system) does not insert wait states on a cache miss. Gives the best system performance."]
+    NO_MISS_PENALTY = 0,
+    #[doc = "1: Reduces power consumption of the cache system, but inserts a wait state each time there is a cache miss. This mode may not be relevant if CPU performance is required, as the application will be stalled and may lead to increase run time."]
+    LOW_POWER = 1,
+    #[doc = "2: The cache system ensures that a cache hit or miss takes the same amount of time, determined by the number of programmed flash wait states. This mode can be used for real-time applications that require deterministic execution timings."]
+    DETERMINISTIC = 2,
 }
-impl crate::ToBits<u8> for READMODE_A {
+impl From<READMODE_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            READMODE_A::NO_MISS_PENALTY => 0,
-            READMODE_A::LOW_POWER => 1,
-            READMODE_A::DETERMINISTIC => 2,
-        }
+    fn from(variant: READMODE_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `READMODE`"]
@@ -189,8 +182,7 @@ impl<'a> READMODE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: READMODE_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "The NVM Controller (cache system) does not insert wait states on a cache miss. Gives the best system performance."]
     #[inline(always)]

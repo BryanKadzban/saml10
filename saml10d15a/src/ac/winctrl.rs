@@ -34,27 +34,23 @@ impl<'a> WEN0_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `WINTSEL0`"]
+#[doc = "Window 0 Interrupt Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum WINTSEL0_A {
-    #[doc = "Interrupt on signal above window"]
-    ABOVE,
-    #[doc = "Interrupt on signal inside window"]
-    INSIDE,
-    #[doc = "Interrupt on signal below window"]
-    BELOW,
-    #[doc = "Interrupt on signal outside window"]
-    OUTSIDE,
+    #[doc = "0: Interrupt on signal above window"]
+    ABOVE = 0,
+    #[doc = "1: Interrupt on signal inside window"]
+    INSIDE = 1,
+    #[doc = "2: Interrupt on signal below window"]
+    BELOW = 2,
+    #[doc = "3: Interrupt on signal outside window"]
+    OUTSIDE = 3,
 }
-impl crate::ToBits<u8> for WINTSEL0_A {
+impl From<WINTSEL0_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            WINTSEL0_A::ABOVE => 0,
-            WINTSEL0_A::INSIDE => 1,
-            WINTSEL0_A::BELOW => 2,
-            WINTSEL0_A::OUTSIDE => 3,
-        }
+    fn from(variant: WINTSEL0_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `WINTSEL0`"]
@@ -100,9 +96,8 @@ impl<'a> WINTSEL0_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WINTSEL0_A) -> &'a mut W {
-        use crate::ToBits;
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "Interrupt on signal above window"]

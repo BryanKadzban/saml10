@@ -24,27 +24,23 @@ impl<'a> PID0_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `EVACT0`"]
+#[doc = "PORT Event Action 0\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum EVACT0_A {
-    #[doc = "Event output to pin"]
-    OUT,
-    #[doc = "Set output register of pin on event"]
-    SET,
-    #[doc = "Clear output register of pin on event"]
-    CLR,
-    #[doc = "Toggle output register of pin on event"]
-    TGL,
+    #[doc = "0: Event output to pin"]
+    OUT = 0,
+    #[doc = "1: Set output register of pin on event"]
+    SET = 1,
+    #[doc = "2: Clear output register of pin on event"]
+    CLR = 2,
+    #[doc = "3: Toggle output register of pin on event"]
+    TGL = 3,
 }
-impl crate::ToBits<u8> for EVACT0_A {
+impl From<EVACT0_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            EVACT0_A::OUT => 0,
-            EVACT0_A::SET => 1,
-            EVACT0_A::CLR => 2,
-            EVACT0_A::TGL => 3,
-        }
+    fn from(variant: EVACT0_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `EVACT0`"]
@@ -90,9 +86,8 @@ impl<'a> EVACT0_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: EVACT0_A) -> &'a mut W {
-        use crate::ToBits;
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "Event output to pin"]

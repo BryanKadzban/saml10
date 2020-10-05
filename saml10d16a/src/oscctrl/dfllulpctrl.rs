@@ -154,33 +154,27 @@ impl<'a> ONDEMAND_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `DIV`"]
+#[doc = "Division Factor\n\nValue on reset: 5"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum DIV_A {
-    #[doc = "Frequency Divided by 1"]
-    DIV1,
-    #[doc = "Frequency Divided by 2"]
-    DIV2,
-    #[doc = "Frequency Divided by 4"]
-    DIV4,
-    #[doc = "Frequency Divided by 8"]
-    DIV8,
-    #[doc = "Frequency Divided by 16"]
-    DIV16,
-    #[doc = "Frequency Divided by 32"]
-    DIV32,
+    #[doc = "0: Frequency Divided by 1"]
+    DIV1 = 0,
+    #[doc = "1: Frequency Divided by 2"]
+    DIV2 = 1,
+    #[doc = "2: Frequency Divided by 4"]
+    DIV4 = 2,
+    #[doc = "3: Frequency Divided by 8"]
+    DIV8 = 3,
+    #[doc = "4: Frequency Divided by 16"]
+    DIV16 = 4,
+    #[doc = "5: Frequency Divided by 32"]
+    DIV32 = 5,
 }
-impl crate::ToBits<u8> for DIV_A {
+impl From<DIV_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            DIV_A::DIV1 => 0,
-            DIV_A::DIV2 => 1,
-            DIV_A::DIV4 => 2,
-            DIV_A::DIV8 => 3,
-            DIV_A::DIV16 => 4,
-            DIV_A::DIV32 => 5,
-        }
+    fn from(variant: DIV_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `DIV`"]
@@ -239,8 +233,7 @@ impl<'a> DIV_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DIV_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Frequency Divided by 1"]
     #[inline(always)]

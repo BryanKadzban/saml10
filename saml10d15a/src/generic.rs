@@ -17,11 +17,6 @@ pub trait ResetValue {
     #[doc = "Reset value of the register"]
     fn reset_value() -> Self::Type;
 }
-#[doc = "Converting enumerated values to bits"]
-pub trait ToBits<N> {
-    #[doc = "Conversion method"]
-    fn _bits(&self) -> N;
-}
 #[doc = "This structure provides volatile access to register"]
 pub struct Reg<U, REG> {
     register: vcell::VolatileCell<U>,
@@ -194,11 +189,11 @@ where
 impl<U, T, FI> PartialEq<FI> for R<U, T>
 where
     U: PartialEq,
-    FI: ToBits<U>,
+    FI: Copy + Into<U>,
 {
     #[inline(always)]
     fn eq(&self, other: &FI) -> bool {
-        self.bits.eq(&other._bits())
+        self.bits.eq(&(*other).into())
     }
 }
 impl<FI> R<bool, FI> {

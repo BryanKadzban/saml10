@@ -10,24 +10,21 @@ impl crate::ResetValue for super::SLEEPCFG {
         0x02
     }
 }
-#[doc = "Possible values of the field `SLEEPMODE`"]
+#[doc = "Sleep Mode\n\nValue on reset: 2"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SLEEPMODE_A {
-    #[doc = "CPU, AHB, APB clocks are OFF"]
-    IDLE,
-    #[doc = "All Clocks are OFF"]
-    STANDBY,
-    #[doc = "All power domains are powered OFF"]
-    OFF,
+    #[doc = "2: CPU, AHB, APB clocks are OFF"]
+    IDLE = 2,
+    #[doc = "4: All Clocks are OFF"]
+    STANDBY = 4,
+    #[doc = "6: All power domains are powered OFF"]
+    OFF = 6,
 }
-impl crate::ToBits<u8> for SLEEPMODE_A {
+impl From<SLEEPMODE_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            SLEEPMODE_A::IDLE => 2,
-            SLEEPMODE_A::STANDBY => 4,
-            SLEEPMODE_A::OFF => 6,
-        }
+    fn from(variant: SLEEPMODE_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `SLEEPMODE`"]
@@ -68,8 +65,7 @@ impl<'a> SLEEPMODE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SLEEPMODE_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "CPU, AHB, APB clocks are OFF"]
     #[inline(always)]

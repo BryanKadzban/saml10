@@ -2,7 +2,8 @@
 pub type R = crate::R<u32, super::NSCHKUSER>;
 #[doc = "Writer for register NSCHKUSER[%s]"]
 pub type W = crate::W<u32, super::NSCHKUSER>;
-#[doc = "Register NSCHKUSER[%s] `reset()`'s with value 0"]
+#[doc = "Register NSCHKUSER[%s]
+`reset()`'s with value 0"]
 impl crate::ResetValue for super::NSCHKUSER {
     type Type = u32;
     #[inline(always)]

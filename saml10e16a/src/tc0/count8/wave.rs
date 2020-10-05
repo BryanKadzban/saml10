@@ -10,27 +10,23 @@ impl crate::ResetValue for super::WAVE {
         0
     }
 }
-#[doc = "Possible values of the field `WAVEGEN`"]
+#[doc = "Waveform Generation Mode\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum WAVEGEN_A {
-    #[doc = "Normal frequency"]
-    NFRQ,
-    #[doc = "Match frequency"]
-    MFRQ,
-    #[doc = "Normal PWM"]
-    NPWM,
-    #[doc = "Match PWM"]
-    MPWM,
+    #[doc = "0: Normal frequency"]
+    NFRQ = 0,
+    #[doc = "1: Match frequency"]
+    MFRQ = 1,
+    #[doc = "2: Normal PWM"]
+    NPWM = 2,
+    #[doc = "3: Match PWM"]
+    MPWM = 3,
 }
-impl crate::ToBits<u8> for WAVEGEN_A {
+impl From<WAVEGEN_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            WAVEGEN_A::NFRQ => 0,
-            WAVEGEN_A::MFRQ => 1,
-            WAVEGEN_A::NPWM => 2,
-            WAVEGEN_A::MPWM => 3,
-        }
+    fn from(variant: WAVEGEN_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `WAVEGEN`"]
@@ -76,9 +72,8 @@ impl<'a> WAVEGEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WAVEGEN_A) -> &'a mut W {
-        use crate::ToBits;
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "Normal frequency"]

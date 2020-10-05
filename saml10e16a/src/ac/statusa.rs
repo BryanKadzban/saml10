@@ -4,24 +4,21 @@ pub type R = crate::R<u8, super::STATUSA>;
 pub type STATE0_R = crate::R<bool, bool>;
 #[doc = "Reader of field `STATE1`"]
 pub type STATE1_R = crate::R<bool, bool>;
-#[doc = "Possible values of the field `WSTATE0`"]
+#[doc = "Window 0 Current State\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum WSTATE0_A {
-    #[doc = "Signal is above window"]
-    ABOVE,
-    #[doc = "Signal is inside window"]
-    INSIDE,
-    #[doc = "Signal is below window"]
-    BELOW,
+    #[doc = "0: Signal is above window"]
+    ABOVE = 0,
+    #[doc = "1: Signal is inside window"]
+    INSIDE = 1,
+    #[doc = "2: Signal is below window"]
+    BELOW = 2,
 }
-impl crate::ToBits<u8> for WSTATE0_A {
+impl From<WSTATE0_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            WSTATE0_A::ABOVE => 0,
-            WSTATE0_A::INSIDE => 1,
-            WSTATE0_A::BELOW => 2,
-        }
+    fn from(variant: WSTATE0_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `WSTATE0`"]

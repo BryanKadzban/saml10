@@ -7,7 +7,7 @@ pub struct RegisterBlock {
     #[doc = "0x08 - Auxiliary Control Register"]
     pub actlr: ACTLR,
 }
-#[doc = "Interrupt Controller Type Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [ictr](ictr) module"]
+#[doc = "Interrupt Controller Type Register\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [ictr](ictr) module"]
 pub type ICTR = crate::Reg<u32, _ICTR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -16,7 +16,7 @@ pub struct _ICTR;
 impl crate::Readable for ICTR {}
 #[doc = "Interrupt Controller Type Register"]
 pub mod ictr;
-#[doc = "Auxiliary Control Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [actlr](actlr) module"]
+#[doc = "Auxiliary Control Register\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [actlr](actlr) module"]
 pub type ACTLR = crate::Reg<u32, _ACTLR>;
 #[allow(missing_docs)]
 #[doc(hidden)]

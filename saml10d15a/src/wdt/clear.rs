@@ -8,18 +8,17 @@ impl crate::ResetValue for super::CLEAR {
         0
     }
 }
-#[doc = "Possible values of the field `CLEAR`"]
+#[doc = "Watchdog Clear\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CLEAR_AW {
-    #[doc = "Clear Key"]
-    KEY,
+    #[doc = "165: Clear Key"]
+    KEY = 165,
 }
-impl crate::ToBits<u8> for CLEAR_AW {
+impl From<CLEAR_AW> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            CLEAR_AW::KEY => 165,
-        }
+    fn from(variant: CLEAR_AW) -> Self {
+        variant as _
     }
 }
 #[doc = "Write proxy for field `CLEAR`"]
@@ -30,8 +29,7 @@ impl<'a> CLEAR_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: CLEAR_AW) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Clear Key"]
     #[inline(always)]

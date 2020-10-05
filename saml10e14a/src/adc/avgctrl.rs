@@ -10,48 +10,37 @@ impl crate::ResetValue for super::AVGCTRL {
         0
     }
 }
-#[doc = "Possible values of the field `SAMPLENUM`"]
+#[doc = "Number of Samples to be Collected\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SAMPLENUM_A {
-    #[doc = "1 sample"]
-    _1,
-    #[doc = "2 samples"]
-    _2,
-    #[doc = "4 samples"]
-    _4,
-    #[doc = "8 samples"]
-    _8,
-    #[doc = "16 samples"]
-    _16,
-    #[doc = "32 samples"]
-    _32,
-    #[doc = "64 samples"]
-    _64,
-    #[doc = "128 samples"]
-    _128,
-    #[doc = "256 samples"]
-    _256,
-    #[doc = "512 samples"]
-    _512,
-    #[doc = "1024 samples"]
-    _1024,
+    #[doc = "0: 1 sample"]
+    _1 = 0,
+    #[doc = "1: 2 samples"]
+    _2 = 1,
+    #[doc = "2: 4 samples"]
+    _4 = 2,
+    #[doc = "3: 8 samples"]
+    _8 = 3,
+    #[doc = "4: 16 samples"]
+    _16 = 4,
+    #[doc = "5: 32 samples"]
+    _32 = 5,
+    #[doc = "6: 64 samples"]
+    _64 = 6,
+    #[doc = "7: 128 samples"]
+    _128 = 7,
+    #[doc = "8: 256 samples"]
+    _256 = 8,
+    #[doc = "9: 512 samples"]
+    _512 = 9,
+    #[doc = "10: 1024 samples"]
+    _1024 = 10,
 }
-impl crate::ToBits<u8> for SAMPLENUM_A {
+impl From<SAMPLENUM_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            SAMPLENUM_A::_1 => 0,
-            SAMPLENUM_A::_2 => 1,
-            SAMPLENUM_A::_4 => 2,
-            SAMPLENUM_A::_8 => 3,
-            SAMPLENUM_A::_16 => 4,
-            SAMPLENUM_A::_32 => 5,
-            SAMPLENUM_A::_64 => 6,
-            SAMPLENUM_A::_128 => 7,
-            SAMPLENUM_A::_256 => 8,
-            SAMPLENUM_A::_512 => 9,
-            SAMPLENUM_A::_1024 => 10,
-        }
+    fn from(variant: SAMPLENUM_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `SAMPLENUM`"]
@@ -140,8 +129,7 @@ impl<'a> SAMPLENUM_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SAMPLENUM_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "1 sample"]
     #[inline(always)]

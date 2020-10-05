@@ -10,33 +10,27 @@ impl crate::ResetValue for super::RTCCTRL {
         0
     }
 }
-#[doc = "Possible values of the field `RTCSEL`"]
+#[doc = "RTC Clock Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum RTCSEL_A {
-    #[doc = "1.024kHz from 32kHz internal ULP oscillator"]
-    ULP1K,
-    #[doc = "32.768kHz from 32kHz internal ULP oscillator"]
-    ULP32K,
-    #[doc = "1.024kHz from 32.768kHz internal oscillator"]
-    OSC1K,
-    #[doc = "32.768kHz from 32.768kHz internal oscillator"]
-    OSC32K,
-    #[doc = "1.024kHz from 32.768kHz internal oscillator"]
-    XOSC1K,
-    #[doc = "32.768kHz from 32.768kHz external crystal oscillator"]
-    XOSC32K,
+    #[doc = "0: 1.024kHz from 32kHz internal ULP oscillator"]
+    ULP1K = 0,
+    #[doc = "1: 32.768kHz from 32kHz internal ULP oscillator"]
+    ULP32K = 1,
+    #[doc = "2: 1.024kHz from 32.768kHz internal oscillator"]
+    OSC1K = 2,
+    #[doc = "3: 32.768kHz from 32.768kHz internal oscillator"]
+    OSC32K = 3,
+    #[doc = "4: 1.024kHz from 32.768kHz internal oscillator"]
+    XOSC1K = 4,
+    #[doc = "5: 32.768kHz from 32.768kHz external crystal oscillator"]
+    XOSC32K = 5,
 }
-impl crate::ToBits<u8> for RTCSEL_A {
+impl From<RTCSEL_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            RTCSEL_A::ULP1K => 0,
-            RTCSEL_A::ULP32K => 1,
-            RTCSEL_A::OSC1K => 2,
-            RTCSEL_A::OSC32K => 3,
-            RTCSEL_A::XOSC1K => 4,
-            RTCSEL_A::XOSC32K => 5,
-        }
+    fn from(variant: RTCSEL_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `RTCSEL`"]
@@ -95,8 +89,7 @@ impl<'a> RTCSEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: RTCSEL_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "1.024kHz from 32kHz internal ULP oscillator"]
     #[inline(always)]

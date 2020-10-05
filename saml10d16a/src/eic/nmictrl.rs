@@ -10,33 +10,27 @@ impl crate::ResetValue for super::NMICTRL {
         0
     }
 }
-#[doc = "Possible values of the field `NMISENSE`"]
+#[doc = "Non-Maskable Interrupt Sense Configuration\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum NMISENSE_A {
-    #[doc = "No detection"]
-    NONE,
-    #[doc = "Rising-edge detection"]
-    RISE,
-    #[doc = "Falling-edge detection"]
-    FALL,
-    #[doc = "Both-edges detection"]
-    BOTH,
-    #[doc = "High-level detection"]
-    HIGH,
-    #[doc = "Low-level detection"]
-    LOW,
+    #[doc = "0: No detection"]
+    NONE = 0,
+    #[doc = "1: Rising-edge detection"]
+    RISE = 1,
+    #[doc = "2: Falling-edge detection"]
+    FALL = 2,
+    #[doc = "3: Both-edges detection"]
+    BOTH = 3,
+    #[doc = "4: High-level detection"]
+    HIGH = 4,
+    #[doc = "5: Low-level detection"]
+    LOW = 5,
 }
-impl crate::ToBits<u8> for NMISENSE_A {
+impl From<NMISENSE_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            NMISENSE_A::NONE => 0,
-            NMISENSE_A::RISE => 1,
-            NMISENSE_A::FALL => 2,
-            NMISENSE_A::BOTH => 3,
-            NMISENSE_A::HIGH => 4,
-            NMISENSE_A::LOW => 5,
-        }
+    fn from(variant: NMISENSE_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `NMISENSE`"]
@@ -95,8 +89,7 @@ impl<'a> NMISENSE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: NMISENSE_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "No detection"]
     #[inline(always)]

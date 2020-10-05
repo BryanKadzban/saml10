@@ -10,13 +10,65 @@ impl crate::ResetValue for super::CTRLB {
         0
     }
 }
+#[doc = "Character Size\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
+pub enum CHSIZE_A {
+    #[doc = "0: 8 bit characters"]
+    EIGHTBIT = 0,
+    #[doc = "1: 9 bit characters"]
+    NINEBIT = 1,
+}
+impl From<CHSIZE_A> for u8 {
+    #[inline(always)]
+    fn from(variant: CHSIZE_A) -> Self {
+        variant as _
+    }
+}
 #[doc = "Reader of field `CHSIZE`"]
-pub type CHSIZE_R = crate::R<u8, u8>;
+pub type CHSIZE_R = crate::R<u8, CHSIZE_A>;
+impl CHSIZE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u8, CHSIZE_A> {
+        use crate::Variant::*;
+        match self.bits {
+            0 => Val(CHSIZE_A::EIGHTBIT),
+            1 => Val(CHSIZE_A::NINEBIT),
+            i => Res(i),
+        }
+    }
+    #[doc = "Checks if the value of the field is `EIGHTBIT`"]
+    #[inline(always)]
+    pub fn is_eightbit(&self) -> bool {
+        *self == CHSIZE_A::EIGHTBIT
+    }
+    #[doc = "Checks if the value of the field is `NINEBIT`"]
+    #[inline(always)]
+    pub fn is_ninebit(&self) -> bool {
+        *self == CHSIZE_A::NINEBIT
+    }
+}
 #[doc = "Write proxy for field `CHSIZE`"]
 pub struct CHSIZE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> CHSIZE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: CHSIZE_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
+    }
+    #[doc = "8 bit characters"]
+    #[inline(always)]
+    pub fn eightbit(self) -> &'a mut W {
+        self.variant(CHSIZE_A::EIGHTBIT)
+    }
+    #[doc = "9 bit characters"]
+    #[inline(always)]
+    pub fn ninebit(self) -> &'a mut W {
+        self.variant(CHSIZE_A::NINEBIT)
+    }
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {
@@ -96,13 +148,80 @@ impl<'a> MSSEN_W<'a> {
         self.w
     }
 }
+#[doc = "Address Mode\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
+pub enum AMODE_A {
+    #[doc = "0: ADDRMASK is used as a mask of the ADDR register"]
+    MASK = 0,
+    #[doc = "1: The slave responds to two unique addresses in ADDR and ADDRMASK"]
+    TWO_ADDRS = 1,
+    #[doc = "2: The slave responds to the range of addresses \\[ADDRMASK...ADDR\\]
+inclusive"]
+    RANGE = 2,
+}
+impl From<AMODE_A> for u8 {
+    #[inline(always)]
+    fn from(variant: AMODE_A) -> Self {
+        variant as _
+    }
+}
 #[doc = "Reader of field `AMODE`"]
-pub type AMODE_R = crate::R<u8, u8>;
+pub type AMODE_R = crate::R<u8, AMODE_A>;
+impl AMODE_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u8, AMODE_A> {
+        use crate::Variant::*;
+        match self.bits {
+            0 => Val(AMODE_A::MASK),
+            1 => Val(AMODE_A::TWO_ADDRS),
+            2 => Val(AMODE_A::RANGE),
+            i => Res(i),
+        }
+    }
+    #[doc = "Checks if the value of the field is `MASK`"]
+    #[inline(always)]
+    pub fn is_mask(&self) -> bool {
+        *self == AMODE_A::MASK
+    }
+    #[doc = "Checks if the value of the field is `TWO_ADDRS`"]
+    #[inline(always)]
+    pub fn is_two_addrs(&self) -> bool {
+        *self == AMODE_A::TWO_ADDRS
+    }
+    #[doc = "Checks if the value of the field is `RANGE`"]
+    #[inline(always)]
+    pub fn is_range(&self) -> bool {
+        *self == AMODE_A::RANGE
+    }
+}
 #[doc = "Write proxy for field `AMODE`"]
 pub struct AMODE_W<'a> {
     w: &'a mut W,
 }
 impl<'a> AMODE_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: AMODE_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
+    }
+    #[doc = "ADDRMASK is used as a mask of the ADDR register"]
+    #[inline(always)]
+    pub fn mask(self) -> &'a mut W {
+        self.variant(AMODE_A::MASK)
+    }
+    #[doc = "The slave responds to two unique addresses in ADDR and ADDRMASK"]
+    #[inline(always)]
+    pub fn two_addrs(self) -> &'a mut W {
+        self.variant(AMODE_A::TWO_ADDRS)
+    }
+    #[doc = "The slave responds to the range of addresses \\[ADDRMASK...ADDR\\]
+inclusive"]
+    #[inline(always)]
+    pub fn range(self) -> &'a mut W {
+        self.variant(AMODE_A::RANGE)
+    }
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {

@@ -2,7 +2,8 @@
 pub type R = crate::R<u32, super::COMPCTRL>;
 #[doc = "Writer for register COMPCTRL[%s]"]
 pub type W = crate::W<u32, super::COMPCTRL>;
-#[doc = "Register COMPCTRL[%s] `reset()`'s with value 0"]
+#[doc = "Register COMPCTRL[%s]
+`reset()`'s with value 0"]
 impl crate::ResetValue for super::COMPCTRL {
     type Type = u32;
     #[inline(always)]
@@ -58,27 +59,23 @@ impl<'a> SINGLE_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `INTSEL`"]
+#[doc = "Interrupt Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum INTSEL_A {
-    #[doc = "Interrupt on comparator output toggle"]
-    TOGGLE,
-    #[doc = "Interrupt on comparator output rising"]
-    RISING,
-    #[doc = "Interrupt on comparator output falling"]
-    FALLING,
-    #[doc = "Interrupt on end of comparison (single-shot mode only)"]
-    EOC,
+    #[doc = "0: Interrupt on comparator output toggle"]
+    TOGGLE = 0,
+    #[doc = "1: Interrupt on comparator output rising"]
+    RISING = 1,
+    #[doc = "2: Interrupt on comparator output falling"]
+    FALLING = 2,
+    #[doc = "3: Interrupt on end of comparison (single-shot mode only)"]
+    EOC = 3,
 }
-impl crate::ToBits<u8> for INTSEL_A {
+impl From<INTSEL_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            INTSEL_A::TOGGLE => 0,
-            INTSEL_A::RISING => 1,
-            INTSEL_A::FALLING => 2,
-            INTSEL_A::EOC => 3,
-        }
+    fn from(variant: INTSEL_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `INTSEL`"]
@@ -124,9 +121,8 @@ impl<'a> INTSEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: INTSEL_A) -> &'a mut W {
-        use crate::ToBits;
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "Interrupt on comparator output toggle"]
@@ -180,39 +176,31 @@ impl<'a> RUNSTDBY_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `MUXNEG`"]
+#[doc = "Negative Input Mux Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum MUXNEG_A {
-    #[doc = "I/O pin 0"]
-    PIN0,
-    #[doc = "I/O pin 1"]
-    PIN1,
-    #[doc = "I/O pin 2"]
-    PIN2,
-    #[doc = "I/O pin 3"]
-    PIN3,
-    #[doc = "Ground"]
-    GND,
-    #[doc = "VDD scaler"]
-    VSCALE,
-    #[doc = "Internal bandgap voltage"]
-    BANDGAP,
-    #[doc = "DAC output on AC0, OPAMP output on AC1"]
-    DAC_OPAMP,
+    #[doc = "0: I/O pin 0"]
+    PIN0 = 0,
+    #[doc = "1: I/O pin 1"]
+    PIN1 = 1,
+    #[doc = "2: I/O pin 2"]
+    PIN2 = 2,
+    #[doc = "3: I/O pin 3"]
+    PIN3 = 3,
+    #[doc = "4: Ground"]
+    GND = 4,
+    #[doc = "5: VDD scaler"]
+    VSCALE = 5,
+    #[doc = "6: Internal bandgap voltage"]
+    BANDGAP = 6,
+    #[doc = "7: DAC output on AC0, OPAMP output on AC1"]
+    DAC_OPAMP = 7,
 }
-impl crate::ToBits<u8> for MUXNEG_A {
+impl From<MUXNEG_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            MUXNEG_A::PIN0 => 0,
-            MUXNEG_A::PIN1 => 1,
-            MUXNEG_A::PIN2 => 2,
-            MUXNEG_A::PIN3 => 3,
-            MUXNEG_A::GND => 4,
-            MUXNEG_A::VSCALE => 5,
-            MUXNEG_A::BANDGAP => 6,
-            MUXNEG_A::DAC_OPAMP => 7,
-        }
+    fn from(variant: MUXNEG_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `MUXNEG`"]
@@ -282,9 +270,8 @@ impl<'a> MUXNEG_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MUXNEG_A) -> &'a mut W {
-        use crate::ToBits;
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "I/O pin 0"]
@@ -334,30 +321,25 @@ impl<'a> MUXNEG_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `MUXPOS`"]
+#[doc = "Positive Input Mux Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum MUXPOS_A {
-    #[doc = "I/O pin 0"]
-    PIN0,
-    #[doc = "I/O pin 1"]
-    PIN1,
-    #[doc = "I/O pin 2"]
-    PIN2,
-    #[doc = "I/O pin 3"]
-    PIN3,
-    #[doc = "VDD Scaler"]
-    VSCALE,
+    #[doc = "0: I/O pin 0"]
+    PIN0 = 0,
+    #[doc = "1: I/O pin 1"]
+    PIN1 = 1,
+    #[doc = "2: I/O pin 2"]
+    PIN2 = 2,
+    #[doc = "3: I/O pin 3"]
+    PIN3 = 3,
+    #[doc = "4: VDD Scaler"]
+    VSCALE = 4,
 }
-impl crate::ToBits<u8> for MUXPOS_A {
+impl From<MUXPOS_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            MUXPOS_A::PIN0 => 0,
-            MUXPOS_A::PIN1 => 1,
-            MUXPOS_A::PIN2 => 2,
-            MUXPOS_A::PIN3 => 3,
-            MUXPOS_A::VSCALE => 4,
-        }
+    fn from(variant: MUXPOS_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `MUXPOS`"]
@@ -410,8 +392,7 @@ impl<'a> MUXPOS_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MUXPOS_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "I/O pin 0"]
     #[inline(always)]
@@ -469,27 +450,23 @@ impl<'a> SWAP_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `SPEED`"]
+#[doc = "Speed Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SPEED_A {
-    #[doc = "Low speed"]
-    LOW,
-    #[doc = "Medium low speed"]
-    MEDLOW,
-    #[doc = "Medium high speed"]
-    MEDHIGH,
-    #[doc = "High speed"]
-    HIGH,
+    #[doc = "0: Low speed"]
+    LOW = 0,
+    #[doc = "1: Medium low speed"]
+    MEDLOW = 1,
+    #[doc = "2: Medium high speed"]
+    MEDHIGH = 2,
+    #[doc = "3: High speed"]
+    HIGH = 3,
 }
-impl crate::ToBits<u8> for SPEED_A {
+impl From<SPEED_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            SPEED_A::LOW => 0,
-            SPEED_A::MEDLOW => 1,
-            SPEED_A::MEDHIGH => 2,
-            SPEED_A::HIGH => 3,
-        }
+    fn from(variant: SPEED_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `SPEED`"]
@@ -535,9 +512,8 @@ impl<'a> SPEED_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SPEED_A) -> &'a mut W {
-        use crate::ToBits;
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "Low speed"]
@@ -591,27 +567,23 @@ impl<'a> HYSTEN_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `HYST`"]
+#[doc = "Hysteresis Level\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum HYST_A {
-    #[doc = "50mV"]
-    HYST50,
-    #[doc = "70mV"]
-    HYST70,
-    #[doc = "90mV"]
-    HYST90,
-    #[doc = "110mV"]
-    HYST110,
+    #[doc = "0: 50mV"]
+    HYST50 = 0,
+    #[doc = "1: 70mV"]
+    HYST70 = 1,
+    #[doc = "2: 90mV"]
+    HYST90 = 2,
+    #[doc = "3: 110mV"]
+    HYST110 = 3,
 }
-impl crate::ToBits<u8> for HYST_A {
+impl From<HYST_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            HYST_A::HYST50 => 0,
-            HYST_A::HYST70 => 1,
-            HYST_A::HYST90 => 2,
-            HYST_A::HYST110 => 3,
-        }
+    fn from(variant: HYST_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `HYST`"]
@@ -657,9 +629,8 @@ impl<'a> HYST_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: HYST_A) -> &'a mut W {
-        use crate::ToBits;
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "50mV"]
@@ -689,24 +660,21 @@ impl<'a> HYST_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `FLEN`"]
+#[doc = "Filter Length\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum FLEN_A {
-    #[doc = "No filtering"]
-    OFF,
-    #[doc = "3-bit majority function (2 of 3)"]
-    MAJ3,
-    #[doc = "5-bit majority function (3 of 5)"]
-    MAJ5,
+    #[doc = "0: No filtering"]
+    OFF = 0,
+    #[doc = "1: 3-bit majority function (2 of 3)"]
+    MAJ3 = 1,
+    #[doc = "2: 5-bit majority function (3 of 5)"]
+    MAJ5 = 2,
 }
-impl crate::ToBits<u8> for FLEN_A {
+impl From<FLEN_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            FLEN_A::OFF => 0,
-            FLEN_A::MAJ3 => 1,
-            FLEN_A::MAJ5 => 2,
-        }
+    fn from(variant: FLEN_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `FLEN`"]
@@ -747,8 +715,7 @@ impl<'a> FLEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: FLEN_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "No filtering"]
     #[inline(always)]
@@ -772,24 +739,21 @@ impl<'a> FLEN_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `OUT`"]
+#[doc = "Output\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum OUT_A {
-    #[doc = "The output of COMPn is not routed to the COMPn I/O port"]
-    OFF,
-    #[doc = "The asynchronous output of COMPn is routed to the COMPn I/O port"]
-    ASYNC,
-    #[doc = "The synchronous output (including filtering) of COMPn is routed to the COMPn I/O port"]
-    SYNC,
+    #[doc = "0: The output of COMPn is not routed to the COMPn I/O port"]
+    OFF = 0,
+    #[doc = "1: The asynchronous output of COMPn is routed to the COMPn I/O port"]
+    ASYNC = 1,
+    #[doc = "2: The synchronous output (including filtering) of COMPn is routed to the COMPn I/O port"]
+    SYNC = 2,
 }
-impl crate::ToBits<u8> for OUT_A {
+impl From<OUT_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            OUT_A::OFF => 0,
-            OUT_A::ASYNC => 1,
-            OUT_A::SYNC => 2,
-        }
+    fn from(variant: OUT_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `OUT`"]
@@ -830,8 +794,7 @@ impl<'a> OUT_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: OUT_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "The output of COMPn is not routed to the COMPn I/O port"]
     #[inline(always)]

@@ -10,27 +10,23 @@ impl crate::ResetValue for super::DFLLULPDITHER {
         0
     }
 }
-#[doc = "Possible values of the field `STEP`"]
+#[doc = "Dither Step\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum STEP_A {
-    #[doc = "Dither Step = 1"]
-    STEP1,
-    #[doc = "Dither Step = 2"]
-    STEP2,
-    #[doc = "Dither Step = 4"]
-    STEP4,
-    #[doc = "Dither Step = 8"]
-    STEP8,
+    #[doc = "0: Dither Step = 1"]
+    STEP1 = 0,
+    #[doc = "1: Dither Step = 2"]
+    STEP2 = 1,
+    #[doc = "2: Dither Step = 4"]
+    STEP4 = 2,
+    #[doc = "3: Dither Step = 8"]
+    STEP8 = 3,
 }
-impl crate::ToBits<u8> for STEP_A {
+impl From<STEP_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            STEP_A::STEP1 => 0,
-            STEP_A::STEP2 => 1,
-            STEP_A::STEP4 => 2,
-            STEP_A::STEP8 => 3,
-        }
+    fn from(variant: STEP_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `STEP`"]
@@ -77,8 +73,7 @@ impl<'a> STEP_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: STEP_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Dither Step = 1"]
     #[inline(always)]
@@ -107,33 +102,27 @@ impl<'a> STEP_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `PER`"]
+#[doc = "Dither Period\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PER_A {
-    #[doc = "Dither Over 1 Reference Clock Period"]
-    PER1,
-    #[doc = "Dither Over 2 Reference Clock Period"]
-    PER2,
-    #[doc = "Dither Over 4 Reference Clock Period"]
-    PER4,
-    #[doc = "Dither Over 8 Reference Clock Period"]
-    PER8,
-    #[doc = "Dither Over 16 Reference Clock Period"]
-    PER16,
-    #[doc = "Dither Over 32 Reference Clock Period"]
-    PER32,
+    #[doc = "0: Dither Over 1 Reference Clock Period"]
+    PER1 = 0,
+    #[doc = "1: Dither Over 2 Reference Clock Period"]
+    PER2 = 1,
+    #[doc = "2: Dither Over 4 Reference Clock Period"]
+    PER4 = 2,
+    #[doc = "3: Dither Over 8 Reference Clock Period"]
+    PER8 = 3,
+    #[doc = "4: Dither Over 16 Reference Clock Period"]
+    PER16 = 4,
+    #[doc = "5: Dither Over 32 Reference Clock Period"]
+    PER32 = 5,
 }
-impl crate::ToBits<u8> for PER_A {
+impl From<PER_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            PER_A::PER1 => 0,
-            PER_A::PER2 => 1,
-            PER_A::PER4 => 2,
-            PER_A::PER8 => 3,
-            PER_A::PER16 => 4,
-            PER_A::PER32 => 5,
-        }
+    fn from(variant: PER_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `PER`"]
@@ -192,8 +181,7 @@ impl<'a> PER_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: PER_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Dither Over 1 Reference Clock Period"]
     #[inline(always)]

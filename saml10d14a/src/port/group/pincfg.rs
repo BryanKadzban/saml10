@@ -2,7 +2,8 @@
 pub type R = crate::R<u8, super::PINCFG>;
 #[doc = "Writer for register PINCFG[%s]"]
 pub type W = crate::W<u8, super::PINCFG>;
-#[doc = "Register PINCFG[%s] `reset()`'s with value 0"]
+#[doc = "Register PINCFG[%s]
+`reset()`'s with value 0"]
 impl crate::ResetValue for super::PINCFG {
     type Type = u8;
     #[inline(always)]

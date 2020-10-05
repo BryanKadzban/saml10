@@ -2,7 +2,8 @@
 pub type R = crate::R<u8, super::CCBUF>;
 #[doc = "Writer for register CCBUF[%s]"]
 pub type W = crate::W<u8, super::CCBUF>;
-#[doc = "Register CCBUF[%s] `reset()`'s with value 0"]
+#[doc = "Register CCBUF[%s]
+`reset()`'s with value 0"]
 impl crate::ResetValue for super::CCBUF {
     type Type = u8;
     #[inline(always)]

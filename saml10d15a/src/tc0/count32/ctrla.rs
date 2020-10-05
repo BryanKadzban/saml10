@@ -58,24 +58,21 @@ impl<'a> ENABLE_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `MODE`"]
+#[doc = "Timer Counter Mode\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum MODE_A {
-    #[doc = "Counter in 16-bit mode"]
-    COUNT16,
-    #[doc = "Counter in 8-bit mode"]
-    COUNT8,
-    #[doc = "Counter in 32-bit mode"]
-    COUNT32,
+    #[doc = "0: Counter in 16-bit mode"]
+    COUNT16 = 0,
+    #[doc = "1: Counter in 8-bit mode"]
+    COUNT8 = 1,
+    #[doc = "2: Counter in 32-bit mode"]
+    COUNT32 = 2,
 }
-impl crate::ToBits<u8> for MODE_A {
+impl From<MODE_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            MODE_A::COUNT16 => 0,
-            MODE_A::COUNT8 => 1,
-            MODE_A::COUNT32 => 2,
-        }
+    fn from(variant: MODE_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `MODE`"]
@@ -116,8 +113,7 @@ impl<'a> MODE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MODE_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Counter in 16-bit mode"]
     #[inline(always)]
@@ -141,24 +137,21 @@ impl<'a> MODE_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `PRESCSYNC`"]
+#[doc = "Prescaler and Counter Synchronization\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PRESCSYNC_A {
-    #[doc = "Reload or reset the counter on next generic clock"]
-    GCLK,
-    #[doc = "Reload or reset the counter on next prescaler clock"]
-    PRESC,
-    #[doc = "Reload or reset the counter on next generic clock and reset the prescaler counter"]
-    RESYNC,
+    #[doc = "0: Reload or reset the counter on next generic clock"]
+    GCLK = 0,
+    #[doc = "1: Reload or reset the counter on next prescaler clock"]
+    PRESC = 1,
+    #[doc = "2: Reload or reset the counter on next generic clock and reset the prescaler counter"]
+    RESYNC = 2,
 }
-impl crate::ToBits<u8> for PRESCSYNC_A {
+impl From<PRESCSYNC_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            PRESCSYNC_A::GCLK => 0,
-            PRESCSYNC_A::PRESC => 1,
-            PRESCSYNC_A::RESYNC => 2,
-        }
+    fn from(variant: PRESCSYNC_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `PRESCSYNC`"]
@@ -199,8 +192,7 @@ impl<'a> PRESCSYNC_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: PRESCSYNC_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Reload or reset the counter on next generic clock"]
     #[inline(always)]
@@ -272,39 +264,31 @@ impl<'a> ONDEMAND_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `PRESCALER`"]
+#[doc = "Prescaler\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PRESCALER_A {
-    #[doc = "Prescaler: GCLK_TC"]
-    DIV1,
-    #[doc = "Prescaler: GCLK_TC/2"]
-    DIV2,
-    #[doc = "Prescaler: GCLK_TC/4"]
-    DIV4,
-    #[doc = "Prescaler: GCLK_TC/8"]
-    DIV8,
-    #[doc = "Prescaler: GCLK_TC/16"]
-    DIV16,
-    #[doc = "Prescaler: GCLK_TC/64"]
-    DIV64,
-    #[doc = "Prescaler: GCLK_TC/256"]
-    DIV256,
-    #[doc = "Prescaler: GCLK_TC/1024"]
-    DIV1024,
+    #[doc = "0: Prescaler: GCLK_TC"]
+    DIV1 = 0,
+    #[doc = "1: Prescaler: GCLK_TC/2"]
+    DIV2 = 1,
+    #[doc = "2: Prescaler: GCLK_TC/4"]
+    DIV4 = 2,
+    #[doc = "3: Prescaler: GCLK_TC/8"]
+    DIV8 = 3,
+    #[doc = "4: Prescaler: GCLK_TC/16"]
+    DIV16 = 4,
+    #[doc = "5: Prescaler: GCLK_TC/64"]
+    DIV64 = 5,
+    #[doc = "6: Prescaler: GCLK_TC/256"]
+    DIV256 = 6,
+    #[doc = "7: Prescaler: GCLK_TC/1024"]
+    DIV1024 = 7,
 }
-impl crate::ToBits<u8> for PRESCALER_A {
+impl From<PRESCALER_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            PRESCALER_A::DIV1 => 0,
-            PRESCALER_A::DIV2 => 1,
-            PRESCALER_A::DIV4 => 2,
-            PRESCALER_A::DIV8 => 3,
-            PRESCALER_A::DIV16 => 4,
-            PRESCALER_A::DIV64 => 5,
-            PRESCALER_A::DIV256 => 6,
-            PRESCALER_A::DIV1024 => 7,
-        }
+    fn from(variant: PRESCALER_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `PRESCALER`"]
@@ -374,9 +358,8 @@ impl<'a> PRESCALER_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: PRESCALER_A) -> &'a mut W {
-        use crate::ToBits;
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "Prescaler: GCLK_TC"]
@@ -546,24 +529,21 @@ impl<'a> COPEN1_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `CAPTMODE0`"]
+#[doc = "Capture Mode Channel 0\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CAPTMODE0_A {
-    #[doc = "Default capture"]
-    DEFAULT,
-    #[doc = "Minimum capture"]
-    CAPTMIN,
-    #[doc = "Maximum capture"]
-    CAPTMAX,
+    #[doc = "0: Default capture"]
+    DEFAULT = 0,
+    #[doc = "1: Minimum capture"]
+    CAPTMIN = 1,
+    #[doc = "2: Maximum capture"]
+    CAPTMAX = 2,
 }
-impl crate::ToBits<u8> for CAPTMODE0_A {
+impl From<CAPTMODE0_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            CAPTMODE0_A::DEFAULT => 0,
-            CAPTMODE0_A::CAPTMIN => 1,
-            CAPTMODE0_A::CAPTMAX => 2,
-        }
+    fn from(variant: CAPTMODE0_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `CAPTMODE0`"]
@@ -604,8 +584,7 @@ impl<'a> CAPTMODE0_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: CAPTMODE0_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Default capture"]
     #[inline(always)]
@@ -629,24 +608,21 @@ impl<'a> CAPTMODE0_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `CAPTMODE1`"]
+#[doc = "Capture mode Channel 1\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CAPTMODE1_A {
-    #[doc = "Default capture"]
-    DEFAULT,
-    #[doc = "Minimum capture"]
-    CAPTMIN,
-    #[doc = "Maximum capture"]
-    CAPTMAX,
+    #[doc = "0: Default capture"]
+    DEFAULT = 0,
+    #[doc = "1: Minimum capture"]
+    CAPTMIN = 1,
+    #[doc = "2: Maximum capture"]
+    CAPTMAX = 2,
 }
-impl crate::ToBits<u8> for CAPTMODE1_A {
+impl From<CAPTMODE1_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            CAPTMODE1_A::DEFAULT => 0,
-            CAPTMODE1_A::CAPTMIN => 1,
-            CAPTMODE1_A::CAPTMAX => 2,
-        }
+    fn from(variant: CAPTMODE1_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `CAPTMODE1`"]
@@ -687,8 +663,7 @@ impl<'a> CAPTMODE1_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: CAPTMODE1_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Default capture"]
     #[inline(always)]

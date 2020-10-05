@@ -2,7 +2,8 @@
 pub type R = crate::R<u32, super::RAM>;
 #[doc = "Writer for register RAM[%s]"]
 pub type W = crate::W<u32, super::RAM>;
-#[doc = "Register RAM[%s] `reset()`'s with value 0"]
+#[doc = "Register RAM[%s]
+`reset()`'s with value 0"]
 impl crate::ResetValue for super::RAM {
     type Type = u32;
     #[inline(always)]

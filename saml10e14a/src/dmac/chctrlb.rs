@@ -10,36 +10,29 @@ impl crate::ResetValue for super::CHCTRLB {
         0
     }
 }
-#[doc = "Possible values of the field `EVACT`"]
+#[doc = "Event Input Action\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum EVACT_A {
-    #[doc = "No action"]
-    NOACT,
-    #[doc = "Transfer and periodic transfer trigger"]
-    TRIG,
-    #[doc = "Conditional transfer trigger"]
-    CTRIG,
-    #[doc = "Conditional block transfer"]
-    CBLOCK,
-    #[doc = "Channel suspend operation"]
-    SUSPEND,
-    #[doc = "Channel resume operation"]
-    RESUME,
-    #[doc = "Skip next block suspend action"]
-    SSKIP,
+    #[doc = "0: No action"]
+    NOACT = 0,
+    #[doc = "1: Transfer and periodic transfer trigger"]
+    TRIG = 1,
+    #[doc = "2: Conditional transfer trigger"]
+    CTRIG = 2,
+    #[doc = "3: Conditional block transfer"]
+    CBLOCK = 3,
+    #[doc = "4: Channel suspend operation"]
+    SUSPEND = 4,
+    #[doc = "5: Channel resume operation"]
+    RESUME = 5,
+    #[doc = "6: Skip next block suspend action"]
+    SSKIP = 6,
 }
-impl crate::ToBits<u8> for EVACT_A {
+impl From<EVACT_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            EVACT_A::NOACT => 0,
-            EVACT_A::TRIG => 1,
-            EVACT_A::CTRIG => 2,
-            EVACT_A::CBLOCK => 3,
-            EVACT_A::SUSPEND => 4,
-            EVACT_A::RESUME => 5,
-            EVACT_A::SSKIP => 6,
-        }
+    fn from(variant: EVACT_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `EVACT`"]
@@ -104,8 +97,7 @@ impl<'a> EVACT_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: EVACT_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "No action"]
     #[inline(always)]
@@ -206,23 +198,68 @@ pub struct LVL_W<'a> {
 impl<'a> LVL_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
+    pub fn bits(self, value: u8) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x03 << 5)) | (((value as u32) & 0x03) << 5);
         self.w
     }
 }
-#[doc = "Possible values of the field `TRIGSRC`"]
+#[doc = "Trigger Source\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum TRIGSRC_A {
-    #[doc = "Only software/event triggers"]
-    DISABLE,
+    #[doc = "0: Only software/event triggers"]
+    DISABLE = 0,
+    #[doc = "1: RTC tiemstamp trigger"]
+    RTC_TIMESTAMP = 1,
+    #[doc = "2: ID for DCC0 register"]
+    DSU_DCC0 = 2,
+    #[doc = "3: ID for DCC1 register"]
+    DSU_DCC1 = 3,
+    #[doc = "4: SERCOM0 RX trigger"]
+    SERCOM0_RX = 4,
+    #[doc = "5: SERCOM0 TX trigger"]
+    SERCOM0_TX = 5,
+    #[doc = "6: SERCOM1 RX trigger"]
+    SERCOM1_RX = 6,
+    #[doc = "7: SERCOM1 TX trigger"]
+    SERCOM1_TX = 7,
+    #[doc = "8: SERCOM2 RX trigger"]
+    SERCOM2_RX = 8,
+    #[doc = "9: SERCOM2 TX trigger"]
+    SERCOM2_TX = 9,
+    #[doc = "10: TC0 Overflow trigger"]
+    TC0_OVF = 10,
+    #[doc = "11: TC0 Match/Compare 0 trigger"]
+    TC0_MC0 = 11,
+    #[doc = "12: TC0 Match/Compare 1 trigger"]
+    TC0_MC1 = 12,
+    #[doc = "13: TC1 Overflow trigger"]
+    TC1_OVF = 13,
+    #[doc = "14: TC1 Match/Compare 0 trigger"]
+    TC1_MC0 = 14,
+    #[doc = "15: TC1 Match/Compare 1 trigger"]
+    TC1_MC1 = 15,
+    #[doc = "16: TC2 Overflow trigger"]
+    TC2_OVF = 16,
+    #[doc = "17: TC2 Match/Compare 0 trigger"]
+    TC2_MC0 = 17,
+    #[doc = "18: TC2 Match/Compare 1 trigger"]
+    TC2_MC1 = 18,
+    #[doc = "19: ADC result ready trigger"]
+    ADC_RESRDY = 19,
+    #[doc = "20: DAC empty trigger"]
+    DAC_EMPTY = 20,
+    #[doc = "21: PTC End Of Conversion trigger"]
+    PTC_EOC = 21,
+    #[doc = "22: PTC Sequence trigger"]
+    PTC_SEQ = 22,
+    #[doc = "23: PTC Window Compare trigger"]
+    PTC_WCOMP = 23,
 }
-impl crate::ToBits<u8> for TRIGSRC_A {
+impl From<TRIGSRC_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            TRIGSRC_A::DISABLE => 0,
-        }
+    fn from(variant: TRIGSRC_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `TRIGSRC`"]
@@ -234,6 +271,29 @@ impl TRIGSRC_R {
         use crate::Variant::*;
         match self.bits {
             0 => Val(TRIGSRC_A::DISABLE),
+            1 => Val(TRIGSRC_A::RTC_TIMESTAMP),
+            2 => Val(TRIGSRC_A::DSU_DCC0),
+            3 => Val(TRIGSRC_A::DSU_DCC1),
+            4 => Val(TRIGSRC_A::SERCOM0_RX),
+            5 => Val(TRIGSRC_A::SERCOM0_TX),
+            6 => Val(TRIGSRC_A::SERCOM1_RX),
+            7 => Val(TRIGSRC_A::SERCOM1_TX),
+            8 => Val(TRIGSRC_A::SERCOM2_RX),
+            9 => Val(TRIGSRC_A::SERCOM2_TX),
+            10 => Val(TRIGSRC_A::TC0_OVF),
+            11 => Val(TRIGSRC_A::TC0_MC0),
+            12 => Val(TRIGSRC_A::TC0_MC1),
+            13 => Val(TRIGSRC_A::TC1_OVF),
+            14 => Val(TRIGSRC_A::TC1_MC0),
+            15 => Val(TRIGSRC_A::TC1_MC1),
+            16 => Val(TRIGSRC_A::TC2_OVF),
+            17 => Val(TRIGSRC_A::TC2_MC0),
+            18 => Val(TRIGSRC_A::TC2_MC1),
+            19 => Val(TRIGSRC_A::ADC_RESRDY),
+            20 => Val(TRIGSRC_A::DAC_EMPTY),
+            21 => Val(TRIGSRC_A::PTC_EOC),
+            22 => Val(TRIGSRC_A::PTC_SEQ),
+            23 => Val(TRIGSRC_A::PTC_WCOMP),
             i => Res(i),
         }
     }
@@ -241,6 +301,121 @@ impl TRIGSRC_R {
     #[inline(always)]
     pub fn is_disable(&self) -> bool {
         *self == TRIGSRC_A::DISABLE
+    }
+    #[doc = "Checks if the value of the field is `RTC_TIMESTAMP`"]
+    #[inline(always)]
+    pub fn is_rtc_timestamp(&self) -> bool {
+        *self == TRIGSRC_A::RTC_TIMESTAMP
+    }
+    #[doc = "Checks if the value of the field is `DSU_DCC0`"]
+    #[inline(always)]
+    pub fn is_dsu_dcc0(&self) -> bool {
+        *self == TRIGSRC_A::DSU_DCC0
+    }
+    #[doc = "Checks if the value of the field is `DSU_DCC1`"]
+    #[inline(always)]
+    pub fn is_dsu_dcc1(&self) -> bool {
+        *self == TRIGSRC_A::DSU_DCC1
+    }
+    #[doc = "Checks if the value of the field is `SERCOM0_RX`"]
+    #[inline(always)]
+    pub fn is_sercom0_rx(&self) -> bool {
+        *self == TRIGSRC_A::SERCOM0_RX
+    }
+    #[doc = "Checks if the value of the field is `SERCOM0_TX`"]
+    #[inline(always)]
+    pub fn is_sercom0_tx(&self) -> bool {
+        *self == TRIGSRC_A::SERCOM0_TX
+    }
+    #[doc = "Checks if the value of the field is `SERCOM1_RX`"]
+    #[inline(always)]
+    pub fn is_sercom1_rx(&self) -> bool {
+        *self == TRIGSRC_A::SERCOM1_RX
+    }
+    #[doc = "Checks if the value of the field is `SERCOM1_TX`"]
+    #[inline(always)]
+    pub fn is_sercom1_tx(&self) -> bool {
+        *self == TRIGSRC_A::SERCOM1_TX
+    }
+    #[doc = "Checks if the value of the field is `SERCOM2_RX`"]
+    #[inline(always)]
+    pub fn is_sercom2_rx(&self) -> bool {
+        *self == TRIGSRC_A::SERCOM2_RX
+    }
+    #[doc = "Checks if the value of the field is `SERCOM2_TX`"]
+    #[inline(always)]
+    pub fn is_sercom2_tx(&self) -> bool {
+        *self == TRIGSRC_A::SERCOM2_TX
+    }
+    #[doc = "Checks if the value of the field is `TC0_OVF`"]
+    #[inline(always)]
+    pub fn is_tc0_ovf(&self) -> bool {
+        *self == TRIGSRC_A::TC0_OVF
+    }
+    #[doc = "Checks if the value of the field is `TC0_MC0`"]
+    #[inline(always)]
+    pub fn is_tc0_mc0(&self) -> bool {
+        *self == TRIGSRC_A::TC0_MC0
+    }
+    #[doc = "Checks if the value of the field is `TC0_MC1`"]
+    #[inline(always)]
+    pub fn is_tc0_mc1(&self) -> bool {
+        *self == TRIGSRC_A::TC0_MC1
+    }
+    #[doc = "Checks if the value of the field is `TC1_OVF`"]
+    #[inline(always)]
+    pub fn is_tc1_ovf(&self) -> bool {
+        *self == TRIGSRC_A::TC1_OVF
+    }
+    #[doc = "Checks if the value of the field is `TC1_MC0`"]
+    #[inline(always)]
+    pub fn is_tc1_mc0(&self) -> bool {
+        *self == TRIGSRC_A::TC1_MC0
+    }
+    #[doc = "Checks if the value of the field is `TC1_MC1`"]
+    #[inline(always)]
+    pub fn is_tc1_mc1(&self) -> bool {
+        *self == TRIGSRC_A::TC1_MC1
+    }
+    #[doc = "Checks if the value of the field is `TC2_OVF`"]
+    #[inline(always)]
+    pub fn is_tc2_ovf(&self) -> bool {
+        *self == TRIGSRC_A::TC2_OVF
+    }
+    #[doc = "Checks if the value of the field is `TC2_MC0`"]
+    #[inline(always)]
+    pub fn is_tc2_mc0(&self) -> bool {
+        *self == TRIGSRC_A::TC2_MC0
+    }
+    #[doc = "Checks if the value of the field is `TC2_MC1`"]
+    #[inline(always)]
+    pub fn is_tc2_mc1(&self) -> bool {
+        *self == TRIGSRC_A::TC2_MC1
+    }
+    #[doc = "Checks if the value of the field is `ADC_RESRDY`"]
+    #[inline(always)]
+    pub fn is_adc_resrdy(&self) -> bool {
+        *self == TRIGSRC_A::ADC_RESRDY
+    }
+    #[doc = "Checks if the value of the field is `DAC_EMPTY`"]
+    #[inline(always)]
+    pub fn is_dac_empty(&self) -> bool {
+        *self == TRIGSRC_A::DAC_EMPTY
+    }
+    #[doc = "Checks if the value of the field is `PTC_EOC`"]
+    #[inline(always)]
+    pub fn is_ptc_eoc(&self) -> bool {
+        *self == TRIGSRC_A::PTC_EOC
+    }
+    #[doc = "Checks if the value of the field is `PTC_SEQ`"]
+    #[inline(always)]
+    pub fn is_ptc_seq(&self) -> bool {
+        *self == TRIGSRC_A::PTC_SEQ
+    }
+    #[doc = "Checks if the value of the field is `PTC_WCOMP`"]
+    #[inline(always)]
+    pub fn is_ptc_wcomp(&self) -> bool {
+        *self == TRIGSRC_A::PTC_WCOMP
     }
 }
 #[doc = "Write proxy for field `TRIGSRC`"]
@@ -251,13 +426,127 @@ impl<'a> TRIGSRC_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TRIGSRC_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Only software/event triggers"]
     #[inline(always)]
     pub fn disable(self) -> &'a mut W {
         self.variant(TRIGSRC_A::DISABLE)
+    }
+    #[doc = "RTC tiemstamp trigger"]
+    #[inline(always)]
+    pub fn rtc_timestamp(self) -> &'a mut W {
+        self.variant(TRIGSRC_A::RTC_TIMESTAMP)
+    }
+    #[doc = "ID for DCC0 register"]
+    #[inline(always)]
+    pub fn dsu_dcc0(self) -> &'a mut W {
+        self.variant(TRIGSRC_A::DSU_DCC0)
+    }
+    #[doc = "ID for DCC1 register"]
+    #[inline(always)]
+    pub fn dsu_dcc1(self) -> &'a mut W {
+        self.variant(TRIGSRC_A::DSU_DCC1)
+    }
+    #[doc = "SERCOM0 RX trigger"]
+    #[inline(always)]
+    pub fn sercom0_rx(self) -> &'a mut W {
+        self.variant(TRIGSRC_A::SERCOM0_RX)
+    }
+    #[doc = "SERCOM0 TX trigger"]
+    #[inline(always)]
+    pub fn sercom0_tx(self) -> &'a mut W {
+        self.variant(TRIGSRC_A::SERCOM0_TX)
+    }
+    #[doc = "SERCOM1 RX trigger"]
+    #[inline(always)]
+    pub fn sercom1_rx(self) -> &'a mut W {
+        self.variant(TRIGSRC_A::SERCOM1_RX)
+    }
+    #[doc = "SERCOM1 TX trigger"]
+    #[inline(always)]
+    pub fn sercom1_tx(self) -> &'a mut W {
+        self.variant(TRIGSRC_A::SERCOM1_TX)
+    }
+    #[doc = "SERCOM2 RX trigger"]
+    #[inline(always)]
+    pub fn sercom2_rx(self) -> &'a mut W {
+        self.variant(TRIGSRC_A::SERCOM2_RX)
+    }
+    #[doc = "SERCOM2 TX trigger"]
+    #[inline(always)]
+    pub fn sercom2_tx(self) -> &'a mut W {
+        self.variant(TRIGSRC_A::SERCOM2_TX)
+    }
+    #[doc = "TC0 Overflow trigger"]
+    #[inline(always)]
+    pub fn tc0_ovf(self) -> &'a mut W {
+        self.variant(TRIGSRC_A::TC0_OVF)
+    }
+    #[doc = "TC0 Match/Compare 0 trigger"]
+    #[inline(always)]
+    pub fn tc0_mc0(self) -> &'a mut W {
+        self.variant(TRIGSRC_A::TC0_MC0)
+    }
+    #[doc = "TC0 Match/Compare 1 trigger"]
+    #[inline(always)]
+    pub fn tc0_mc1(self) -> &'a mut W {
+        self.variant(TRIGSRC_A::TC0_MC1)
+    }
+    #[doc = "TC1 Overflow trigger"]
+    #[inline(always)]
+    pub fn tc1_ovf(self) -> &'a mut W {
+        self.variant(TRIGSRC_A::TC1_OVF)
+    }
+    #[doc = "TC1 Match/Compare 0 trigger"]
+    #[inline(always)]
+    pub fn tc1_mc0(self) -> &'a mut W {
+        self.variant(TRIGSRC_A::TC1_MC0)
+    }
+    #[doc = "TC1 Match/Compare 1 trigger"]
+    #[inline(always)]
+    pub fn tc1_mc1(self) -> &'a mut W {
+        self.variant(TRIGSRC_A::TC1_MC1)
+    }
+    #[doc = "TC2 Overflow trigger"]
+    #[inline(always)]
+    pub fn tc2_ovf(self) -> &'a mut W {
+        self.variant(TRIGSRC_A::TC2_OVF)
+    }
+    #[doc = "TC2 Match/Compare 0 trigger"]
+    #[inline(always)]
+    pub fn tc2_mc0(self) -> &'a mut W {
+        self.variant(TRIGSRC_A::TC2_MC0)
+    }
+    #[doc = "TC2 Match/Compare 1 trigger"]
+    #[inline(always)]
+    pub fn tc2_mc1(self) -> &'a mut W {
+        self.variant(TRIGSRC_A::TC2_MC1)
+    }
+    #[doc = "ADC result ready trigger"]
+    #[inline(always)]
+    pub fn adc_resrdy(self) -> &'a mut W {
+        self.variant(TRIGSRC_A::ADC_RESRDY)
+    }
+    #[doc = "DAC empty trigger"]
+    #[inline(always)]
+    pub fn dac_empty(self) -> &'a mut W {
+        self.variant(TRIGSRC_A::DAC_EMPTY)
+    }
+    #[doc = "PTC End Of Conversion trigger"]
+    #[inline(always)]
+    pub fn ptc_eoc(self) -> &'a mut W {
+        self.variant(TRIGSRC_A::PTC_EOC)
+    }
+    #[doc = "PTC Sequence trigger"]
+    #[inline(always)]
+    pub fn ptc_seq(self) -> &'a mut W {
+        self.variant(TRIGSRC_A::PTC_SEQ)
+    }
+    #[doc = "PTC Window Compare trigger"]
+    #[inline(always)]
+    pub fn ptc_wcomp(self) -> &'a mut W {
+        self.variant(TRIGSRC_A::PTC_WCOMP)
     }
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
@@ -266,24 +555,21 @@ impl<'a> TRIGSRC_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `TRIGACT`"]
+#[doc = "Trigger Action\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum TRIGACT_A {
-    #[doc = "One trigger required for each block transfer"]
-    BLOCK,
-    #[doc = "One trigger required for each beat transfer"]
-    BEAT,
-    #[doc = "One trigger required for each transaction"]
-    TRANSACTION,
+    #[doc = "0: One trigger required for each block transfer"]
+    BLOCK = 0,
+    #[doc = "2: One trigger required for each beat transfer"]
+    BEAT = 2,
+    #[doc = "3: One trigger required for each transaction"]
+    TRANSACTION = 3,
 }
-impl crate::ToBits<u8> for TRIGACT_A {
+impl From<TRIGACT_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            TRIGACT_A::BLOCK => 0,
-            TRIGACT_A::BEAT => 2,
-            TRIGACT_A::TRANSACTION => 3,
-        }
+    fn from(variant: TRIGACT_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `TRIGACT`"]
@@ -324,8 +610,7 @@ impl<'a> TRIGACT_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: TRIGACT_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "One trigger required for each block transfer"]
     #[inline(always)]
@@ -349,24 +634,21 @@ impl<'a> TRIGACT_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `CMD`"]
+#[doc = "Software Command\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CMD_A {
-    #[doc = "No action"]
-    NOACT,
-    #[doc = "Channel suspend operation"]
-    SUSPEND,
-    #[doc = "Channel resume operation"]
-    RESUME,
+    #[doc = "0: No action"]
+    NOACT = 0,
+    #[doc = "1: Channel suspend operation"]
+    SUSPEND = 1,
+    #[doc = "2: Channel resume operation"]
+    RESUME = 2,
 }
-impl crate::ToBits<u8> for CMD_A {
+impl From<CMD_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            CMD_A::NOACT => 0,
-            CMD_A::SUSPEND => 1,
-            CMD_A::RESUME => 2,
-        }
+    fn from(variant: CMD_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `CMD`"]
@@ -407,8 +689,7 @@ impl<'a> CMD_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: CMD_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "No action"]
     #[inline(always)]

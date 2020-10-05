@@ -82,18 +82,17 @@ impl<'a> DNS_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `NSLKEY`"]
+#[doc = "Write Key\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum NSLKEY_A {
-    #[doc = "Write Key"]
-    KEY,
+    #[doc = "165: Write Key"]
+    KEY = 165,
 }
-impl crate::ToBits<u8> for NSLKEY_A {
+impl From<NSLKEY_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            NSLKEY_A::KEY => 165,
-        }
+    fn from(variant: NSLKEY_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `NSLKEY`"]
@@ -122,8 +121,7 @@ impl<'a> NSLKEY_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: NSLKEY_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Write Key"]
     #[inline(always)]

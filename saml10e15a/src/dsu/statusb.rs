@@ -1,23 +1,20 @@
 #[doc = "Reader of register STATUSB"]
 pub type R = crate::R<u8, super::STATUSB>;
-#[doc = "Possible values of the field `DAL`"]
+#[doc = "Debugger Access Level\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum DAL_A {
-    #[doc = "`0`"]
-    SECURED,
-    #[doc = "`1`"]
-    NS_DEBUG,
-    #[doc = "`10`"]
-    FULL_DEBUG,
+    #[doc = "0: `0`"]
+    SECURED = 0,
+    #[doc = "1: `1`"]
+    NS_DEBUG = 1,
+    #[doc = "2: `10`"]
+    FULL_DEBUG = 2,
 }
-impl crate::ToBits<u8> for DAL_A {
+impl From<DAL_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            DAL_A::SECURED => 0,
-            DAL_A::NS_DEBUG => 1,
-            DAL_A::FULL_DEBUG => 2,
-        }
+    fn from(variant: DAL_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `DAL`"]

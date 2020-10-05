@@ -2,7 +2,8 @@
 pub type R = crate::R<u32, super::PCHCTRL>;
 #[doc = "Writer for register PCHCTRL[%s]"]
 pub type W = crate::W<u32, super::PCHCTRL>;
-#[doc = "Register PCHCTRL[%s] `reset()`'s with value 0"]
+#[doc = "Register PCHCTRL[%s]
+`reset()`'s with value 0"]
 impl crate::ResetValue for super::PCHCTRL {
     type Type = u32;
     #[inline(always)]
@@ -10,30 +11,25 @@ impl crate::ResetValue for super::PCHCTRL {
         0
     }
 }
-#[doc = "Possible values of the field `GEN`"]
+#[doc = "Generic Clock Generator\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum GEN_A {
-    #[doc = "Generic clock generator 0"]
-    GCLK0,
-    #[doc = "Generic clock generator 1"]
-    GCLK1,
-    #[doc = "Generic clock generator 2"]
-    GCLK2,
-    #[doc = "Generic clock generator 3"]
-    GCLK3,
-    #[doc = "Generic clock generator 4"]
-    GCLK4,
+    #[doc = "0: Generic clock generator 0"]
+    GCLK0 = 0,
+    #[doc = "1: Generic clock generator 1"]
+    GCLK1 = 1,
+    #[doc = "2: Generic clock generator 2"]
+    GCLK2 = 2,
+    #[doc = "3: Generic clock generator 3"]
+    GCLK3 = 3,
+    #[doc = "4: Generic clock generator 4"]
+    GCLK4 = 4,
 }
-impl crate::ToBits<u8> for GEN_A {
+impl From<GEN_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            GEN_A::GCLK0 => 0,
-            GEN_A::GCLK1 => 1,
-            GEN_A::GCLK2 => 2,
-            GEN_A::GCLK3 => 3,
-            GEN_A::GCLK4 => 4,
-        }
+    fn from(variant: GEN_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `GEN`"]
@@ -86,8 +82,7 @@ impl<'a> GEN_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: GEN_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Generic clock generator 0"]
     #[inline(always)]

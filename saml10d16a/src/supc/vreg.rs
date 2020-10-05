@@ -34,21 +34,19 @@ impl<'a> ENABLE_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `SEL`"]
+#[doc = "Voltage Regulator Selection in active mode\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SEL_A {
-    #[doc = "LDO selection"]
-    LDO,
-    #[doc = "Buck selection"]
-    BUCK,
+    #[doc = "0: LDO selection"]
+    LDO = 0,
+    #[doc = "1: Buck selection"]
+    BUCK = 1,
 }
-impl crate::ToBits<u8> for SEL_A {
+impl From<SEL_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            SEL_A::LDO => 0,
-            SEL_A::BUCK => 1,
-        }
+    fn from(variant: SEL_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `SEL`"]
@@ -83,8 +81,7 @@ impl<'a> SEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SEL_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "LDO selection"]
     #[inline(always)]

@@ -130,24 +130,21 @@ impl<'a> DITHER_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `REFSEL`"]
+#[doc = "Reference Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum REFSEL_A {
-    #[doc = "Internal 1.0V reference"]
-    INT1V,
-    #[doc = "AVCC"]
-    AVCC,
-    #[doc = "External reference"]
-    VREFP,
+    #[doc = "0: Internal 1.0V reference"]
+    INT1V = 0,
+    #[doc = "1: AVCC"]
+    AVCC = 1,
+    #[doc = "2: External reference"]
+    VREFP = 2,
 }
-impl crate::ToBits<u8> for REFSEL_A {
+impl From<REFSEL_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            REFSEL_A::INT1V => 0,
-            REFSEL_A::AVCC => 1,
-            REFSEL_A::VREFP => 2,
-        }
+    fn from(variant: REFSEL_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `REFSEL`"]
@@ -188,8 +185,7 @@ impl<'a> REFSEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: REFSEL_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Internal 1.0V reference"]
     #[inline(always)]

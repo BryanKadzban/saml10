@@ -2,7 +2,8 @@
 pub type R = crate::R<u8, super::USER>;
 #[doc = "Writer for register USER[%s]"]
 pub type W = crate::W<u8, super::USER>;
-#[doc = "Register USER[%s] `reset()`'s with value 0"]
+#[doc = "Register USER[%s]
+`reset()`'s with value 0"]
 impl crate::ResetValue for super::USER {
     type Type = u8;
     #[inline(always)]

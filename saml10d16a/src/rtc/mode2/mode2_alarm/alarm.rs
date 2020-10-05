@@ -38,21 +38,19 @@ impl<'a> MINUTE_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `HOUR`"]
+#[doc = "Hour\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum HOUR_A {
-    #[doc = "Morning hour"]
-    AM,
-    #[doc = "Afternoon hour"]
-    PM,
+    #[doc = "0: Morning hour"]
+    AM = 0,
+    #[doc = "16: Afternoon hour"]
+    PM = 16,
 }
-impl crate::ToBits<u8> for HOUR_A {
+impl From<HOUR_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            HOUR_A::AM => 0,
-            HOUR_A::PM => 16,
-        }
+    fn from(variant: HOUR_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `HOUR`"]
@@ -87,8 +85,7 @@ impl<'a> HOUR_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: HOUR_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Morning hour"]
     #[inline(always)]

@@ -2,7 +2,8 @@
 pub type R = crate::R<u8, super::PMUX>;
 #[doc = "Writer for register PMUX[%s]"]
 pub type W = crate::W<u8, super::PMUX>;
-#[doc = "Register PMUX[%s] `reset()`'s with value 0"]
+#[doc = "Register PMUX[%s]
+`reset()`'s with value 0"]
 impl crate::ResetValue for super::PMUX {
     type Type = u8;
     #[inline(always)]

@@ -6,21 +6,19 @@ pub type DEVSEL_R = crate::R<u8, u8>;
 pub type REVISION_R = crate::R<u8, u8>;
 #[doc = "Reader of field `DIE`"]
 pub type DIE_R = crate::R<u8, u8>;
-#[doc = "Possible values of the field `SERIES`"]
+#[doc = "Series\n\nValue on reset: 4"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SERIES_A {
-    #[doc = "Cortex-M0+ processor, basic feature set"]
-    _0,
-    #[doc = "Cortex-M0+ processor, USB"]
-    _1,
+    #[doc = "0: Cortex-M0+ processor, basic feature set"]
+    _0 = 0,
+    #[doc = "1: Cortex-M0+ processor, USB"]
+    _1 = 1,
 }
-impl crate::ToBits<u8> for SERIES_A {
+impl From<SERIES_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            SERIES_A::_0 => 0,
-            SERIES_A::_1 => 1,
-        }
+    fn from(variant: SERIES_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `SERIES`"]
@@ -47,21 +45,19 @@ impl SERIES_R {
         *self == SERIES_A::_1
     }
 }
-#[doc = "Possible values of the field `FAMILY`"]
+#[doc = "Family\n\nValue on reset: 1"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum FAMILY_A {
-    #[doc = "General purpose microcontroller"]
-    _0,
-    #[doc = "PicoPower"]
-    _1,
+    #[doc = "0: General purpose microcontroller"]
+    _0 = 0,
+    #[doc = "1: PicoPower"]
+    _1 = 1,
 }
-impl crate::ToBits<u8> for FAMILY_A {
+impl From<FAMILY_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            FAMILY_A::_0 => 0,
-            FAMILY_A::_1 => 1,
-        }
+    fn from(variant: FAMILY_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `FAMILY`"]
@@ -88,33 +84,27 @@ impl FAMILY_R {
         *self == FAMILY_A::_1
     }
 }
-#[doc = "Possible values of the field `PROCESSOR`"]
+#[doc = "Processor\n\nValue on reset: 2"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PROCESSOR_A {
-    #[doc = "Cortex-M0+"]
-    CM0P,
-    #[doc = "Cortex-M23"]
-    CM23,
-    #[doc = "Cortex-M3"]
-    CM3,
-    #[doc = "Cortex-M4"]
-    CM4,
-    #[doc = "Cortex-M4 with FPU"]
-    CM4F,
-    #[doc = "Cortex-M33"]
-    CM33,
+    #[doc = "1: Cortex-M0+"]
+    CM0P = 1,
+    #[doc = "2: Cortex-M23"]
+    CM23 = 2,
+    #[doc = "3: Cortex-M3"]
+    CM3 = 3,
+    #[doc = "5: Cortex-M4"]
+    CM4 = 5,
+    #[doc = "6: Cortex-M4 with FPU"]
+    CM4F = 6,
+    #[doc = "7: Cortex-M33"]
+    CM33 = 7,
 }
-impl crate::ToBits<u8> for PROCESSOR_A {
+impl From<PROCESSOR_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            PROCESSOR_A::CM0P => 1,
-            PROCESSOR_A::CM23 => 2,
-            PROCESSOR_A::CM3 => 3,
-            PROCESSOR_A::CM4 => 5,
-            PROCESSOR_A::CM4F => 6,
-            PROCESSOR_A::CM33 => 7,
-        }
+    fn from(variant: PROCESSOR_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `PROCESSOR`"]

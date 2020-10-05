@@ -2,7 +2,8 @@
 pub type R = crate::R<u32, super::OPAMPCTRL>;
 #[doc = "Writer for register OPAMPCTRL[%s]"]
 pub type W = crate::W<u32, super::OPAMPCTRL>;
-#[doc = "Register OPAMPCTRL[%s] `reset()`'s with value 0"]
+#[doc = "Register OPAMPCTRL[%s]
+`reset()`'s with value 0"]
 impl crate::ResetValue for super::OPAMPCTRL {
     type Type = u32;
     #[inline(always)]

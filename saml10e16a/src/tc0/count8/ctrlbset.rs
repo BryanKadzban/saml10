@@ -82,33 +82,27 @@ impl<'a> ONESHOT_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `CMD`"]
+#[doc = "Command\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum CMD_A {
-    #[doc = "No action"]
-    NONE,
-    #[doc = "Force a start, restart or retrigger"]
-    RETRIGGER,
-    #[doc = "Force a stop"]
-    STOP,
-    #[doc = "Force update of double-buffered register"]
-    UPDATE,
-    #[doc = "Force a read synchronization of COUNT"]
-    READSYNC,
-    #[doc = "One-shot DMA trigger"]
-    DMAOS,
+    #[doc = "0: No action"]
+    NONE = 0,
+    #[doc = "1: Force a start, restart or retrigger"]
+    RETRIGGER = 1,
+    #[doc = "2: Force a stop"]
+    STOP = 2,
+    #[doc = "3: Force update of double-buffered register"]
+    UPDATE = 3,
+    #[doc = "4: Force a read synchronization of COUNT"]
+    READSYNC = 4,
+    #[doc = "5: One-shot DMA trigger"]
+    DMAOS = 5,
 }
-impl crate::ToBits<u8> for CMD_A {
+impl From<CMD_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            CMD_A::NONE => 0,
-            CMD_A::RETRIGGER => 1,
-            CMD_A::STOP => 2,
-            CMD_A::UPDATE => 3,
-            CMD_A::READSYNC => 4,
-            CMD_A::DMAOS => 5,
-        }
+    fn from(variant: CMD_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `CMD`"]
@@ -167,8 +161,7 @@ impl<'a> CMD_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: CMD_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "No action"]
     #[inline(always)]

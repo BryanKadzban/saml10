@@ -1,7 +1,25 @@
-#![doc = "Peripheral access API for ATSAML10D15A microcontrollers (generated using svd2rust v0.16.0)\n\nYou can find an overview of the API [here].\n\n[here]: https://docs.rs/svd2rust/0.16.0/svd2rust/#peripheral-api"]
+#![doc = "Peripheral access API for ATSAML10D15A microcontrollers (generated using svd2rust v0.17.0)\n\nYou can find an overview of the API [here].\n\n[here]: https://docs.rs/svd2rust/0.17.0/svd2rust/#peripheral-api"]
+#![deny(const_err)]
+#![deny(dead_code)]
+#![deny(improper_ctypes)]
+#![deny(legacy_directory_ownership)]
 #![deny(missing_docs)]
-#![deny(warnings)]
+#![deny(no_mangle_generic_items)]
+#![deny(non_shorthand_field_patterns)]
+#![deny(overflowing_literals)]
+#![deny(path_statements)]
+#![deny(patterns_in_fns_without_body)]
+#![deny(plugin_as_library)]
+#![deny(private_in_public)]
+#![deny(safe_extern_statics)]
+#![deny(unconditional_recursion)]
+#![deny(unions_with_drop_fields)]
+#![deny(unused_allocation)]
+#![deny(unused_comparisons)]
+#![deny(unused_parens)]
+#![deny(while_true)]
 #![allow(non_camel_case_types)]
+#![allow(non_snake_case)]
 #![no_std]
 extern crate bare_metal;
 extern crate cortex_m;
@@ -143,133 +161,93 @@ pub static __INTERRUPTS: [Vector; 45] = [
 ];
 #[doc = r"Enumeration of all the interrupts"]
 #[derive(Copy, Clone, Debug)]
+#[repr(u8)]
 pub enum Interrupt {
     #[doc = "1 - WDT"]
-    WDT,
+    WDT = 1,
     #[doc = "2 - RTC"]
-    RTC,
+    RTC = 2,
     #[doc = "3 - EIC_0"]
-    EIC_0,
+    EIC_0 = 3,
     #[doc = "4 - EIC_1"]
-    EIC_1,
+    EIC_1 = 4,
     #[doc = "5 - EIC_2"]
-    EIC_2,
+    EIC_2 = 5,
     #[doc = "6 - EIC_3"]
-    EIC_3,
+    EIC_3 = 6,
     #[doc = "7 - EIC_OTHER"]
-    EIC_OTHER,
+    EIC_OTHER = 7,
     #[doc = "8 - FREQM"]
-    FREQM,
+    FREQM = 8,
     #[doc = "9 - NVMCTRL"]
-    NVMCTRL,
+    NVMCTRL = 9,
     #[doc = "10 - PORT"]
-    PORT,
+    PORT = 10,
     #[doc = "11 - DMAC_0"]
-    DMAC_0,
+    DMAC_0 = 11,
     #[doc = "12 - DMAC_1"]
-    DMAC_1,
+    DMAC_1 = 12,
     #[doc = "13 - DMAC_2"]
-    DMAC_2,
+    DMAC_2 = 13,
     #[doc = "14 - DMAC_3"]
-    DMAC_3,
+    DMAC_3 = 14,
     #[doc = "15 - DMAC_OTHER"]
-    DMAC_OTHER,
+    DMAC_OTHER = 15,
     #[doc = "16 - EVSYS_0"]
-    EVSYS_0,
+    EVSYS_0 = 16,
     #[doc = "17 - EVSYS_1"]
-    EVSYS_1,
+    EVSYS_1 = 17,
     #[doc = "18 - EVSYS_2"]
-    EVSYS_2,
+    EVSYS_2 = 18,
     #[doc = "19 - EVSYS_3"]
-    EVSYS_3,
+    EVSYS_3 = 19,
     #[doc = "20 - EVSYS_NSCHK"]
-    EVSYS_NSCHK,
+    EVSYS_NSCHK = 20,
     #[doc = "21 - PAC"]
-    PAC,
+    PAC = 21,
     #[doc = "22 - SERCOM0_0"]
-    SERCOM0_0,
+    SERCOM0_0 = 22,
     #[doc = "23 - SERCOM0_1"]
-    SERCOM0_1,
+    SERCOM0_1 = 23,
     #[doc = "24 - SERCOM0_2"]
-    SERCOM0_2,
+    SERCOM0_2 = 24,
     #[doc = "25 - SERCOM0_OTHER"]
-    SERCOM0_OTHER,
+    SERCOM0_OTHER = 25,
     #[doc = "26 - SERCOM1_0"]
-    SERCOM1_0,
+    SERCOM1_0 = 26,
     #[doc = "27 - SERCOM1_1"]
-    SERCOM1_1,
+    SERCOM1_1 = 27,
     #[doc = "28 - SERCOM1_2"]
-    SERCOM1_2,
+    SERCOM1_2 = 28,
     #[doc = "29 - SERCOM1_OTHER"]
-    SERCOM1_OTHER,
+    SERCOM1_OTHER = 29,
     #[doc = "34 - TC0"]
-    TC0,
+    TC0 = 34,
     #[doc = "35 - TC1"]
-    TC1,
+    TC1 = 35,
     #[doc = "36 - TC2"]
-    TC2,
+    TC2 = 36,
     #[doc = "37 - ADC_OTHER"]
-    ADC_OTHER,
+    ADC_OTHER = 37,
     #[doc = "38 - ADC_RESRDY"]
-    ADC_RESRDY,
+    ADC_RESRDY = 38,
     #[doc = "39 - AC"]
-    AC,
+    AC = 39,
     #[doc = "40 - DAC_UNDERRUN_A"]
-    DAC_UNDERRUN_A,
+    DAC_UNDERRUN_A = 40,
     #[doc = "41 - DAC_EMPTY"]
-    DAC_EMPTY,
+    DAC_EMPTY = 41,
     #[doc = "42 - PTC"]
-    PTC,
+    PTC = 42,
     #[doc = "43 - TRNG"]
-    TRNG,
+    TRNG = 43,
     #[doc = "44 - TRAM"]
-    TRAM,
+    TRAM = 44,
 }
 unsafe impl bare_metal::Nr for Interrupt {
-    #[inline]
+    #[inline(always)]
     fn nr(&self) -> u8 {
-        match *self {
-            Interrupt::WDT => 1,
-            Interrupt::RTC => 2,
-            Interrupt::EIC_0 => 3,
-            Interrupt::EIC_1 => 4,
-            Interrupt::EIC_2 => 5,
-            Interrupt::EIC_3 => 6,
-            Interrupt::EIC_OTHER => 7,
-            Interrupt::FREQM => 8,
-            Interrupt::NVMCTRL => 9,
-            Interrupt::PORT => 10,
-            Interrupt::DMAC_0 => 11,
-            Interrupt::DMAC_1 => 12,
-            Interrupt::DMAC_2 => 13,
-            Interrupt::DMAC_3 => 14,
-            Interrupt::DMAC_OTHER => 15,
-            Interrupt::EVSYS_0 => 16,
-            Interrupt::EVSYS_1 => 17,
-            Interrupt::EVSYS_2 => 18,
-            Interrupt::EVSYS_3 => 19,
-            Interrupt::EVSYS_NSCHK => 20,
-            Interrupt::PAC => 21,
-            Interrupt::SERCOM0_0 => 22,
-            Interrupt::SERCOM0_1 => 23,
-            Interrupt::SERCOM0_2 => 24,
-            Interrupt::SERCOM0_OTHER => 25,
-            Interrupt::SERCOM1_0 => 26,
-            Interrupt::SERCOM1_1 => 27,
-            Interrupt::SERCOM1_2 => 28,
-            Interrupt::SERCOM1_OTHER => 29,
-            Interrupt::TC0 => 34,
-            Interrupt::TC1 => 35,
-            Interrupt::TC2 => 36,
-            Interrupt::ADC_OTHER => 37,
-            Interrupt::ADC_RESRDY => 38,
-            Interrupt::AC => 39,
-            Interrupt::DAC_UNDERRUN_A => 40,
-            Interrupt::DAC_EMPTY => 41,
-            Interrupt::PTC => 42,
-            Interrupt::TRNG => 43,
-            Interrupt::TRAM => 44,
-        }
+        *self as u8
     }
 }
 #[cfg(feature = "rt")]
@@ -296,6 +274,7 @@ impl AC {
 }
 impl Deref for AC {
     type Target = ac::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*AC::ptr() }
     }
@@ -316,6 +295,7 @@ impl ADC {
 }
 impl Deref for ADC {
     type Target = adc::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*ADC::ptr() }
     }
@@ -336,6 +316,7 @@ impl CCL {
 }
 impl Deref for CCL {
     type Target = ccl::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*CCL::ptr() }
     }
@@ -356,6 +337,7 @@ impl DAC {
 }
 impl Deref for DAC {
     type Target = dac::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*DAC::ptr() }
     }
@@ -376,6 +358,7 @@ impl DMAC {
 }
 impl Deref for DMAC {
     type Target = dmac::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*DMAC::ptr() }
     }
@@ -396,6 +379,7 @@ impl DSU {
 }
 impl Deref for DSU {
     type Target = dsu::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*DSU::ptr() }
     }
@@ -416,6 +400,7 @@ impl DSU_EXT {
 }
 impl Deref for DSU_EXT {
     type Target = dsu::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*DSU_EXT::ptr() }
     }
@@ -434,6 +419,7 @@ impl EIC {
 }
 impl Deref for EIC {
     type Target = eic::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*EIC::ptr() }
     }
@@ -454,6 +440,7 @@ impl EVSYS {
 }
 impl Deref for EVSYS {
     type Target = evsys::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*EVSYS::ptr() }
     }
@@ -474,6 +461,7 @@ impl FREQM {
 }
 impl Deref for FREQM {
     type Target = freqm::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*FREQM::ptr() }
     }
@@ -494,6 +482,7 @@ impl GCLK {
 }
 impl Deref for GCLK {
     type Target = gclk::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*GCLK::ptr() }
     }
@@ -514,6 +503,7 @@ impl MCLK {
 }
 impl Deref for MCLK {
     type Target = mclk::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*MCLK::ptr() }
     }
@@ -534,6 +524,7 @@ impl NVMCTRL {
 }
 impl Deref for NVMCTRL {
     type Target = nvmctrl::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*NVMCTRL::ptr() }
     }
@@ -554,6 +545,7 @@ impl OPAMP {
 }
 impl Deref for OPAMP {
     type Target = opamp::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*OPAMP::ptr() }
     }
@@ -574,6 +566,7 @@ impl OSCCTRL {
 }
 impl Deref for OSCCTRL {
     type Target = oscctrl::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*OSCCTRL::ptr() }
     }
@@ -594,6 +587,7 @@ impl OSC32KCTRL {
 }
 impl Deref for OSC32KCTRL {
     type Target = osc32kctrl::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*OSC32KCTRL::ptr() }
     }
@@ -614,6 +608,7 @@ impl PAC {
 }
 impl Deref for PAC {
     type Target = pac::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*PAC::ptr() }
     }
@@ -634,6 +629,7 @@ impl PM {
 }
 impl Deref for PM {
     type Target = pm::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*PM::ptr() }
     }
@@ -654,6 +650,7 @@ impl PORT {
 }
 impl Deref for PORT {
     type Target = port::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*PORT::ptr() }
     }
@@ -674,6 +671,7 @@ impl PORT_IOBUS {
 }
 impl Deref for PORT_IOBUS {
     type Target = port::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*PORT_IOBUS::ptr() }
     }
@@ -692,6 +690,7 @@ impl RSTC {
 }
 impl Deref for RSTC {
     type Target = rstc::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*RSTC::ptr() }
     }
@@ -712,6 +711,7 @@ impl RTC {
 }
 impl Deref for RTC {
     type Target = rtc::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*RTC::ptr() }
     }
@@ -732,6 +732,7 @@ impl SERCOM0 {
 }
 impl Deref for SERCOM0 {
     type Target = sercom0::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*SERCOM0::ptr() }
     }
@@ -752,6 +753,7 @@ impl SERCOM1 {
 }
 impl Deref for SERCOM1 {
     type Target = sercom0::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*SERCOM1::ptr() }
     }
@@ -770,6 +772,7 @@ impl SUPC {
 }
 impl Deref for SUPC {
     type Target = supc::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*SUPC::ptr() }
     }
@@ -790,6 +793,7 @@ impl TC0 {
 }
 impl Deref for TC0 {
     type Target = tc0::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*TC0::ptr() }
     }
@@ -810,6 +814,7 @@ impl TC1 {
 }
 impl Deref for TC1 {
     type Target = tc0::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*TC1::ptr() }
     }
@@ -828,6 +833,7 @@ impl TC2 {
 }
 impl Deref for TC2 {
     type Target = tc0::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*TC2::ptr() }
     }
@@ -846,6 +852,7 @@ impl TRAM {
 }
 impl Deref for TRAM {
     type Target = tram::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*TRAM::ptr() }
     }
@@ -866,6 +873,7 @@ impl TRNG {
 }
 impl Deref for TRNG {
     type Target = trng::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*TRNG::ptr() }
     }
@@ -886,6 +894,7 @@ impl WDT {
 }
 impl Deref for WDT {
     type Target = wdt::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*WDT::ptr() }
     }
@@ -906,6 +915,7 @@ impl COREDEBUG {
 }
 impl Deref for COREDEBUG {
     type Target = core_debug::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*COREDEBUG::ptr() }
     }
@@ -926,6 +936,7 @@ impl DIB {
 }
 impl Deref for DIB {
     type Target = dib::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*DIB::ptr() }
     }
@@ -946,6 +957,7 @@ impl ICB {
 }
 impl Deref for ICB {
     type Target = icb::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*ICB::ptr() }
     }
@@ -966,6 +978,7 @@ impl SYSTICK {
 }
 impl Deref for SYSTICK {
     type Target = sys_tick::RegisterBlock;
+    #[inline(always)]
     fn deref(&self) -> &Self::Target {
         unsafe { &*SYSTICK::ptr() }
     }
@@ -1061,6 +1074,7 @@ impl Peripherals {
         })
     }
     #[doc = r"Unchecked version of `Peripherals::take`"]
+    #[inline]
     pub unsafe fn steal() -> Self {
         DEVICE_PERIPHERALS = true;
         Peripherals {

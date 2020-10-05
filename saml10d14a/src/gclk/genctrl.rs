@@ -2,7 +2,8 @@
 pub type R = crate::R<u32, super::GENCTRL>;
 #[doc = "Writer for register GENCTRL[%s]"]
 pub type W = crate::W<u32, super::GENCTRL>;
-#[doc = "Register GENCTRL[%s] `reset()`'s with value 0"]
+#[doc = "Register GENCTRL[%s]
+`reset()`'s with value 0"]
 impl crate::ResetValue for super::GENCTRL {
     type Type = u32;
     #[inline(always)]
@@ -10,39 +11,31 @@ impl crate::ResetValue for super::GENCTRL {
         0
     }
 }
-#[doc = "Possible values of the field `SRC`"]
+#[doc = "Source Select\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SRC_A {
-    #[doc = "XOSC oscillator output"]
-    XOSC,
-    #[doc = "Generator input pad"]
-    GCLKIN,
-    #[doc = "Generic clock generator 1 output"]
-    GCLKGEN1,
-    #[doc = "OSCULP32K oscillator output"]
-    OSCULP32K,
-    #[doc = "XOSC32K oscillator output"]
-    XOSC32K,
-    #[doc = "OSC16M oscillator output"]
-    OSC16M,
-    #[doc = "DFLLULP output"]
-    DFLLULP,
-    #[doc = "FDPLL output"]
-    FDPLL96M,
+    #[doc = "0: XOSC oscillator output"]
+    XOSC = 0,
+    #[doc = "1: Generator input pad"]
+    GCLKIN = 1,
+    #[doc = "2: Generic clock generator 1 output"]
+    GCLKGEN1 = 2,
+    #[doc = "3: OSCULP32K oscillator output"]
+    OSCULP32K = 3,
+    #[doc = "4: XOSC32K oscillator output"]
+    XOSC32K = 4,
+    #[doc = "5: OSC16M oscillator output"]
+    OSC16M = 5,
+    #[doc = "6: DFLLULP output"]
+    DFLLULP = 6,
+    #[doc = "7: FDPLL output"]
+    FDPLL96M = 7,
 }
-impl crate::ToBits<u8> for SRC_A {
+impl From<SRC_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            SRC_A::XOSC => 0,
-            SRC_A::GCLKIN => 1,
-            SRC_A::GCLKGEN1 => 2,
-            SRC_A::OSCULP32K => 3,
-            SRC_A::XOSC32K => 4,
-            SRC_A::OSC16M => 5,
-            SRC_A::DFLLULP => 6,
-            SRC_A::FDPLL96M => 7,
-        }
+    fn from(variant: SRC_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `SRC`"]
@@ -112,9 +105,8 @@ impl<'a> SRC_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SRC_A) -> &'a mut W {
-        use crate::ToBits;
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "XOSC oscillator output"]

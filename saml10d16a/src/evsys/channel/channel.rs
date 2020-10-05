@@ -24,24 +24,21 @@ impl<'a> EVGEN_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `PATH`"]
+#[doc = "Path Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PATH_A {
-    #[doc = "Synchronous path"]
-    SYNCHRONOUS,
-    #[doc = "Resynchronized path"]
-    RESYNCHRONIZED,
-    #[doc = "Asynchronous path"]
-    ASYNCHRONOUS,
+    #[doc = "0: Synchronous path"]
+    SYNCHRONOUS = 0,
+    #[doc = "1: Resynchronized path"]
+    RESYNCHRONIZED = 1,
+    #[doc = "2: Asynchronous path"]
+    ASYNCHRONOUS = 2,
 }
-impl crate::ToBits<u8> for PATH_A {
+impl From<PATH_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            PATH_A::SYNCHRONOUS => 0,
-            PATH_A::RESYNCHRONIZED => 1,
-            PATH_A::ASYNCHRONOUS => 2,
-        }
+    fn from(variant: PATH_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `PATH`"]
@@ -82,8 +79,7 @@ impl<'a> PATH_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: PATH_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Synchronous path"]
     #[inline(always)]
@@ -107,27 +103,23 @@ impl<'a> PATH_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `EDGSEL`"]
+#[doc = "Edge Detection Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum EDGSEL_A {
-    #[doc = "No event output when using the resynchronized or synchronous path"]
-    NO_EVT_OUTPUT,
-    #[doc = "Event detection only on the rising edge of the signal from the event generator when using the resynchronized or synchronous path"]
-    RISING_EDGE,
-    #[doc = "Event detection only on the falling edge of the signal from the event generator when using the resynchronized or synchronous path"]
-    FALLING_EDGE,
-    #[doc = "Event detection on rising and falling edges of the signal from the event generator when using the resynchronized or synchronous path"]
-    BOTH_EDGES,
+    #[doc = "0: No event output when using the resynchronized or synchronous path"]
+    NO_EVT_OUTPUT = 0,
+    #[doc = "1: Event detection only on the rising edge of the signal from the event generator when using the resynchronized or synchronous path"]
+    RISING_EDGE = 1,
+    #[doc = "2: Event detection only on the falling edge of the signal from the event generator when using the resynchronized or synchronous path"]
+    FALLING_EDGE = 2,
+    #[doc = "3: Event detection on rising and falling edges of the signal from the event generator when using the resynchronized or synchronous path"]
+    BOTH_EDGES = 3,
 }
-impl crate::ToBits<u8> for EDGSEL_A {
+impl From<EDGSEL_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            EDGSEL_A::NO_EVT_OUTPUT => 0,
-            EDGSEL_A::RISING_EDGE => 1,
-            EDGSEL_A::FALLING_EDGE => 2,
-            EDGSEL_A::BOTH_EDGES => 3,
-        }
+    fn from(variant: EDGSEL_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `EDGSEL`"]
@@ -173,9 +165,8 @@ impl<'a> EDGSEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: EDGSEL_A) -> &'a mut W {
-        use crate::ToBits;
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "No event output when using the resynchronized or synchronous path"]

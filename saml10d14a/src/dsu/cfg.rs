@@ -24,21 +24,19 @@ impl<'a> LQOS_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `DCCDMALEVEL`"]
+#[doc = "DMA Trigger Level\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum DCCDMALEVEL_A {
-    #[doc = "Trigger rises when DCC is empty"]
-    EMPTY,
-    #[doc = "Trigger rises when DCC is full"]
-    FULL,
+    #[doc = "0: Trigger rises when DCC is empty"]
+    EMPTY = 0,
+    #[doc = "1: Trigger rises when DCC is full"]
+    FULL = 1,
 }
-impl crate::ToBits<u8> for DCCDMALEVEL_A {
+impl From<DCCDMALEVEL_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            DCCDMALEVEL_A::EMPTY => 0,
-            DCCDMALEVEL_A::FULL => 1,
-        }
+    fn from(variant: DCCDMALEVEL_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `DCCDMALEVEL`"]
@@ -73,8 +71,7 @@ impl<'a> DCCDMALEVEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DCCDMALEVEL_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Trigger rises when DCC is empty"]
     #[inline(always)]

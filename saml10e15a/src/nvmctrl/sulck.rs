@@ -82,18 +82,17 @@ impl<'a> DS_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `SLKEY`"]
+#[doc = "Write Key\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SLKEY_A {
-    #[doc = "Write Key"]
-    KEY,
+    #[doc = "165: Write Key"]
+    KEY = 165,
 }
-impl crate::ToBits<u8> for SLKEY_A {
+impl From<SLKEY_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            SLKEY_A::KEY => 165,
-        }
+    fn from(variant: SLKEY_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `SLKEY`"]
@@ -122,8 +121,7 @@ impl<'a> SLKEY_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: SLKEY_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Write Key"]
     #[inline(always)]

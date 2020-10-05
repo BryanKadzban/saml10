@@ -10,21 +10,19 @@ impl crate::ResetValue for super::PLCFG {
         0
     }
 }
-#[doc = "Possible values of the field `PLSEL`"]
+#[doc = "Performance Level Select\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PLSEL_A {
-    #[doc = "Performance Level 0"]
-    PL0,
-    #[doc = "Performance Level 2"]
-    PL2,
+    #[doc = "0: Performance Level 0"]
+    PL0 = 0,
+    #[doc = "2: Performance Level 2"]
+    PL2 = 2,
 }
-impl crate::ToBits<u8> for PLSEL_A {
+impl From<PLSEL_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            PLSEL_A::PL0 => 0,
-            PLSEL_A::PL2 => 2,
-        }
+    fn from(variant: PLSEL_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `PLSEL`"]
@@ -59,8 +57,7 @@ impl<'a> PLSEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: PLSEL_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Performance Level 0"]
     #[inline(always)]

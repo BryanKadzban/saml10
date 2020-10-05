@@ -130,39 +130,31 @@ impl<'a> DMAEN_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `DEBF`"]
+#[doc = "Debounce Frequency\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum DEBF_A {
-    #[doc = "CLK_RTC_DEB = CLK_RTC/2"]
-    DIV2,
-    #[doc = "CLK_RTC_DEB = CLK_RTC/4"]
-    DIV4,
-    #[doc = "CLK_RTC_DEB = CLK_RTC/8"]
-    DIV8,
-    #[doc = "CLK_RTC_DEB = CLK_RTC/16"]
-    DIV16,
-    #[doc = "CLK_RTC_DEB = CLK_RTC/32"]
-    DIV32,
-    #[doc = "CLK_RTC_DEB = CLK_RTC/64"]
-    DIV64,
-    #[doc = "CLK_RTC_DEB = CLK_RTC/128"]
-    DIV128,
-    #[doc = "CLK_RTC_DEB = CLK_RTC/256"]
-    DIV256,
+    #[doc = "0: CLK_RTC_DEB = CLK_RTC/2"]
+    DIV2 = 0,
+    #[doc = "1: CLK_RTC_DEB = CLK_RTC/4"]
+    DIV4 = 1,
+    #[doc = "2: CLK_RTC_DEB = CLK_RTC/8"]
+    DIV8 = 2,
+    #[doc = "3: CLK_RTC_DEB = CLK_RTC/16"]
+    DIV16 = 3,
+    #[doc = "4: CLK_RTC_DEB = CLK_RTC/32"]
+    DIV32 = 4,
+    #[doc = "5: CLK_RTC_DEB = CLK_RTC/64"]
+    DIV64 = 5,
+    #[doc = "6: CLK_RTC_DEB = CLK_RTC/128"]
+    DIV128 = 6,
+    #[doc = "7: CLK_RTC_DEB = CLK_RTC/256"]
+    DIV256 = 7,
 }
-impl crate::ToBits<u8> for DEBF_A {
+impl From<DEBF_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            DEBF_A::DIV2 => 0,
-            DEBF_A::DIV4 => 1,
-            DEBF_A::DIV8 => 2,
-            DEBF_A::DIV16 => 3,
-            DEBF_A::DIV32 => 4,
-            DEBF_A::DIV64 => 5,
-            DEBF_A::DIV128 => 6,
-            DEBF_A::DIV256 => 7,
-        }
+    fn from(variant: DEBF_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `DEBF`"]
@@ -232,9 +224,8 @@ impl<'a> DEBF_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DEBF_A) -> &'a mut W {
-        use crate::ToBits;
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "CLK_RTC_DEB = CLK_RTC/2"]
@@ -284,39 +275,31 @@ impl<'a> DEBF_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `ACTF`"]
+#[doc = "Active Layer Frequency\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum ACTF_A {
-    #[doc = "CLK_RTC_OUT = CLK_RTC/2"]
-    DIV2,
-    #[doc = "CLK_RTC_OUT = CLK_RTC/4"]
-    DIV4,
-    #[doc = "CLK_RTC_OUT = CLK_RTC/8"]
-    DIV8,
-    #[doc = "CLK_RTC_OUT = CLK_RTC/16"]
-    DIV16,
-    #[doc = "CLK_RTC_OUT = CLK_RTC/32"]
-    DIV32,
-    #[doc = "CLK_RTC_OUT = CLK_RTC/64"]
-    DIV64,
-    #[doc = "CLK_RTC_OUT = CLK_RTC/128"]
-    DIV128,
-    #[doc = "CLK_RTC_OUT = CLK_RTC/256"]
-    DIV256,
+    #[doc = "0: CLK_RTC_OUT = CLK_RTC/2"]
+    DIV2 = 0,
+    #[doc = "1: CLK_RTC_OUT = CLK_RTC/4"]
+    DIV4 = 1,
+    #[doc = "2: CLK_RTC_OUT = CLK_RTC/8"]
+    DIV8 = 2,
+    #[doc = "3: CLK_RTC_OUT = CLK_RTC/16"]
+    DIV16 = 3,
+    #[doc = "4: CLK_RTC_OUT = CLK_RTC/32"]
+    DIV32 = 4,
+    #[doc = "5: CLK_RTC_OUT = CLK_RTC/64"]
+    DIV64 = 5,
+    #[doc = "6: CLK_RTC_OUT = CLK_RTC/128"]
+    DIV128 = 6,
+    #[doc = "7: CLK_RTC_OUT = CLK_RTC/256"]
+    DIV256 = 7,
 }
-impl crate::ToBits<u8> for ACTF_A {
+impl From<ACTF_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            ACTF_A::DIV2 => 0,
-            ACTF_A::DIV4 => 1,
-            ACTF_A::DIV8 => 2,
-            ACTF_A::DIV16 => 3,
-            ACTF_A::DIV32 => 4,
-            ACTF_A::DIV64 => 5,
-            ACTF_A::DIV128 => 6,
-            ACTF_A::DIV256 => 7,
-        }
+    fn from(variant: ACTF_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `ACTF`"]
@@ -386,9 +369,8 @@ impl<'a> ACTF_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: ACTF_A) -> &'a mut W {
-        use crate::ToBits;
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "CLK_RTC_OUT = CLK_RTC/2"]

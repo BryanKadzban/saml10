@@ -58,24 +58,21 @@ impl<'a> ENABLE_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `MODE`"]
+#[doc = "Operating Mode\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum MODE_A {
-    #[doc = "Mode 0: 32-bit Counter"]
-    COUNT32,
-    #[doc = "Mode 1: 16-bit Counter"]
-    COUNT16,
-    #[doc = "Mode 2: Clock/Calendar"]
-    CLOCK,
+    #[doc = "0: Mode 0: 32-bit Counter"]
+    COUNT32 = 0,
+    #[doc = "1: Mode 1: 16-bit Counter"]
+    COUNT16 = 1,
+    #[doc = "2: Mode 2: Clock/Calendar"]
+    CLOCK = 2,
 }
-impl crate::ToBits<u8> for MODE_A {
+impl From<MODE_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            MODE_A::COUNT32 => 0,
-            MODE_A::COUNT16 => 1,
-            MODE_A::CLOCK => 2,
-        }
+    fn from(variant: MODE_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `MODE`"]
@@ -116,8 +113,7 @@ impl<'a> MODE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: MODE_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Mode 0: 32-bit Counter"]
     #[inline(always)]
@@ -165,51 +161,39 @@ impl<'a> MATCHCLR_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `PRESCALER`"]
+#[doc = "Prescaler\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum PRESCALER_A {
-    #[doc = "CLK_RTC_CNT = GCLK_RTC/1"]
-    OFF,
-    #[doc = "CLK_RTC_CNT = GCLK_RTC/1"]
-    DIV1,
-    #[doc = "CLK_RTC_CNT = GCLK_RTC/2"]
-    DIV2,
-    #[doc = "CLK_RTC_CNT = GCLK_RTC/4"]
-    DIV4,
-    #[doc = "CLK_RTC_CNT = GCLK_RTC/8"]
-    DIV8,
-    #[doc = "CLK_RTC_CNT = GCLK_RTC/16"]
-    DIV16,
-    #[doc = "CLK_RTC_CNT = GCLK_RTC/32"]
-    DIV32,
-    #[doc = "CLK_RTC_CNT = GCLK_RTC/64"]
-    DIV64,
-    #[doc = "CLK_RTC_CNT = GCLK_RTC/128"]
-    DIV128,
-    #[doc = "CLK_RTC_CNT = GCLK_RTC/256"]
-    DIV256,
-    #[doc = "CLK_RTC_CNT = GCLK_RTC/512"]
-    DIV512,
-    #[doc = "CLK_RTC_CNT = GCLK_RTC/1024"]
-    DIV1024,
+    #[doc = "0: CLK_RTC_CNT = GCLK_RTC/1"]
+    OFF = 0,
+    #[doc = "1: CLK_RTC_CNT = GCLK_RTC/1"]
+    DIV1 = 1,
+    #[doc = "2: CLK_RTC_CNT = GCLK_RTC/2"]
+    DIV2 = 2,
+    #[doc = "3: CLK_RTC_CNT = GCLK_RTC/4"]
+    DIV4 = 3,
+    #[doc = "4: CLK_RTC_CNT = GCLK_RTC/8"]
+    DIV8 = 4,
+    #[doc = "5: CLK_RTC_CNT = GCLK_RTC/16"]
+    DIV16 = 5,
+    #[doc = "6: CLK_RTC_CNT = GCLK_RTC/32"]
+    DIV32 = 6,
+    #[doc = "7: CLK_RTC_CNT = GCLK_RTC/64"]
+    DIV64 = 7,
+    #[doc = "8: CLK_RTC_CNT = GCLK_RTC/128"]
+    DIV128 = 8,
+    #[doc = "9: CLK_RTC_CNT = GCLK_RTC/256"]
+    DIV256 = 9,
+    #[doc = "10: CLK_RTC_CNT = GCLK_RTC/512"]
+    DIV512 = 10,
+    #[doc = "11: CLK_RTC_CNT = GCLK_RTC/1024"]
+    DIV1024 = 11,
 }
-impl crate::ToBits<u8> for PRESCALER_A {
+impl From<PRESCALER_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            PRESCALER_A::OFF => 0,
-            PRESCALER_A::DIV1 => 1,
-            PRESCALER_A::DIV2 => 2,
-            PRESCALER_A::DIV4 => 3,
-            PRESCALER_A::DIV8 => 4,
-            PRESCALER_A::DIV16 => 5,
-            PRESCALER_A::DIV32 => 6,
-            PRESCALER_A::DIV64 => 7,
-            PRESCALER_A::DIV128 => 8,
-            PRESCALER_A::DIV256 => 9,
-            PRESCALER_A::DIV512 => 10,
-            PRESCALER_A::DIV1024 => 11,
-        }
+    fn from(variant: PRESCALER_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `PRESCALER`"]
@@ -304,8 +288,7 @@ impl<'a> PRESCALER_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: PRESCALER_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "CLK_RTC_CNT = GCLK_RTC/1"]
     #[inline(always)]

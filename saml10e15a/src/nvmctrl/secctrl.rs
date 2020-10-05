@@ -120,18 +120,17 @@ impl<'a> TEROW_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `KEY`"]
+#[doc = "Write Key\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum KEY_A {
-    #[doc = "Write Key"]
-    KEY,
+    #[doc = "165: Write Key"]
+    KEY = 165,
 }
-impl crate::ToBits<u8> for KEY_A {
+impl From<KEY_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            KEY_A::KEY => 165,
-        }
+    fn from(variant: KEY_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `KEY`"]
@@ -160,8 +159,7 @@ impl<'a> KEY_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: KEY_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Write Key"]
     #[inline(always)]

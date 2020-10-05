@@ -10,33 +10,27 @@ impl crate::ResetValue for super::REFCTRL {
         0
     }
 }
-#[doc = "Possible values of the field `REFSEL`"]
+#[doc = "Reference Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum REFSEL_A {
-    #[doc = "Internal Bandgap Reference"]
-    INTREF,
-    #[doc = "1/1.6 VDDANA"]
-    INTVCC0,
-    #[doc = "1/2 VDDANA"]
-    INTVCC1,
-    #[doc = "External Reference"]
-    AREFA,
-    #[doc = "External Reference"]
-    AREFB,
-    #[doc = "VCCANA"]
-    INTVCC2,
+    #[doc = "0: Internal Bandgap Reference"]
+    INTREF = 0,
+    #[doc = "1: 1/1.6 VDDANA"]
+    INTVCC0 = 1,
+    #[doc = "2: 1/2 VDDANA"]
+    INTVCC1 = 2,
+    #[doc = "3: External Reference"]
+    AREFA = 3,
+    #[doc = "4: External Reference"]
+    AREFB = 4,
+    #[doc = "5: VCCANA"]
+    INTVCC2 = 5,
 }
-impl crate::ToBits<u8> for REFSEL_A {
+impl From<REFSEL_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            REFSEL_A::INTREF => 0,
-            REFSEL_A::INTVCC0 => 1,
-            REFSEL_A::INTVCC1 => 2,
-            REFSEL_A::AREFA => 3,
-            REFSEL_A::AREFB => 4,
-            REFSEL_A::INTVCC2 => 5,
-        }
+    fn from(variant: REFSEL_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `REFSEL`"]
@@ -95,8 +89,7 @@ impl<'a> REFSEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: REFSEL_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Internal Bandgap Reference"]
     #[inline(always)]

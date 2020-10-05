@@ -106,27 +106,23 @@ impl<'a> CORREN_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `RESSEL`"]
+#[doc = "Conversion Result Resolution\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum RESSEL_A {
-    #[doc = "12-bit result"]
-    _12BIT,
-    #[doc = "For averaging mode output"]
-    _16BIT,
-    #[doc = "10-bit result"]
-    _10BIT,
-    #[doc = "8-bit result"]
-    _8BIT,
+    #[doc = "0: 12-bit result"]
+    _12BIT = 0,
+    #[doc = "1: For averaging mode output"]
+    _16BIT = 1,
+    #[doc = "2: 10-bit result"]
+    _10BIT = 2,
+    #[doc = "3: 8-bit result"]
+    _8BIT = 3,
 }
-impl crate::ToBits<u8> for RESSEL_A {
+impl From<RESSEL_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            RESSEL_A::_12BIT => 0,
-            RESSEL_A::_16BIT => 1,
-            RESSEL_A::_10BIT => 2,
-            RESSEL_A::_8BIT => 3,
-        }
+    fn from(variant: RESSEL_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `RESSEL`"]
@@ -172,9 +168,8 @@ impl<'a> RESSEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: RESSEL_A) -> &'a mut W {
-        use crate::ToBits;
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "12-bit result"]
@@ -228,30 +223,25 @@ impl<'a> R2R_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `WINMODE`"]
+#[doc = "Window Monitor Mode\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum WINMODE_A {
-    #[doc = "No window mode (default)"]
-    DISABLE,
-    #[doc = "RESULT > WINLT"]
-    MODE1,
-    #[doc = "RESULT < WINUT"]
-    MODE2,
-    #[doc = "WINLT < RESULT < WINUT"]
-    MODE3,
-    #[doc = "!(WINLT < RESULT < WINUT)"]
-    MODE4,
+    #[doc = "0: No window mode (default)"]
+    DISABLE = 0,
+    #[doc = "1: RESULT > WINLT"]
+    MODE1 = 1,
+    #[doc = "2: RESULT < WINUT"]
+    MODE2 = 2,
+    #[doc = "3: WINLT < RESULT < WINUT"]
+    MODE3 = 3,
+    #[doc = "4: !(WINLT < RESULT < WINUT)"]
+    MODE4 = 4,
 }
-impl crate::ToBits<u8> for WINMODE_A {
+impl From<WINMODE_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            WINMODE_A::DISABLE => 0,
-            WINMODE_A::MODE1 => 1,
-            WINMODE_A::MODE2 => 2,
-            WINMODE_A::MODE3 => 3,
-            WINMODE_A::MODE4 => 4,
-        }
+    fn from(variant: WINMODE_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `WINMODE`"]
@@ -304,8 +294,7 @@ impl<'a> WINMODE_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: WINMODE_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "No window mode (default)"]
     #[inline(always)]
@@ -339,21 +328,19 @@ impl<'a> WINMODE_W<'a> {
         self.w
     }
 }
-#[doc = "Possible values of the field `DUALSEL`"]
+#[doc = "Dual Mode Trigger Selection\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum DUALSEL_A {
-    #[doc = "Start event or software trigger will start a conversion on both ADCs"]
-    BOTH,
-    #[doc = "START event or software trigger will alternatingly start a conversion on ADC0 and ADC1"]
-    INTERLEAVE,
+    #[doc = "0: Start event or software trigger will start a conversion on both ADCs"]
+    BOTH = 0,
+    #[doc = "1: START event or software trigger will alternatingly start a conversion on ADC0 and ADC1"]
+    INTERLEAVE = 1,
 }
-impl crate::ToBits<u8> for DUALSEL_A {
+impl From<DUALSEL_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            DUALSEL_A::BOTH => 0,
-            DUALSEL_A::INTERLEAVE => 1,
-        }
+    fn from(variant: DUALSEL_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `DUALSEL`"]
@@ -388,8 +375,7 @@ impl<'a> DUALSEL_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: DUALSEL_A) -> &'a mut W {
-        use crate::ToBits;
-        unsafe { self.bits(variant._bits()) }
+        unsafe { self.bits(variant.into()) }
     }
     #[doc = "Start event or software trigger will start a conversion on both ADCs"]
     #[inline(always)]

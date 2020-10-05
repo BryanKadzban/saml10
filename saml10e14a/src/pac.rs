@@ -41,7 +41,7 @@ pub struct RegisterBlock {
     #[doc = "0x7c - Peripheral secure status locked - Bridge C"]
     pub seclockc: SECLOCKC,
 }
-#[doc = "Write control\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [wrctrl](wrctrl) module"]
+#[doc = "Write control\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [wrctrl](wrctrl) module"]
 pub type WRCTRL = crate::Reg<u32, _WRCTRL>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -52,7 +52,7 @@ impl crate::Readable for WRCTRL {}
 impl crate::Writable for WRCTRL {}
 #[doc = "Write control"]
 pub mod wrctrl;
-#[doc = "Event control\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [evctrl](evctrl) module"]
+#[doc = "Event control\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [evctrl](evctrl) module"]
 pub type EVCTRL = crate::Reg<u8, _EVCTRL>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -63,7 +63,7 @@ impl crate::Readable for EVCTRL {}
 impl crate::Writable for EVCTRL {}
 #[doc = "Event control"]
 pub mod evctrl;
-#[doc = "Interrupt enable clear\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [intenclr](intenclr) module"]
+#[doc = "Interrupt enable clear\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intenclr](intenclr) module"]
 pub type INTENCLR = crate::Reg<u8, _INTENCLR>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -74,7 +74,7 @@ impl crate::Readable for INTENCLR {}
 impl crate::Writable for INTENCLR {}
 #[doc = "Interrupt enable clear"]
 pub mod intenclr;
-#[doc = "Interrupt enable set\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [intenset](intenset) module"]
+#[doc = "Interrupt enable set\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intenset](intenset) module"]
 pub type INTENSET = crate::Reg<u8, _INTENSET>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -85,7 +85,7 @@ impl crate::Readable for INTENSET {}
 impl crate::Writable for INTENSET {}
 #[doc = "Interrupt enable set"]
 pub mod intenset;
-#[doc = "Bridge interrupt flag status\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [intflagahb](intflagahb) module"]
+#[doc = "Bridge interrupt flag status\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intflagahb](intflagahb) module"]
 pub type INTFLAGAHB = crate::Reg<u32, _INTFLAGAHB>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -96,7 +96,7 @@ impl crate::Readable for INTFLAGAHB {}
 impl crate::Writable for INTFLAGAHB {}
 #[doc = "Bridge interrupt flag status"]
 pub mod intflagahb;
-#[doc = "Peripheral interrupt flag status - Bridge A\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [intflaga](intflaga) module"]
+#[doc = "Peripheral interrupt flag status - Bridge A\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intflaga](intflaga) module"]
 pub type INTFLAGA = crate::Reg<u32, _INTFLAGA>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -107,7 +107,7 @@ impl crate::Readable for INTFLAGA {}
 impl crate::Writable for INTFLAGA {}
 #[doc = "Peripheral interrupt flag status - Bridge A"]
 pub mod intflaga;
-#[doc = "Peripheral interrupt flag status - Bridge B\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [intflagb](intflagb) module"]
+#[doc = "Peripheral interrupt flag status - Bridge B\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intflagb](intflagb) module"]
 pub type INTFLAGB = crate::Reg<u32, _INTFLAGB>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -118,7 +118,7 @@ impl crate::Readable for INTFLAGB {}
 impl crate::Writable for INTFLAGB {}
 #[doc = "Peripheral interrupt flag status - Bridge B"]
 pub mod intflagb;
-#[doc = "Peripheral interrupt flag status - Bridge C\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [intflagc](intflagc) module"]
+#[doc = "Peripheral interrupt flag status - Bridge C\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [intflagc](intflagc) module"]
 pub type INTFLAGC = crate::Reg<u32, _INTFLAGC>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -129,7 +129,7 @@ impl crate::Readable for INTFLAGC {}
 impl crate::Writable for INTFLAGC {}
 #[doc = "Peripheral interrupt flag status - Bridge C"]
 pub mod intflagc;
-#[doc = "Peripheral write protection status - Bridge A\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [statusa](statusa) module"]
+#[doc = "Peripheral write protection status - Bridge A\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [statusa](statusa) module"]
 pub type STATUSA = crate::Reg<u32, _STATUSA>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -138,7 +138,7 @@ pub struct _STATUSA;
 impl crate::Readable for STATUSA {}
 #[doc = "Peripheral write protection status - Bridge A"]
 pub mod statusa;
-#[doc = "Peripheral write protection status - Bridge B\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [statusb](statusb) module"]
+#[doc = "Peripheral write protection status - Bridge B\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [statusb](statusb) module"]
 pub type STATUSB = crate::Reg<u32, _STATUSB>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -147,7 +147,7 @@ pub struct _STATUSB;
 impl crate::Readable for STATUSB {}
 #[doc = "Peripheral write protection status - Bridge B"]
 pub mod statusb;
-#[doc = "Peripheral write protection status - Bridge C\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [statusc](statusc) module"]
+#[doc = "Peripheral write protection status - Bridge C\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [statusc](statusc) module"]
 pub type STATUSC = crate::Reg<u32, _STATUSC>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -156,7 +156,7 @@ pub struct _STATUSC;
 impl crate::Readable for STATUSC {}
 #[doc = "Peripheral write protection status - Bridge C"]
 pub mod statusc;
-#[doc = "Peripheral non-secure status - Bridge A\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [nonseca](nonseca) module"]
+#[doc = "Peripheral non-secure status - Bridge A\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [nonseca](nonseca) module"]
 pub type NONSECA = crate::Reg<u32, _NONSECA>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -165,7 +165,7 @@ pub struct _NONSECA;
 impl crate::Readable for NONSECA {}
 #[doc = "Peripheral non-secure status - Bridge A"]
 pub mod nonseca;
-#[doc = "Peripheral non-secure status - Bridge B\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [nonsecb](nonsecb) module"]
+#[doc = "Peripheral non-secure status - Bridge B\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [nonsecb](nonsecb) module"]
 pub type NONSECB = crate::Reg<u32, _NONSECB>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -174,7 +174,7 @@ pub struct _NONSECB;
 impl crate::Readable for NONSECB {}
 #[doc = "Peripheral non-secure status - Bridge B"]
 pub mod nonsecb;
-#[doc = "Peripheral non-secure status - Bridge C\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [nonsecc](nonsecc) module"]
+#[doc = "Peripheral non-secure status - Bridge C\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [nonsecc](nonsecc) module"]
 pub type NONSECC = crate::Reg<u32, _NONSECC>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -183,7 +183,7 @@ pub struct _NONSECC;
 impl crate::Readable for NONSECC {}
 #[doc = "Peripheral non-secure status - Bridge C"]
 pub mod nonsecc;
-#[doc = "Peripheral secure status locked - Bridge A\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [seclocka](seclocka) module"]
+#[doc = "Peripheral secure status locked - Bridge A\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [seclocka](seclocka) module"]
 pub type SECLOCKA = crate::Reg<u32, _SECLOCKA>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -192,7 +192,7 @@ pub struct _SECLOCKA;
 impl crate::Readable for SECLOCKA {}
 #[doc = "Peripheral secure status locked - Bridge A"]
 pub mod seclocka;
-#[doc = "Peripheral secure status locked - Bridge B\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [seclockb](seclockb) module"]
+#[doc = "Peripheral secure status locked - Bridge B\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [seclockb](seclockb) module"]
 pub type SECLOCKB = crate::Reg<u32, _SECLOCKB>;
 #[allow(missing_docs)]
 #[doc(hidden)]
@@ -201,7 +201,7 @@ pub struct _SECLOCKB;
 impl crate::Readable for SECLOCKB {}
 #[doc = "Peripheral secure status locked - Bridge B"]
 pub mod seclockb;
-#[doc = "Peripheral secure status locked - Bridge C\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about avaliable fields see [seclockc](seclockc) module"]
+#[doc = "Peripheral secure status locked - Bridge C\n\nThis register you can [`read`](crate::generic::Reg::read). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [seclockc](seclockc) module"]
 pub type SECLOCKC = crate::Reg<u32, _SECLOCKC>;
 #[allow(missing_docs)]
 #[doc(hidden)]

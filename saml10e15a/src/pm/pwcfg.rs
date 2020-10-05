@@ -10,27 +10,23 @@ impl crate::ResetValue for super::PWCFG {
         0
     }
 }
-#[doc = "Possible values of the field `RAMPSWC`"]
+#[doc = "RAM Power Switch Configuration\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum RAMPSWC_A {
-    #[doc = "16KB Available"]
-    _16KB,
-    #[doc = "12KB Available"]
-    _12KB,
-    #[doc = "8KB Available"]
-    _8KB,
-    #[doc = "4KB Available"]
-    _4KB,
+    #[doc = "0: 16KB Available"]
+    _16KB = 0,
+    #[doc = "1: 12KB Available"]
+    _12KB = 1,
+    #[doc = "2: 8KB Available"]
+    _8KB = 2,
+    #[doc = "3: 4KB Available"]
+    _4KB = 3,
 }
-impl crate::ToBits<u8> for RAMPSWC_A {
+impl From<RAMPSWC_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            RAMPSWC_A::_16KB => 0,
-            RAMPSWC_A::_12KB => 1,
-            RAMPSWC_A::_8KB => 2,
-            RAMPSWC_A::_4KB => 3,
-        }
+    fn from(variant: RAMPSWC_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `RAMPSWC`"]
@@ -76,9 +72,8 @@ impl<'a> RAMPSWC_W<'a> {
     #[doc = r"Writes `variant` to the field"]
     #[inline(always)]
     pub fn variant(self, variant: RAMPSWC_A) -> &'a mut W {
-        use crate::ToBits;
         {
-            self.bits(variant._bits())
+            self.bits(variant.into())
         }
     }
     #[doc = "16KB Available"]

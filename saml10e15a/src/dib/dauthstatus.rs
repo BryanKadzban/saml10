@@ -1,23 +1,20 @@
 #[doc = "Reader of register DAUTHSTATUS"]
 pub type R = crate::R<u32, super::DAUTHSTATUS>;
-#[doc = "Possible values of the field `SID`"]
+#[doc = "\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SID_A {
-    #[doc = "Security Extension not implemented"]
-    NOSEC,
-    #[doc = "Secure invasive debug prohibited"]
-    NO,
-    #[doc = "Secure invasive debug allowed"]
-    YES,
+    #[doc = "0: Security Extension not implemented"]
+    NOSEC = 0,
+    #[doc = "2: Secure invasive debug prohibited"]
+    NO = 2,
+    #[doc = "3: Secure invasive debug allowed"]
+    YES = 3,
 }
-impl crate::ToBits<u8> for SID_A {
+impl From<SID_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            SID_A::NOSEC => 0,
-            SID_A::NO => 2,
-            SID_A::YES => 3,
-        }
+    fn from(variant: SID_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `SID`"]
@@ -50,24 +47,21 @@ impl SID_R {
         *self == SID_A::YES
     }
 }
-#[doc = "Possible values of the field `SNID`"]
+#[doc = "\n\nValue on reset: 0"]
 #[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
 pub enum SNID_A {
-    #[doc = "Security Extension not implemented"]
-    NOSEC,
-    #[doc = "Secure non-invasive debug prohibited"]
-    NO,
-    #[doc = "Secure non-invasive debug allowed"]
-    YES,
+    #[doc = "0: Security Extension not implemented"]
+    NOSEC = 0,
+    #[doc = "2: Secure non-invasive debug prohibited"]
+    NO = 2,
+    #[doc = "3: Secure non-invasive debug allowed"]
+    YES = 3,
 }
-impl crate::ToBits<u8> for SNID_A {
+impl From<SNID_A> for u8 {
     #[inline(always)]
-    fn _bits(&self) -> u8 {
-        match *self {
-            SNID_A::NOSEC => 0,
-            SNID_A::NO => 2,
-            SNID_A::YES => 3,
-        }
+    fn from(variant: SNID_A) -> Self {
+        variant as _
     }
 }
 #[doc = "Reader of field `SNID`"]
