@@ -1,0 +1,4 @@
+_svd: ../svd/saml10e14a.svd
+
+_include:
+ - base.yaml

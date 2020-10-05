@@ -1,0 +1,60 @@
+AC:
+  COMPCTRL?%s?:
+    MUXNEG:
+      _replace_enum:
+        PIN0: [0, "I/O pin 0"]
+        PIN1: [1, "I/O pin 1"]
+        PIN2: [2, "I/O pin 2"]
+        PIN3: [3, "I/O pin 3"]
+        GND: [4, "Ground"]
+        VSCALE: [5, "VDD scaler"]
+        BANDGAP: [6, "Internal bandgap voltage"]
+        DAC_OPAMP: [7, "DAC output on AC0, OPAMP output on AC1"]
+
+# The original patch file also changes the descriptions of register
+# clusters from no contents (an empty tag) to a single - character.
+# But "svd patch" has no way to express that, so we keep it in the
+# .patch file.
+
+SERCOM0:
+  _clustermatch:
+    SPI:
+      CTRLA:
+        MODE:
+          SPI_SLAVE: [2, "SPI slave mode"]
+          SPI_MASTER: [3, "SPI master mode"]
+        DOPO:
+          CFG0: [0, "DO (MOSI master mode, MISO slave mode) is PAD[0], SCK is PAD[1], SS in slave mode is PAD[2]"]
+          CFG1: [1, "DO (MOSI master mode, MISO slave mode) is PAD[2], SCK is PAD[3], SS in slave mode is PAD[1]"]
+          CFG2: [2, "DO (MOSI master mode, MISO slave mode) is PAD[3], SCK is PAD[1], SS in slave mode is PAD[2]"]
+          CFG3: [3, "DO (MOSI master mode, MISO slave mode) is PAD[0], SCK is PAD[3], SS in slave mode is PAD[1]"]
+        DIPO:
+          PAD0: [0, "DI (MISO master mode, MOSI slave mode) is PAD[0]"]
+          PAD1: [1, "DI (MISO master mode, MOSI slave mode) is PAD[1]"]
+          PAD2: [2, "DI (MISO master mode, MOSI slave mode) is PAD[2]"]
+          PAD3: [3, "DI (MISO master mode, MOSI slave mode) is PAD[3]"]
+        FORM:
+          SPI: [0, "SPI frame"]
+          SPI_ADDR: [2, "SPI frame with address as first byte"]
+        CPHA:
+          SAMPLE_LEADING: [0, "Data is sampled on a leading SCK edge and changed on a trailing SCK edge"]
+          SAMPLE_TRAILING: [1, "Data is sampled on a trailing SCK edge and changed on a leading SCK edge"]
+        CPOL:
+          IDLE_LOW: [0, "SCK is idle when low.  The leading edge is rising."]
+          IDLE_HIGH: [1, "SCK is idle when high.  The leading edge is falling."]
+        DORD:
+          MSBFIRST: [0, "MSB is transferred first"]
+          LSBFIRST: [1, "LSB is transferred first"]
+      CTRLB:
+        CHSIZE:
+          EIGHTBIT: [0, "8 bit characters"]
+          NINEBIT: [1, "9 bit characters"]
+        AMODE:
+          MASK: [0, "ADDRMASK is used as a mask of the ADDR register"]
+          TWO_ADDRS: [1, "The slave responds to two unique addresses in ADDR and ADDRMASK"]
+          RANGE: [2, "The slave responds to the range of addresses [ADDRMASK...ADDR] inclusive"]
+      BAUD:
+        BAUD: [0, 255]
+      ADDR:
+        ADDR: [0, 255]
+        ADDRMASK: [0, 255]

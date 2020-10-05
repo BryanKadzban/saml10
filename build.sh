@@ -8,6 +8,7 @@ export RUST_LOG=info
 template="$(pwd)/Cargo.toml.template"
 patch="$(pwd)/svd.patch"
 toml="$(pwd)/Cargo.toml"
+export PYTHONPATH=$(pwd)
 
 cat <<-EOF > "$toml"
 [workspace]
@@ -22,9 +23,13 @@ do
 	name="${name,,}"
 	name="${name##at}"
 
+	mkdir -p svd
+	patch -n "$f" -o - < "$patch" > svd/"$name".svd
+	svd patch patches/"$name".yaml
+
 	mkdir "$name"
 	pushd "$name"
-	svd2rust -i <(patch -n "$f" -o - < "$patch")
+	svd2rust -i ../svd/"$name".svd.patched
 
 	form -i lib.rs -o src
   rm lib.rs
