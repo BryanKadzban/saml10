@@ -111,3 +111,7 @@ DMAC:
         PTC_EOC: [21, "PTC End Of Conversion trigger"]
         PTC_SEQ: [22, "PTC Sequence trigger"]
         PTC_WCOMP: [23, "PTC Window Compare trigger"]
+
+NVMCTRL:
+  CTRLB:
+    RWS: [0, 15]
