@@ -121,3 +121,7 @@ OSCCTRL:
     DELAY: [0, 255]
   DFLLULPRATIO:
     RATIO: [0, 2047]
+
+GCLK:
+  "GENCTRL*":
+    DIV: [0, 65535]
