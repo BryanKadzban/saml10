@@ -154,13 +154,104 @@ impl<'a> ONDEMAND_W<'a> {
         self.w
     }
 }
+#[doc = "Oscillator Gain\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+#[repr(u8)]
+pub enum GAIN_A {
+    #[doc = "0: Gain recommended for max 2MHz"]
+    REC_2MHZ = 0,
+    #[doc = "1: Gain recommended for max 4MHz"]
+    REC_4MHZ = 1,
+    #[doc = "2: Gain recommended for max 8MHz"]
+    REC_8MHZ = 2,
+    #[doc = "3: Gain recommended for max 16MHz"]
+    REC_16MHZ = 3,
+    #[doc = "4: Gain recommended for max 30MHz"]
+    REC_30MHZ = 4,
+}
+impl From<GAIN_A> for u8 {
+    #[inline(always)]
+    fn from(variant: GAIN_A) -> Self {
+        variant as _
+    }
+}
 #[doc = "Reader of field `GAIN`"]
-pub type GAIN_R = crate::R<u8, u8>;
+pub type GAIN_R = crate::R<u8, GAIN_A>;
+impl GAIN_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> crate::Variant<u8, GAIN_A> {
+        use crate::Variant::*;
+        match self.bits {
+            0 => Val(GAIN_A::REC_2MHZ),
+            1 => Val(GAIN_A::REC_4MHZ),
+            2 => Val(GAIN_A::REC_8MHZ),
+            3 => Val(GAIN_A::REC_16MHZ),
+            4 => Val(GAIN_A::REC_30MHZ),
+            i => Res(i),
+        }
+    }
+    #[doc = "Checks if the value of the field is `REC_2MHZ`"]
+    #[inline(always)]
+    pub fn is_rec_2mhz(&self) -> bool {
+        *self == GAIN_A::REC_2MHZ
+    }
+    #[doc = "Checks if the value of the field is `REC_4MHZ`"]
+    #[inline(always)]
+    pub fn is_rec_4mhz(&self) -> bool {
+        *self == GAIN_A::REC_4MHZ
+    }
+    #[doc = "Checks if the value of the field is `REC_8MHZ`"]
+    #[inline(always)]
+    pub fn is_rec_8mhz(&self) -> bool {
+        *self == GAIN_A::REC_8MHZ
+    }
+    #[doc = "Checks if the value of the field is `REC_16MHZ`"]
+    #[inline(always)]
+    pub fn is_rec_16mhz(&self) -> bool {
+        *self == GAIN_A::REC_16MHZ
+    }
+    #[doc = "Checks if the value of the field is `REC_30MHZ`"]
+    #[inline(always)]
+    pub fn is_rec_30mhz(&self) -> bool {
+        *self == GAIN_A::REC_30MHZ
+    }
+}
 #[doc = "Write proxy for field `GAIN`"]
 pub struct GAIN_W<'a> {
     w: &'a mut W,
 }
 impl<'a> GAIN_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: GAIN_A) -> &'a mut W {
+        unsafe { self.bits(variant.into()) }
+    }
+    #[doc = "Gain recommended for max 2MHz"]
+    #[inline(always)]
+    pub fn rec_2mhz(self) -> &'a mut W {
+        self.variant(GAIN_A::REC_2MHZ)
+    }
+    #[doc = "Gain recommended for max 4MHz"]
+    #[inline(always)]
+    pub fn rec_4mhz(self) -> &'a mut W {
+        self.variant(GAIN_A::REC_4MHZ)
+    }
+    #[doc = "Gain recommended for max 8MHz"]
+    #[inline(always)]
+    pub fn rec_8mhz(self) -> &'a mut W {
+        self.variant(GAIN_A::REC_8MHZ)
+    }
+    #[doc = "Gain recommended for max 16MHz"]
+    #[inline(always)]
+    pub fn rec_16mhz(self) -> &'a mut W {
+        self.variant(GAIN_A::REC_16MHZ)
+    }
+    #[doc = "Gain recommended for max 30MHz"]
+    #[inline(always)]
+    pub fn rec_30mhz(self) -> &'a mut W {
+        self.variant(GAIN_A::REC_30MHZ)
+    }
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
     pub unsafe fn bits(self, value: u8) -> &'a mut W {

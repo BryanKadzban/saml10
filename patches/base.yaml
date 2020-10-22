@@ -122,7 +122,13 @@ OSCCTRL:
   DFLLULPRATIO:
     RATIO: [0, 2047]
   XOSCCTRL:
-    GAIN: [0, 4]
+    GAIN:
+      _replace_enum:
+        REC_2MHZ: [0, "Gain recommended for max 2MHz"]
+        REC_4MHZ: [1, "Gain recommended for max 4MHz"]
+        REC_8MHZ: [2, "Gain recommended for max 8MHz"]
+        REC_16MHZ: [3, "Gain recommended for max 16MHz"]
+        REC_30MHZ: [4, "Gain recommended for max 30MHz"]
     STARTUP: [0, 15]
   DPLLCTRLB:
     DIV: [0, 2047]
