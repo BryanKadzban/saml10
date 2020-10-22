@@ -19,7 +19,7 @@ pub struct LDR_W<'a> {
 impl<'a> LDR_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
-    pub unsafe fn bits(self, value: u16) -> &'a mut W {
+    pub fn bits(self, value: u16) -> &'a mut W {
         self.w.bits = (self.w.bits & !0x0fff) | ((value as u32) & 0x0fff);
         self.w
     }
@@ -33,7 +33,7 @@ pub struct LDRFRAC_W<'a> {
 impl<'a> LDRFRAC_W<'a> {
     #[doc = r"Writes raw bits to the field"]
     #[inline(always)]
-    pub unsafe fn bits(self, value: u8) -> &'a mut W {
+    pub fn bits(self, value: u8) -> &'a mut W {
         self.w.bits = (self.w.bits & !(0x0f << 16)) | (((value as u32) & 0x0f) << 16);
         self.w
     }

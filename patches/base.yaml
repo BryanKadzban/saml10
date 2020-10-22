@@ -121,6 +121,20 @@ OSCCTRL:
     DELAY: [0, 255]
   DFLLULPRATIO:
     RATIO: [0, 2047]
+  XOSCCTRL:
+    GAIN: [0, 4]
+    STARTUP: [0, 15]
+  DPLLCTRLB:
+    DIV: [0, 2047]
+  DPLLRATIO:
+    LDR: [0, 4095]
+    LDRFRAC: [0, 15]
+  DPLLPRESC:
+    PRESC:
+      _replace_enum:
+        DIV1: [0, "Divide output clock by 1"]
+        DIV2: [1, "Divide output clock by 2"]
+        DIV4: [2, "Divide output clock by 4"]
 
 GCLK:
   "GENCTRL*":

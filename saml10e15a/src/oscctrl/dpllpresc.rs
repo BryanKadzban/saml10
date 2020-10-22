@@ -14,11 +14,11 @@ impl crate::ResetValue for super::DPLLPRESC {
 #[derive(Clone, Copy, Debug, PartialEq)]
 #[repr(u8)]
 pub enum PRESC_A {
-    #[doc = "0: DPLL output is divided by 1"]
+    #[doc = "0: Divide output clock by 1"]
     DIV1 = 0,
-    #[doc = "1: DPLL output is divided by 2"]
+    #[doc = "1: Divide output clock by 2"]
     DIV2 = 1,
-    #[doc = "2: DPLL output is divided by 4"]
+    #[doc = "2: Divide output clock by 4"]
     DIV4 = 2,
 }
 impl From<PRESC_A> for u8 {
@@ -67,17 +67,17 @@ impl<'a> PRESC_W<'a> {
     pub fn variant(self, variant: PRESC_A) -> &'a mut W {
         unsafe { self.bits(variant.into()) }
     }
-    #[doc = "DPLL output is divided by 1"]
+    #[doc = "Divide output clock by 1"]
     #[inline(always)]
     pub fn div1(self) -> &'a mut W {
         self.variant(PRESC_A::DIV1)
     }
-    #[doc = "DPLL output is divided by 2"]
+    #[doc = "Divide output clock by 2"]
     #[inline(always)]
     pub fn div2(self) -> &'a mut W {
         self.variant(PRESC_A::DIV2)
     }
-    #[doc = "DPLL output is divided by 4"]
+    #[doc = "Divide output clock by 4"]
     #[inline(always)]
     pub fn div4(self) -> &'a mut W {
         self.variant(PRESC_A::DIV4)
